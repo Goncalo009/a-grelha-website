@@ -1,0 +1,128 @@
+{
+  "categories": [
+    {
+      "id": "entradas",
+      "name": "Entradas",
+      "description": "Para começar",
+      "dishes": [
+        {
+          "id": "entrada-1",
+          "name": "Pão com Azeite e Alho",
+          "description": "Pão fresco temperado com azeite virgin e alho",
+          "price": 3.50
+        },
+        {
+          "id": "entrada-2",
+          "name": "Presunto Cru",
+          "description": "Seleção de presunto cru da região",
+          "price": 8.00
+        },
+        {
+          "id": "entrada-3",
+          "name": "Queijo da Serra",
+          "description": "Queijo regional com mel e nozes",
+          "price": 7.50
+        },
+        {
+          "id": "entrada-4",
+          "name": "Empanada de Galinha",
+          "description": "Empanada caseira recheada com galinha desfiada",
+          "price": 5.50
+        }
+      ]
+    },
+    {
+      "id": "pratos",
+      "name": "Pratos",
+      "description": "Pratos principais da casa",
+      "dishes": [
+        {
+          "id": "prato-1",
+          "name": "Francesinha Tradicional",
+          "description": "Pão, fiambre, linguiça, salsicha fresca, queijo, molho especial",
+          "price": 12.00
+        },
+        {
+          "id": "prato-2",
+          "name": "Bife à Grelhada",
+          "description": "Bife de novilho grelhado no carvão com batatas fritas e salada",
+          "price": 14.00
+        },
+        {
+          "id": "prato-3",
+          "name": "Frango no Churrasco",
+          "description": "Frango de quintal assado no carvão com molho de piri-piri",
+          "price": 10.50
+        },
+        {
+          "id": "prato-4",
+          "name": "Costeleta de Vitela",
+          "description": "Costeleta de vitela grelhada com arroz de grelos",
+          "price": 16.00
+        }
+      ]
+    },
+    {
+      "id": "grelhadas",
+      "name": "Grelhadas",
+      "description": "O melhor da grelha em carvão",
+      "dishes": [
+        {
+          "id": "grelhada-1",
+          "name": "Espetada de Borrego",
+          "description": "Espetada de borrego temperada com ervas aromáticas",
+          "price": 15.00
+        },
+        {
+          "id": "grelhada-2",
+          "name": "Picanha Namorada",
+          "description": "Picanha bovina grelhada no ponto com farofa e vinagrete",
+          "price": 18.00
+        },
+        {
+          "id": "grelhada-3",
+          "name": "Sardinhas Assadas",
+          "description": "Sardinhas frescas assadas no carvão com salada de tomate e cebola",
+          "price": 8.00
+        },
+        {
+          "id": "grelhada-4",
+          "name": "Churrasco Misto",
+          "description": "Espetada de frango, picanha e linguiça",
+          "price": 13.50
+        }
+      ]
+    },
+    {
+      "id": "sobremesas",
+      "name": "Sobremesas",
+      "description": "Doces tentações",
+      "dishes": [
+        {
+          "id": "sobremesa-1",
+          "name": "Pudim de Ovos",
+          "description": "Pudim caseiro com calda de caramelo",
+          "price": 4.00
+        },
+        {
+          "id": "sobremesa-2",
+          "name": "Leite Credo",
+          "description": "Tradicional leite creme queimado",
+          "price": 3.50
+        },
+        {
+          "id": "sobremesa-3",
+          "name": "Bolo de Bolacha",
+          "description": "Bolo de bolacha com creme de manteiga",
+          "price": 4.50
+        },
+        {
+          "id": "sobremesa-4",
+          "name": "Fruta da Época",
+          "description": "Seleção de fruta fresca da época",
+          "price": 3.00
+        }
+      ]
+    }
+  ]
+}

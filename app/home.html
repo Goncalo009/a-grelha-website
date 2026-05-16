@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FLAME &amp; SOUL | Editorial Brutalist Dining</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Open+Sans:ital,wght@0,700;0,800;1,700;1,800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-bright": "#fff8f2",
+              "on-tertiary": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface": "#fff8f2",
+              "on-tertiary-container": "#fff0df",
+              "surface-dim": "#e3d9cc",
+              "on-background": "#1f1b13",
+              "on-surface-variant": "#5d3f3d",
+              "on-secondary-fixed-variant": "#474646",
+              "on-surface": "#1f1b13",
+              "primary-fixed-dim": "#ffb3ae",
+              "on-secondary-fixed": "#1c1b1b",
+              "inverse-on-surface": "#faefe2",
+              "on-primary-container": "#ffefed",
+              "surface-container": "#f7ecdf",
+              "tertiary-fixed": "#ffdeac",
+              "surface-variant": "#ebe1d4",
+              "primary": "#b0001a",
+              "on-tertiary-fixed-variant": "#604100",
+              "surface-container-highest": "#ebe1d4",
+              "outline-variant": "#e6bdb9",
+              "primary-container": "#d91a2a",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "background": "#fff8f2",
+              "surface-container-low": "#fdf2e5",
+              "error": "#ba1a1a",
+              "error-container": "#ffdad6",
+              "inverse-surface": "#353027",
+              "on-error": "#ffffff",
+              "tertiary-container": "#936600",
+              "surface-container-high": "#f1e7d9",
+              "secondary-fixed": "#e5e2e1",
+              "secondary-container": "#e5e2e1",
+              "tertiary": "#744f00",
+              "outline": "#916f6c",
+              "primary-fixed": "#ffdad7",
+              "surface-tint": "#c0001e",
+              "on-primary-fixed-variant": "#930014",
+              "secondary-fixed-dim": "#c9c6c5",
+              "secondary": "#5f5e5e",
+              "on-primary-fixed": "#410004",
+              "inverse-primary": "#ffb3ae",
+              "tertiary-fixed-dim": "#ffba38",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#281900",
+              "on-secondary-container": "#656464"
+            },
+            fontFamily: {
+              "headline": ["Anton", "sans-serif"],
+              "body": ["Open Sans", "sans-serif"],
+              "label": ["Open Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .noise-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.06;
+            pointer-events: none;
+        }
+        .anton { font-family: 'Anton', sans-serif; }
+        .open-sans { font-family: 'Open Sans', sans-serif; }
+        .grill-mark { height: 4px; width: 40px; background-color: rgba(145, 111, 108, 0.2); }
+    </style>
+</head>
+<body class="bg-surface-dim text-on-background open-sans font-extrabold selection:bg-primary selection:text-white overflow-x-hidden">
+<div class="fixed inset-0 noise-overlay z-[100]"></div>
+<!-- TopNavBar -->
+<nav class="bg-[#e3d9cc] dark:bg-[#1f1b13] docked full-width top-0 z-50 border-b-4 border-[#1f1b13] dark:border-[#d91a2a] flex justify-between items-center w-full px-8 py-6 max-w-none">
+<div class="text-4xl font-black uppercase tracking-tighter text-[#1f1b13] dark:text-[#fff8f2] anton">FLAME &amp; SOUL</div>
+<div class="hidden md:flex gap-12 items-center">
+<a class="text-[#b0001a] dark:text-[#d91a2a] underline decoration-4 underline-offset-8 anton uppercase tracking-tighter leading-[0.9] text-xl hover:italic hover:-translate-y-1 transition-transform duration-100 active:scale-95 duration-75" href="#">STORY</a>
+<a class="text-[#1f1b13] dark:text-[#fff8f2] anton uppercase tracking-tighter leading-[0.9] text-xl hover:italic hover:-translate-y-1 transition-transform duration-100 active:scale-95 duration-75" href="#">MENU</a>
+<a class="text-[#1f1b13] dark:text-[#fff8f2] anton uppercase tracking-tighter leading-[0.9] text-xl hover:italic hover:-translate-y-1 transition-transform duration-100 active:scale-95 duration-75" href="#">FIND US</a>
+</div>
+<button class="bg-primary-container text-on-primary px-8 py-3 anton text-2xl tracking-tighter hover:-translate-y-1 transition-transform active:scale-95">RESERVE</button>
+</nav>
+<main class="relative">
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center pt-24 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="Close up of flames licking a piece of charred meat on a grill" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBm9H28IyTXv6qZL7m70uf-pCHZ0y5yUwt0Y6S5HXQuRCmyfyHK6w7h5-qpzzLHkvOvOsMNJjwqP2mokqcyxZt6Uf3krqDL_Z59hBLrJTZgLpMkznmCM1mlcJL5ThR6Ih0INXlRgR6sckArQH6b0Fv__8vPekCA67QaJ7TLuH1_kfg7CIAYPkPjbfYuVPFXDzTUvmbMDbLK01DkrrMY2nInPf5HD2DNYT99KiVWEIj_xg-lb8di_4-elPRRdJLwDZRmdxfdKK8JxM"/>
+</div>
+<div class="relative z-10 text-center px-4">
+<h1 class="anton text-[12vw] md:text-[15vw] leading-[0.8] tracking-tighter text-surface-bright uppercase -rotate-2">
+                    FLAME <span class="italic">GRILLED</span><br/>
+<span class="text-primary-container drop-shadow-[4px_4px_0px_#1f1b13]">SOUL FILLED</span>
+</h1>
+<div class="mt-12 flex flex-col items-center">
+<div class="bg-tertiary-container text-on-tertiary-fixed px-10 py-4 rotate-6 mb-8">
+<span class="anton text-4xl uppercase tracking-tighter">ORDER NOW</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full bg-on-background text-surface-bright py-6 px-12 flex flex-col md:flex-row justify-between items-center z-20">
+<div class="flex gap-2 mb-4 md:mb-0">
+<div class="w-12 h-1 bg-surface-bright opacity-30"></div>
+<div class="w-12 h-1 bg-surface-bright opacity-30"></div>
+<div class="w-12 h-1 bg-surface-bright opacity-30"></div>
+</div>
+<div class="anton text-3xl tracking-widest uppercase italic">PICKUP &amp; DELIVERY AVAILABLE 24/7</div>
+<div class="flex gap-2 mt-4 md:mt-0">
+<div class="w-12 h-1 bg-surface-bright opacity-30"></div>
+<div class="w-12 h-1 bg-surface-bright opacity-30"></div>
+<div class="w-12 h-1 bg-surface-bright opacity-30"></div>
+</div>
+</div>
+</section>
+<!-- Polaroid Story Section -->
+<section class="py-32 px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
+<div class="w-full md:w-1/2 relative">
+<div class="bg-surface-container-lowest p-6 pb-20 shadow-2xl rotate-[-3deg] border border-outline-variant/10">
+<img class="w-full aspect-square object-cover mb-6" data-alt="Traditional Portuguese BBQ chef at an outdoor charcoal grill" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAugmj18UbM_rBKavSl3mqjcLWSz12KsZXlvmmv-PF7cI7ryVmoOiQPfrvcTdkEik8zBEBRv4ZAtAfEheoQhypojE7nZuiwMR7eihff2TP88BdUetHWObBQ7w9wjfcsE9kVRnbRqLhWxvqGNrN2CCM-V-hzqZW8tgBuuH2qZsyVJ99_PYcq8rI-10-a__4F4GJ0Re6BA8onqxqk6ZXOIM-sIT6gz3XzUh-gb2w19u9vjrSp21KBWE_6hglY1btQ6MA3cVu27y9VUHw"/>
+<div class="grill-mark mb-2"></div>
+<p class="anton text-2xl text-on-background opacity-50">EST. 1994</p>
+</div>
+<div class="absolute -bottom-10 -right-10 bg-primary p-8 rotate-12 hidden md:block">
+<span class="anton text-white text-5xl uppercase leading-[0.8]">ALGARVE<br/>ROOTS</span>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<h2 class="anton text-7xl md:text-9xl uppercase leading-[0.9] mb-8">BORN IN THE FIRES OF ALGARVE</h2>
+<p class="text-2xl font-extrabold leading-relaxed mb-10 border-l-8 border-primary pl-8 italic">
+                    We don't cook with gas. We don't cook with electricity. We cook with the soul of the Holm Oak and the heat of ancient traditions. Every bird is hand-turned. Every wing is kissed by the smoke.
+                </p>
+<div class="flex gap-4">
+<div class="grill-mark"></div>
+<div class="grill-mark"></div>
+<div class="grill-mark"></div>
+</div>
+</div>
+</section>
+<!-- Highlight Dishes Bento-ish Grid -->
+<section class="bg-on-background py-32 px-8 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-20">
+<h2 class="anton text-[10vw] text-surface-bright uppercase leading-[0.8] tracking-tighter">HIGHLIGHT<br/><span class="text-primary-container">DISHES</span></h2>
+<div class="bg-primary-container text-on-primary p-6 rotate-[-8deg] hidden md:block">
+<span class="anton text-3xl uppercase italic">VIEW ALL MENU</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- WHOLE BIRD -->
+<div class="relative bg-surface-container-high group">
+<div class="bg-surface-container-lowest p-4 pb-16 rotate-1 group-hover:rotate-0 transition-transform">
+<img class="w-full aspect-[4/5] object-cover" data-alt="A whole roasted piri piri chicken on a wooden platter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiM66TgObRD53yFVgbVJ1vd_TnTdynoW66RVnxMnNJo5oJ1rBR039Zq-74IK21moqUd_sDes-W1RwVtKrEZn7nC3j4XepBPe0ooyvlMjw7IKAnw7zhgaEiVmjlQn_S4jRweHgmh2VKZVNyNt1RJpRhte5Ys7csNmKabtbW4vgLLEhz702EQ20ll0FFmSlS29jtv8hyUxTMl_wdEy0y1297xpIhYDItbVlB_ikI8276GEh_McDH__a0tEX52niPBAy6lZh6uRaRl5k"/>
+</div>
+<div class="absolute top-4 right-4 bg-on-background text-surface-bright p-3 anton text-3xl">£24</div>
+<div class="absolute bottom-0 left-0 w-full bg-primary-container text-on-primary p-6">
+<h3 class="anton text-4xl uppercase mb-2">WHOLE BIRD</h3>
+<p class="text-sm uppercase font-black">24-HOUR MARINATED PIRI-PIRI SPECIAL</p>
+</div>
+</div>
+<!-- FIRE WINGS -->
+<div class="relative bg-surface-container-high group mt-12 md:mt-24">
+<div class="bg-surface-container-lowest p-4 pb-16 rotate-[-2deg] group-hover:rotate-0 transition-transform">
+<img class="w-full aspect-[4/5] object-cover" data-alt="Spicy buffalo wings with charred edges and red sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIcG9dJYXelMSgjdzgt42j3q38keF9Logzna0jSpvXOLstLK_zYkvrSwuNjGIkt85nLOiWL0a3JMn5hjWQGMXH_mCdWQqWrahhPq99_3NztOCXQkGzCdr5rHCTW7-KpzhJQD1DsdJHY6HkKJCBVmlftE__zwQaado0NNrX9iwyetfJe765GT3XgsyL5Tst0BSrySG_UskOoawc1wQzrBnq6U3OT3DnzE6hAKxRNH_78xcDxUfvD4tBuPZBhEM_NXEI0miu14Whwwg"/>
+</div>
+<div class="absolute top-4 right-4 bg-on-background text-surface-bright p-3 anton text-3xl">£12</div>
+<div class="absolute bottom-0 left-0 w-full bg-primary-container text-on-primary p-6">
+<h3 class="anton text-4xl uppercase mb-2">FIRE WINGS</h3>
+<p class="text-sm uppercase font-black">CHARRED WOOD-FIRE WINGS x12</p>
+</div>
+</div>
+<!-- LISBON BOWL -->
+<div class="relative bg-surface-container-high group">
+<div class="bg-surface-container-lowest p-4 pb-16 rotate-2 group-hover:rotate-0 transition-transform">
+<img class="w-full aspect-[4/5] object-cover" data-alt="A colorful Mediterranean grain bowl with grilled chicken" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkoU6hpQFK5Gm_t_T01r-hdnVLI7LZ2P_W3jywKQgktoyEGfWo8u7aGjiP8_hHaJtfiBFCUl7Ns8rfao0CHFjffLQyEbW_Fcg53eaf6pbichVYJ9xKvB_s17o2Hdl2RB8g3fyhq7LR_1nIrQy4ZwhCv4UMPRNTcqQpeketbMjI3M1DBaARnM7MSrJSjAatFM6BsGu9rpBs81T8LY7n7TrNPXm4B9VvVaDMQr1TEwuaVAA4xtpae9M0RvCPJEbsHkSsQSqhC9_IsqI"/>
+</div>
+<div class="absolute top-4 right-4 bg-on-background text-surface-bright p-3 anton text-3xl">£16</div>
+<div class="absolute bottom-0 left-0 w-full bg-primary-container text-on-primary p-6">
+<h3 class="anton text-4xl uppercase mb-2">LISBON BOWL</h3>
+<p class="text-sm uppercase font-black">GRILLED GREENS &amp; SPICED GRAINS</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Review Quote Section -->
+<section class="py-40 px-8 text-center bg-surface relative overflow-hidden">
+<div class="absolute top-10 left-10 text-[20rem] anton text-on-background/5 leading-none select-none">“</div>
+<div class="relative z-10 max-w-5xl mx-auto">
+<div class="flex justify-center gap-4 mb-8">
+<span class="material-symbols-outlined text-tertiary-container scale-150" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary-container scale-150" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary-container scale-150" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary-container scale-150" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary-container scale-150" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="anton text-5xl md:text-8xl uppercase leading-[0.9] mb-12 italic">
+                    "THE MOST UNAPOLOGETIC CHICKEN I HAVE EVER TASTED. IT FEELS LIKE THE FIRE IS STILL ON THE PLATE."
+                </blockquote>
+<p class="anton text-3xl text-primary-container">— GASTRO EDITORIAL WEEKLY</p>
+</div>
+<div class="absolute bottom-10 right-10 text-[20rem] anton text-on-background/5 leading-none rotate-180 select-none">“</div>
+</section>
+<!-- Find the Fire (Contact/Map) -->
+<section class="flex flex-col md:flex-row min-h-[600px]">
+<div class="w-full md:w-1/2 bg-on-background p-16 flex flex-col justify-center relative">
+<div class="border-l-8 border-primary-container pl-12">
+<h2 class="anton text-7xl text-surface-bright uppercase leading-[0.8] mb-12">FIND<br/>THE FIRE</h2>
+<div class="space-y-8 text-surface-bright/70 uppercase">
+<div>
+<p class="anton text-2xl text-primary-container">SHOREDITCH MAINHALL</p>
+<p class="text-xl font-extrabold">124 BRUTALIST ALLEY, LONDON E1 6HU</p>
+</div>
+<div>
+<p class="anton text-2xl text-primary-container">OPENING TIMES</p>
+<p class="text-xl font-extrabold">MON-SUN: 12PM — LATE</p>
+</div>
+<div>
+<p class="anton text-2xl text-primary-container">THE HOTLINE</p>
+<p class="text-xl font-extrabold">+44 20 7946 0123</p>
+</div>
+</div>
+</div>
+<button class="mt-16 bg-surface-bright text-on-background anton text-3xl p-6 hover:-translate-y-2 transition-transform self-start active:scale-95">
+                    GET DIRECTIONS
+                </button>
+</div>
+<div class="w-full md:w-1/2 relative bg-surface-container grayscale">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="Aerial view of urban street grid in grayscale" data-location="London" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD4S0YqrS3gbLfholX-24ElGDT8iJCSzGQ-ByUUcxk9ukS-tXuuAgQt1xXt53IwmaDdWz2tTmONdtrU6l3-7AMG3r35l2rPXJQffBBMqv2gqxcVJRgrxsUHwKaT-Fb8DHowrmS4Sktr1xzEVQGaRHoahpcBiqWSklLT5_MKisL5QXto2RrKI9j71RjuBiotAllkfbHrJOVn_EHi4Pu3SqB16H-myCCBmovM5v0VGThnrPejNl04H263SUeGuccVjgklPXCjEvXSA0"/>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="w-12 h-12 bg-primary-container rounded-full animate-ping absolute inset-0"></div>
+<div class="w-12 h-12 bg-primary-container flex items-center justify-center relative">
+<span class="material-symbols-outlined text-white text-3xl">local_fire_department</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1f1b13] dark:bg-[#000000] block w-full mt-20 border-t-[12px] border-[#b0001a] flex flex-col md:flex-row justify-between items-start w-full p-12 gap-8">
+<div class="space-y-6">
+<div class="text-2xl font-black text-[#fff8f2] anton">FLAME &amp; SOUL</div>
+<p class="text-[#e3d9cc] uppercase font-extrabold text-sm max-w-xs tracking-widest">BORN IN THE FIRES. RAISED ON THE STREETS. THE BRUTALIST CHICKEN EXPERIENCE.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-2 gap-12">
+<div class="flex flex-col gap-4">
+<h4 class="anton text-[#d91a2a] text-xl uppercase tracking-widest">NAVIGATION</h4>
+<a class="text-[#e3d9cc] uppercase font-extrabold hover:text-[#d91a2a] hover:skew-x-[-6deg] transition-all" href="#">LOCATIONS</a>
+<a class="text-[#e3d9cc] uppercase font-extrabold hover:text-[#d91a2a] hover:skew-x-[-6deg] transition-all" href="#">CAREERS</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="anton text-[#d91a2a] text-xl uppercase tracking-widest">SOCIAL</h4>
+<a class="text-[#e3d9cc] uppercase font-extrabold hover:text-[#d91a2a] hover:skew-x-[-6deg] transition-all" href="#">INSTAGRAM</a>
+<a class="text-[#e3d9cc] uppercase font-extrabold hover:text-[#d91a2a] hover:skew-x-[-6deg] transition-all" href="#">FACEBOOK</a>
+</div>
+</div>
+<div class="md:self-end">
+<div class="text-[#e3d9cc] font-extrabold uppercase text-xs tracking-tighter opacity-50">
+                © 2024 EDITORIAL FLAME &amp; SOUL. BORN IN FIRE.
+            </div>
+</div>
+</footer>
+</body></html>
