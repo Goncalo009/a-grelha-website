@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fogo &amp; Brasa | The Brutalist Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Open+Sans:wght@700;800&amp;family=Epilogue:wght@400;700;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#fdf2e5",
+              "on-secondary": "#ffffff",
+              "primary": "#d91a2a",
+              "on-secondary-container": "#656464",
+              "secondary-fixed-dim": "#c9c6c5",
+              "inverse-on-surface": "#faefe2",
+              "surface-tint": "#d91a2a",
+              "tertiary-fixed-dim": "#ffba38",
+              "surface-bright": "#fff8f2",
+              "secondary-fixed": "#e5e2e1",
+              "on-tertiary-fixed-variant": "#604100",
+              "primary-container": "#d91a2a",
+              "background": "#e4dacd",
+              "on-secondary-fixed-variant": "#474646",
+              "tertiary-container": "#936600",
+              "on-surface-variant": "#5d3f3d",
+              "on-primary-fixed": "#410004",
+              "on-tertiary-fixed": "#281900",
+              "surface-dim": "#e4dacd",
+              "primary-fixed": "#ffdad7",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#ffdeac",
+              "surface-container-highest": "#ebe1d4",
+              "outline-variant": "#e6bdb9",
+              "on-tertiary-container": "#fff0df",
+              "secondary": "#5f5e5e",
+              "surface": "#e4dacd",
+              "error": "#ba1a1a",
+              "surface-container": "#f7ecdf",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#930014",
+              "inverse-primary": "#ffb3ae",
+              "on-secondary-fixed": "#1c1b1b",
+              "outline": "#916f6c",
+              "inverse-surface": "#353027",
+              "on-background": "#1f1b13",
+              "on-primary-container": "#ffefed",
+              "on-tertiary": "#ffffff",
+              "secondary-container": "#e5e2e1",
+              "error-container": "#ffdad6",
+              "surface-variant": "#ebe1d4",
+              "surface-container-high": "#f1e7d9",
+              "tertiary": "#744f00",
+              "on-primary": "#ffffff",
+              "on-surface": "#1f1b13",
+              "primary-fixed-dim": "#ffb3ae"
+            },
+            fontFamily: {
+              "headline": ["Anton"],
+              "body": ["Epilogue", "Open Sans"],
+              "label": ["Epilogue", "Open Sans"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            opacity: 0.06;
+            pointer-events: none;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .grill-mark {
+            height: 4px;
+            background-color: #916f6c;
+            opacity: 0.2;
+            width: 40px;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 0, "opsz" 48;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface-dim text-on-background font-body selection:bg-primary-container selection:text-white relative">
+<div class="bg-noise"></div>
+<!-- Shared Header from Design System -->
+<header class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between bg-surface-dim border-b-4 border-on-background/20">
+<div class="bg-noise"></div>
+<div class="flex items-center gap-4 relative z-10">
+<span class="material-symbols-outlined text-on-background cursor-pointer lg:hidden">menu</span>
+<div class="inline-flex items-center justify-center w-10 h-10 border-4 border-primary text-xl font-black text-primary">F</div>
+<h1 class="font-headline uppercase leading-none tracking-tighter text-primary text-2xl md:text-3xl">FOGO &amp; BRASA</h1>
+</div>
+<nav class="hidden lg:flex gap-8 relative z-10 items-center">
+<a class="text-on-background font-bold hover:text-primary transition-colors uppercase tracking-widest text-sm" href="#">Story</a>
+<a class="text-primary font-black uppercase tracking-widest text-sm border-b-2 border-primary" href="#">Menu</a>
+<a class="text-on-background font-bold hover:text-primary transition-colors uppercase tracking-widest text-sm" href="#">Find Us</a>
+</nav>
+<div class="relative z-10">
+<button class="bg-on-background text-surface-dim px-6 py-2 font-headline uppercase text-lg hover:-translate-y-1 active:scale-95 transition-all">
+                RESERVE
+            </button>
+</div>
+</header>
+<main class="relative z-10 pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Hero Title -->
+<div class="mb-24 relative">
+<h2 class="font-headline uppercase text-7xl md:text-9xl italic -rotate-3 leading-none text-primary drop-shadow-sm">
+                A NOSSA EMENTA
+            </h2>
+<div class="absolute -bottom-4 right-0 flex gap-2">
+<div class="grill-mark"></div>
+<div class="grill-mark"></div>
+<div class="grill-mark"></div>
+</div>
+</div>
+<!-- Section: Petiscos -->
+<section class="mb-32">
+<div class="flex items-center gap-6 mb-12">
+<h3 class="font-headline uppercase text-5xl rotate-2 text-on-background">Petiscos</h3>
+<div class="h-1 flex-grow bg-outline opacity-20"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Polaroid Dish 1 -->
+<div class="bg-surface-container-high p-4 shadow-[12px_12px_0px_rgba(31,27,19,0.1)] rotate-1 hover:rotate-0 transition-transform duration-300">
+<div class="bg-white p-3 pb-12 mb-4">
+<img alt="Traditional Portuguese fried rissóis snacks" class="w-full h-64 object-cover grayscale-[20%] hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL2S4cE0eAD6WlxPXrkJoMthfBi6os4K1wT8NexKKcrL4Y1aLmzmYteT2D0yY5YCc6RZHghFoKS1Mpc2IATZelSU_zSigK5lZJyc_vV7xR5RyAx071gOwThbHtbZYbRwS18If2MOHcV7-rJojuow6iuL1VjlmL0u1DdIvqBC1ZIgT2mgoCLQ8H5Ag0Flb2teu5i8dUV0XfwySZdLQnr4VnbqUyUfY3LxGZvrcjPL_BhjpvlbcsM4JFtVpGDTXLKZeKB21vgrEqajg"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline uppercase text-2xl">Rissóis</h4>
+<p class="text-sm font-bold opacity-70">Hand-made shrimp parcels, spicy dip.</p>
+</div>
+<div class="bg-on-background text-[#e4dacd] px-3 py-1 font-headline text-xl">€4.50</div>
+</div>
+</div>
+<!-- Polaroid Dish 2 -->
+<div class="bg-surface-container-high p-4 shadow-[12px_12px_0px_rgba(31,27,19,0.1)] -rotate-2 hover:rotate-0 transition-transform duration-300">
+<div class="bg-white p-3 pb-12 mb-4 relative">
+<span class="absolute top-6 left-6 bg-tertiary-container text-on-tertiary-fixed font-headline uppercase px-4 py-1 rotate-[-8deg] z-10 text-lg shadow-md">HOT</span>
+<img alt="Smoky grilled chouriço sausage on flame" class="w-full h-64 object-cover grayscale-[20%] hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaww0rN4PIZ8HN5Qqy0sGODqfhT7_K2jJiEUkQn-S095s2oZjR5Ph6L-eZt4A_7dsCJP3WrZGTakhSJt_0lb4OTsSWPCrwnQNWVstq4jTUzjh8hp5Yq_Kjk7xeDu4uSxoc5rZqy-banP6xWOEgIlRbPgQ2-Vf8bHlkzXvJFQOHED2whl6YDPNQiZRlrAkoe9mcY4vXCyXIKAJrPcpGVR-Z247DmU0cWYVViyN16fo6MHFSfISXS9AEXHfp9uW3WKciF7hRN5NuiCA"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline uppercase text-2xl">Chouriço Assado</h4>
+<p class="text-sm font-bold opacity-70">Flame-grilled Portuguese sausage.</p>
+</div>
+<div class="bg-on-background text-[#e4dacd] px-3 py-1 font-headline text-xl">€8.00</div>
+</div>
+</div>
+<!-- Polaroid Dish 3 -->
+<div class="bg-surface-container-high p-4 shadow-[12px_12px_0px_rgba(31,27,19,0.1)] rotate-3 hover:rotate-0 transition-transform duration-300">
+<div class="bg-white p-3 pb-12 mb-4">
+<img alt="Marinated Portuguese olives bowl" class="w-full h-64 object-cover grayscale-[20%] hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ6goiBXQG_rTWlM57aHg54lph4De6bGJOd6fclg2DIfcjCXEiH3lf-oDItLa835lFF9QBOXt5kQrJ0eyX-l1cTwqYpCQ_zrVJEAyM5QiLBNIiT7aFQBQ2DfFsGzNrTBRVZR_bAqTkhoFgmMjhnlzQwDjy_hSXXLhrouo82nx8Spnhy7lP9uQyr4W2a7T_Pk2dtJc3vIeHeUF1zhGrNMmQ9-QjDM0BeFSZQrGKO3LRNvZsw7_eS0ZGXEzZFaGYWIHE38bAT1ucxXo"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline uppercase text-2xl">Azeitonas</h4>
+<p class="text-sm font-bold opacity-70">House-marinated garlic &amp; herbs.</p>
+</div>
+<div class="bg-on-background text-[#e4dacd] px-3 py-1 font-headline text-xl">€2.50</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Grilled Meats (Main Content) -->
+<section class="mb-32">
+<div class="flex items-center gap-6 mb-12 flex-row-reverse">
+<h3 class="font-headline uppercase text-5xl -rotate-2 text-primary">Grilled Meats</h3>
+<div class="h-1 flex-grow bg-primary opacity-20"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<!-- Large Item Card -->
+<div class="relative group bg-[#f1e7d9] border-4 border-on-background p-8 flex flex-col md:flex-row gap-8 overflow-hidden">
+<div class="w-full md:w-1/2">
+<img alt="Spicy Piri-Piri grilled chicken with char marks" class="w-full h-full object-cover border-4 border-on-background grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcrQ0zRMh8HgYk5gtz4NNJNR5UPW_4URHOllndWnXBbuBYtGnnigl2W_gbYVJaStbs-GtEVukasjPKDSqwrkydNYAaBjBxVM_qpfgP0IytMhwEB6l3aKcOuDoRaLI7AoXHXI2_pgM9YdbNCQwk2rngQPqlmi9yhFyFLgBu4pkoNlWIK417LUb6AgIgAE91tqOoWu6vSQ_ThOVl5jjpk4VNKAadyuuTQ6GPDLUt9jtSdv743DXQnNBUweaAb4MGUBv2n44rfePy77Y"/>
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-between">
+<div>
+<span class="bg-primary text-[#e4dacd] px-4 py-1 font-headline uppercase inline-block mb-4">Signature</span>
+<h4 class="font-headline uppercase text-4xl mb-4 leading-none">Frango Piri-Piri</h4>
+<p class="font-bold text-lg mb-6 leading-relaxed">Half chicken marinated for 24h in our secret bird's eye chili rub. Grilled over holm oak charcoal.</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-headline text-5xl">€14.00</span>
+<button class="bg-primary text-white p-4 hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Items List -->
+<div class="space-y-8">
+<div class="flex items-start justify-between border-b-4 border-on-background/10 pb-4 group">
+<div class="flex-grow">
+<div class="flex items-center gap-4">
+<h4 class="font-headline uppercase text-3xl group-hover:text-primary transition-colors">Costelinhas</h4>
+<span class="bg-tertiary-container text-on-tertiary-fixed font-headline text-sm px-2 py-0.5 rotate-6">NEW</span>
+</div>
+<p class="font-bold opacity-70">Slow-smoked pork ribs with a honey glaze finish.</p>
+</div>
+<div class="text-right">
+<span class="font-headline text-3xl block">€16.50</span>
+<span class="text-xs font-black uppercase opacity-50 tracking-widest">Single / Rack</span>
+</div>
+</div>
+<div class="flex items-start justify-between border-b-4 border-on-background/10 pb-4 group">
+<div class="flex-grow">
+<h4 class="font-headline uppercase text-3xl group-hover:text-primary transition-colors">Entrecôte</h4>
+<p class="font-bold opacity-70">Dry-aged 30 days, sea salt, rosemary charcoal finish.</p>
+</div>
+<div class="text-right">
+<span class="font-headline text-3xl block">€24.00</span>
+<span class="text-xs font-black uppercase opacity-50 tracking-widest">350g Weight</span>
+</div>
+</div>
+<div class="flex items-start justify-between border-b-4 border-on-background/10 pb-4 group">
+<div class="flex-grow">
+<h4 class="font-headline uppercase text-3xl group-hover:text-primary transition-colors">Picanha Special</h4>
+<p class="font-bold opacity-70">The classic Brazilian cut, served with farofa.</p>
+</div>
+<div class="text-right">
+<span class="font-headline text-3xl block">€19.00</span>
+<span class="text-xs font-black uppercase opacity-50 tracking-widest">Served Medium</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Sides & Drinks -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+<!-- Sides -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<h3 class="font-headline uppercase text-4xl italic text-on-background">Sides</h3>
+<div class="grill-mark"></div>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-center group">
+<span class="font-bold text-xl uppercase tracking-tighter">Batatas Fritas (Hand-cut)</span>
+<div class="h-px flex-grow border-t-2 border-dotted border-outline mx-4"></div>
+<span class="bg-on-background text-[#e4dacd] px-2 font-headline">€3.50</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="font-bold text-xl uppercase tracking-tighter">Arroz de Feijão</span>
+<div class="h-px flex-grow border-t-2 border-dotted border-outline mx-4"></div>
+<span class="bg-on-background text-[#e4dacd] px-2 font-headline">€4.00</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="font-bold text-xl uppercase tracking-tighter">Salada Mista</span>
+<div class="h-px flex-grow border-t-2 border-dotted border-outline mx-4"></div>
+<span class="bg-on-background text-[#e4dacd] px-2 font-headline">€3.00</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="font-bold text-xl uppercase tracking-tighter">Farofa de Ovos</span>
+<div class="h-px flex-grow border-t-2 border-dotted border-outline mx-4"></div>
+<span class="bg-on-background text-[#e4dacd] px-2 font-headline">€4.50</span>
+</div>
+</div>
+</section>
+<!-- Drinks -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<h3 class="font-headline uppercase text-4xl italic text-on-background">Drinks</h3>
+<div class="grill-mark"></div>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-center group">
+<span class="font-bold text-xl uppercase tracking-tighter">Super Bock 0.33l</span>
+<div class="h-px flex-grow border-t-2 border-dotted border-outline mx-4"></div>
+<span class="bg-on-background text-[#e4dacd] px-2 font-headline">€2.50</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="font-bold text-xl uppercase tracking-tighter">Douro Red (House)</span>
+<div class="h-px flex-grow border-t-2 border-dotted border-outline mx-4"></div>
+<span class="bg-on-background text-[#e4dacd] px-2 font-headline">€12.00</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="font-bold text-xl uppercase tracking-tighter">Limonada Caseira</span>
+<div class="h-px flex-grow border-t-2 border-dotted border-outline mx-4"></div>
+<span class="bg-on-background text-[#e4dacd] px-2 font-headline">€3.50</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="font-bold text-xl uppercase tracking-tighter">Agua das Pedras</span>
+<div class="h-px flex-grow border-t-2 border-dotted border-outline mx-4"></div>
+<span class="bg-on-background text-[#e4dacd] px-2 font-headline">€2.00</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Floating Order Button -->
+<div class="fixed bottom-12 right-12 z-50">
+<button class="bg-primary text-white p-8 shadow-[12px_12px_0px_#1f1b13] hover:-translate-y-2 hover:translate-x-[-2px] hover:shadow-[14px_14px_0px_#1f1b13] transition-all group relative">
+<div class="absolute -top-4 -left-4 bg-tertiary-container text-on-tertiary-fixed font-headline uppercase px-3 py-1 rotate-12 group-hover:rotate-0 transition-transform">
+                ORDER NOW
+            </div>
+<span class="material-symbols-outlined text-5xl">restaurant</span>
+<span class="block font-headline text-xs mt-2">TAP TO START</span>
+</button>
+</div>
+<!-- Shared Footer from Design System -->
+<footer class="w-full py-20 px-10 bg-on-background border-t-[12px] border-primary relative z-10 text-surface-dim">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="flex flex-col gap-6">
+<span class="font-headline text-5xl uppercase text-primary">FOGO &amp; BRASA</span>
+<div class="space-y-2 opacity-80 font-bold uppercase tracking-widest text-sm">
+<p>© 2024 FOGO &amp; BRASA. ALL RIGHTS RESERVED.</p>
+<p>THE BRUTALIST CHURRASCARIA EXPERIENCE.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-16 gap-y-6">
+<div class="space-y-4">
+<h5 class="text-primary font-black uppercase text-xs tracking-[0.2em]">Contact</h5>
+<div class="flex flex-col gap-2">
+<a class="opacity-80 hover:opacity-100 hover:text-primary transition-all font-bold uppercase tracking-widest text-xs" href="#">Locations</a>
+<a class="opacity-80 hover:opacity-100 hover:text-primary transition-all font-bold uppercase tracking-widest text-xs" href="#">Careers</a>
+</div>
+</div>
+<div class="space-y-4">
+<h5 class="text-primary font-black uppercase text-xs tracking-[0.2em]">Social</h5>
+<div class="flex flex-col gap-2">
+<a class="opacity-80 hover:opacity-100 hover:text-primary transition-all font-bold uppercase tracking-widest text-xs" href="#">Instagram</a>
+<a class="opacity-80 hover:opacity-100 hover:text-primary transition-all font-bold uppercase tracking-widest text-xs" href="#">Facebook</a>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-surface-dim/10 text-[10px] font-black uppercase tracking-[0.3em] opacity-40">
+            Crafted for the lovers of smoke and soul.
+        </div>
+</footer>
+</body></html>

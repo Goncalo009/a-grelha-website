@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Open+Sans:wght@700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#fdf2e5",
+              "on-secondary": "#ffffff",
+              "primary": "#b0001a",
+              "on-secondary-container": "#656464",
+              "secondary-fixed-dim": "#c9c6c5",
+              "inverse-on-surface": "#faefe2",
+              "surface-tint": "#c0001e",
+              "tertiary-fixed-dim": "#ffba38",
+              "surface-bright": "#fff8f2",
+              "secondary-fixed": "#e5e2e1",
+              "on-tertiary-fixed-variant": "#604100",
+              "primary-container": "#d91a2a",
+              "background": "#e4dacd",
+              "on-secondary-fixed-variant": "#474646",
+              "tertiary-container": "#936600",
+              "on-surface-variant": "#5d3f3d",
+              "on-primary-fixed": "#410004",
+              "on-tertiary-fixed": "#281900",
+              "surface-dim": "#e4dacd",
+              "primary-fixed": "#ffdad7",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#ffdeac",
+              "surface-container-highest": "#ebe1d4",
+              "outline-variant": "#e6bdb9",
+              "on-tertiary-container": "#fff0df",
+              "secondary": "#5f5e5e",
+              "surface": "#e4dacd",
+              "error": "#ba1a1a",
+              "surface-container": "#f7ecdf",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#930014",
+              "inverse-primary": "#ffb3ae",
+              "on-secondary-fixed": "#1c1b1b",
+              "outline": "#916f6c",
+              "inverse-surface": "#353027",
+              "on-background": "#1f1b13",
+              "on-primary-container": "#ffefed",
+              "on-tertiary": "#ffffff",
+              "secondary-container": "#e5e2e1",
+              "error-container": "#ffdad6",
+              "surface-variant": "#ebe1d4",
+              "surface-container-high": "#f1e7d9",
+              "tertiary": "#744f00",
+              "on-primary": "#ffffff",
+              "on-surface": "#1f1b13",
+              "primary-fixed-dim": "#ffb3ae"
+            },
+            fontFamily: {
+              "headline": ["Anton", "sans-serif"],
+              "body": ["'Open Sans'", "sans-serif"],
+              "label": ["'Open Sans'", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    .bg-noise {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        opacity: 0.06;
+        pointer-events: none;
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        }
+    .grill-mark {
+        height: 4px;
+        width: 40px;
+        background-color: #916f6c;
+        opacity: 0.2;
+        display: inline-block;
+        margin-right: 8px
+        }
+    .polaroid-frame {
+        padding: 1rem 1rem 3rem 1rem;
+        background-color: #fff;
+        box-shadow: 0 12px 32px rgba(31, 27, 19, 0.08)
+        }
+    .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+        }
+    </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-[#e4dacd] font-body text-on-background selection:bg-primary selection:text-white overflow-x-hidden relative">
+<div class="bg-noise pointer-events-none fixed inset-0 z-0"></div>
+<!-- TopAppBar (Updated from Design System) -->
+<header class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between bg-[#e4dacd] border-b-4 border-[#1f1b13]/20">
+<div class="bg-noise opacity-10"></div>
+<div class="flex items-center gap-4">
+<div class="relative z-10 inline-flex items-center justify-center w-12 h-12 rounded-full border-4 border-[#b0001a] text-xl font-black text-[#b0001a]">F</div>
+<h1 class="relative z-10 font-['Anton'] uppercase leading-[0.9] tracking-tighter text-[#b0001a] text-3xl">FOGO</h1>
+</div>
+<nav class="relative z-10 hidden md:flex items-center gap-8">
+<a class="text-[#b0001a] font-black -rotate-2 hover:-translate-y-1 transition-transform duration-100 uppercase tracking-tighter" href="#">Story</a>
+<a class="text-[#1f1b13] font-bold hover:-translate-y-1 transition-transform duration-100 uppercase tracking-tighter" href="#">Menu</a>
+<a class="text-[#1f1b13] font-bold hover:-translate-y-1 transition-transform duration-100 uppercase tracking-tighter" href="#">Find Us</a>
+<button class="bg-[#b0001a] text-white px-6 py-2 font-headline uppercase italic hover:scale-105 transition-transform">Reserve</button>
+</nav>
+<button class="relative z-10 material-symbols-outlined text-[#b0001a] text-3xl md:hidden">menu</button>
+</header>
+<main class="relative z-10 pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[707px] flex flex-col items-center justify-center px-6 py-20 text-center">
+<div class="absolute inset-0 z-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&amp;w=1974&amp;auto=format&amp;fit=crop')] bg-cover bg-center grayscale mix-blend-multiply" data-alt="Close up of burning charcoal embers"></div>
+<span class="bg-tertiary-container text-on-tertiary-container px-6 py-1 font-headline text-xl rotate-[-8deg] mb-8 inline-block">EST. 1984</span>
+<h2 class="font-headline text-6xl md:text-9xl uppercase leading-[0.85] tracking-tighter text-on-background max-w-5xl z-10 -rotate-1">
+            Born in the <span class="text-primary italic">Fires</span> of Algarve
+        </h2>
+<div class="mt-12 flex flex-col items-center gap-4 z-10">
+<div class="flex">
+<span class="grill-mark"></span>
+<span class="grill-mark"></span>
+<span class="grill-mark"></span>
+</div>
+<p class="max-w-xl font-body font-extrabold text-lg uppercase tracking-wider">The Brutalist Churrascaria where smoke meets soul and tradition meets the flame.</p>
+</div>
+</section>
+<!-- Polaroid Gallery & Long-form Story -->
+<section class="px-6 py-20 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+<div class="space-y-12 order-2 lg:order-1">
+<div class="space-y-6">
+<h3 class="font-headline text-5xl uppercase italic text-primary">A NOSSA HISTÓRIA</h3>
+<p class="font-body font-extrabold text-xl leading-relaxed text-on-background">
+                    Everything starts with the wood. Holm oak and almond branches, hand-gathered from the rugged hills of the Algarve. We don't use gas. We don't use electric grills. We use FOGO.
+                </p>
+<p class="font-body font-bold text-lg leading-relaxed text-on-background/80">
+                    In 1984, our grandfather Manuel set up a simple brick pit outside Faro. He didn't have a menu; he had whatever the local farmers brought him and the catch of the day from the Atlantic. He understood that heat isn't just a way to cook—it's a way to transform. 
+                </p>
+<p class="font-body font-bold text-lg leading-relaxed text-on-background/80">
+                    Today, FOGO &amp; BRASA carries that same primal energy to the heart of Porto. We are a Portuguese family dedicated to the ritual of the char. Our kitchen is loud, hot, and honest. We don't hide behind sauces; we let the smoke tell the story of the ingredient.
+                </p>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-primary-container text-on-primary text-2xl font-headline px-10 py-5 hover:-translate-y-1 transition-transform active:scale-95 flex items-center gap-4">
+                    SEE OUR PROCESS
+                    <span class="material-symbols-outlined">fireplace</span>
+</button>
+</div>
+</div>
+<div class="relative min-h-[600px] order-1 lg:order-2">
+<!-- Polaroid Stack -->
+<div class="polaroid-frame absolute top-0 left-10 rotate-[-4deg] w-64 md:w-80">
+<img alt="" class="w-full aspect-square object-cover" data-alt="Traditional Portuguese family gathering around a large table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ2ZW_tC58xkLQjC2hz2XYVqfc35Emf6pXnayvHFAuQ2A3-KLhfMVAI2fnF7gfIyPKme18IqrrupbXOyzh9Oi2wb1x2GyZG7C09yCqi6Ma9bE_DU6szp4KxL0Pyln4gob0HZR0j_kgonCU41VKD3EgsQGHoUtw_eMBWDHgnElFWzUVikOsiKdLwfKXVH53v7ZDfrIyxny_h4Aol_67Q_LEPazGTlq0Sdl1X8qs_YD45gAlOZ7Ba1353Xy4lEXozxfg83T1xgTqnSg"/>
+<p class="font-headline text-on-background mt-4 text-xl">A FAMÍLIA (1992)</p>
+</div>
+<div class="polaroid-frame absolute top-20 right-0 rotate-[3deg] w-64 md:w-80 z-10">
+<img alt="" class="w-full aspect-square object-cover" data-alt="Juicy grilled meat with char marks on a dark plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg0FP021lqJd4fQESDYd6zsM9SBj7fJBiL0c_QRpd5A5KZFilEBiCtk0P6Ijfe795RopMrQAyZhfJl8dFntq99SLvSRbZMry5b7r1HzqohxA6Q7BoKqOc3bRTeRcGSaa55fm2xEsHMORKjlsY5tl9LRTTRuVdBUFlCKM_tKD20B66dghiOxHnNgzh5wSyWRAXeg9mMc4xFOkTXyLvcG6shUCGvQ42obT091zBEFGPGgv-QpZxhIsWDKqOJJ0_8nGTWryATUw6iNrs"/>
+<p class="font-headline text-on-background mt-4 text-xl">O TEMPERO REAL</p>
+</div>
+<div class="polaroid-frame absolute bottom-0 left-20 rotate-[-2deg] w-64 md:w-80">
+<img alt="" class="w-full aspect-square object-cover" data-alt="Open fire grill with fresh vegetables and salt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZgMfFEqiZA06OoWkQ8Ezr-Kat7aX_CVc_KgAkZnVNAJYCypUmfLRNlIwmW_8oVq-mdF3NcYTab-_6GHQZCKzbFhnt0ixyUhc7j_g-8PCe5fD9HzdskJIO30kCWwjPRExOVEwypU_6VaP6ugzrFBP4ZnMOglcTDAWip3c0erNDvEDmKrYxWBSZN-gL7cLDFng8G24sKFIbdGHwjtEGGbM8w7RkgdlOvgjp_x7iBGt_FnKJBD3T3GOtHx_3haZu6Q9RExqrArQntb4"/>
+<p class="font-headline text-on-background mt-4 text-xl">THE RITUAL</p>
+</div>
+</div>
+</section>
+<!-- Values Section - Bento Style -->
+<section class="bg-on-background/5 py-24 px-6 border-y-[12px] border-on-background relative">
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="flex justify-between items-end mb-16">
+<h2 class="font-headline text-6xl md:text-8xl uppercase leading-none text-on-background">OUR<br/><span class="text-primary-container">SOUL</span></h2>
+<div class="hidden md:block">
+<span class="grill-mark"></span>
+<span class="grill-mark"></span>
+<span class="grill-mark"></span>
+<span class="grill-mark"></span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Value 1 -->
+<div class="bg-[#e4dacd] p-10 flex flex-col gap-6 relative overflow-hidden group border border-on-background/10">
+<span class="absolute -right-4 -top-4 font-headline text-9xl text-on-background/5">01</span>
+<h4 class="font-headline text-4xl text-primary italic uppercase z-10">O Ritual</h4>
+<p class="font-body font-extrabold text-lg text-on-background z-10">
+                        We don't rush. The fire dictates the timing. Every cut of meat is respected, seasoned only with sea salt and time.
+                    </p>
+<div class="w-full h-1 bg-on-background/10 mt-auto"></div>
+</div>
+<!-- Value 2 -->
+<div class="bg-on-background p-10 flex flex-col gap-6 relative overflow-hidden group">
+<span class="absolute -right-4 -top-4 font-headline text-9xl text-white/5">02</span>
+<h4 class="font-headline text-4xl text-primary-container italic uppercase z-10">O Tempero</h4>
+<p class="font-body font-extrabold text-lg text-[#e4dacd] z-10">
+                        The smoke of almond wood is our signature ingredient. It provides a sweet, nutty aroma that defines the FOGO experience.
+                    </p>
+<div class="w-full h-1 bg-[#e4dacd]/20 mt-auto"></div>
+</div>
+<!-- Value 3 -->
+<div class="bg-primary p-10 flex flex-col gap-6 relative overflow-hidden group">
+<span class="absolute -right-4 -top-4 font-headline text-9xl text-white/10">03</span>
+<h4 class="font-headline text-4xl text-white italic uppercase z-10">A Família</h4>
+<p class="font-body font-extrabold text-lg text-white z-10">
+                        Our tables are long because food is meant to be shared. We treat every guest like they’ve just walked into our home.
+                    </p>
+<div class="w-full h-1 bg-white/20 mt-auto"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Fresh Ingredients Banner -->
+<section class="relative py-32 flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="" class="w-full h-full object-cover grayscale brightness-50" data-alt="Close up of fresh herbs and peppers on a wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo_zfDAruMSWT3tqWywVsmcQxTOpeCP7Aw-pqkuAmZF_S79nANlUMv7ipeS7HmglQRSPOjH4bkLpUi4DqYQUXpaBmLocdQ8jcAUSregONcNWjfJpDzWR_XYnIGBjvHBHNA3j5t9PupqvZvh5htFx_U9gWcoPrDJzpC07IxKKcgagcuHXs3ZGytBEjIeK6ddwBFGV49Q55yXR67QrC1x6PYAtzBcd-4xGbw--6G0uiJrjjlN6ZXl264j0kJAT-J6qabaipw2pgcsj0"/>
+</div>
+<div class="relative z-10 text-center px-6">
+<h3 class="font-headline text-5xl md:text-7xl text-white uppercase tracking-tighter mb-8 max-w-4xl mx-auto">
+                NO FREEZERS. NO SHORTCUTS. <span class="text-primary-container italic">JUST FIRE.</span>
+</h3>
+<div class="flex justify-center gap-2">
+<span class="grill-mark !bg-white"></span>
+<span class="grill-mark !bg-white"></span>
+<span class="grill-mark !bg-white"></span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Updated from Design System) -->
+<footer class="w-full py-20 px-6 bg-[#1f1b13] border-t-[12px] border-[#b0001a] text-[#e4dacd] relative z-10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
+<div class="space-y-6">
+<h5 class="text-[#e4dacd] font-['Anton'] text-5xl uppercase italic -rotate-2 leading-none">FOGO &amp; BRASA</h5>
+<p class="font-['Open_Sans'] font-extrabold text-xs tracking-[0.2em] uppercase max-w-xs text-[#e4dacd]/50">
+                © 2024 FOGO &amp; BRASA. THE BRUTALIST CHURRASCARIA. ALL RIGHTS RESERVED.
+            </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12 w-full md:w-auto">
+<div class="flex flex-col gap-6">
+<span class="font-['Anton'] text-xl uppercase tracking-wider text-[#b0001a]">LOCATIONS</span>
+<div class="flex flex-col gap-3 font-['Open_Sans'] font-bold text-sm uppercase tracking-widest text-[#e4dacd]/70">
+<a class="hover:text-white transition-colors" href="#">Porto: Santa Catarina</a>
+<a class="hover:text-white transition-colors" href="#">Lisbon: Liberdade</a>
+<a class="hover:text-white transition-colors" href="#">Faro: Old Town</a>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<span class="font-['Anton'] text-xl uppercase tracking-wider text-[#b0001a]">SOCIAL</span>
+<div class="flex flex-col gap-3 font-['Open_Sans'] font-bold text-sm uppercase tracking-widest text-[#e4dacd]/70">
+<a class="hover:text-white transition-colors" href="#">INSTAGRAM</a>
+<a class="hover:text-white transition-colors" href="#">FACEBOOK</a>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<span class="font-['Anton'] text-xl uppercase tracking-wider text-[#b0001a]">JOIN US</span>
+<div class="flex flex-col gap-3 font-['Open_Sans'] font-bold text-sm uppercase tracking-widest text-[#e4dacd]/70">
+<a class="hover:text-white transition-colors" href="#">CAREERS</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Open+Sans:ital,wght@0,700;0,800;1,700;1,800&amp;family=Epilogue:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#fdf2e5",
+              "on-secondary": "#ffffff",
+              "primary": "#b0001a",
+              "on-secondary-container": "#656464",
+              "secondary-fixed-dim": "#c9c6c5",
+              "inverse-on-surface": "#faefe2",
+              "surface-tint": "#c0001e",
+              "tertiary-fixed-dim": "#ffba38",
+              "surface-bright": "#fff8f2",
+              "secondary-fixed": "#e5e2e1",
+              "on-tertiary-fixed-variant": "#604100",
+              "primary-container": "#d91a2a",
+              "background": "#fff8f2",
+              "on-secondary-fixed-variant": "#474646",
+              "tertiary-container": "#936600",
+              "on-surface-variant": "#5d3f3d",
+              "on-primary-fixed": "#410004",
+              "on-tertiary-fixed": "#281900",
+              "surface-dim": "#e3d9cc",
+              "primary-fixed": "#ffdad7",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#ffdeac",
+              "surface-container-highest": "#ebe1d4",
+              "outline-variant": "#e6bdb9",
+              "on-tertiary-container": "#fff0df",
+              "secondary": "#5f5e5e",
+              "surface": "#fff8f2",
+              "error": "#ba1a1a",
+              "surface-container": "#f7ecdf",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#930014",
+              "inverse-primary": "#ffb3ae",
+              "on-secondary-fixed": "#1c1b1b",
+              "outline": "#916f6c",
+              "inverse-surface": "#353027",
+              "on-background": "#1f1b13",
+              "on-primary-container": "#ffefed",
+              "on-tertiary": "#ffffff",
+              "secondary-container": "#e5e2e1",
+              "error-container": "#ffdad6",
+              "surface-variant": "#ebe1d4",
+              "surface-container-high": "#f1e7d9",
+              "tertiary": "#744f00",
+              "on-primary": "#ffffff",
+              "on-surface": "#1f1b13",
+              "primary-fixed-dim": "#ffb3ae"
+            },
+            fontFamily: {
+              "headline": ["Anton", "sans-serif"],
+              "body": ["Open Sans", "sans-serif"],
+              "label": ["Open Sans", "sans-serif"],
+              "epilogue": ["Epilogue", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            opacity: 0.06;
+            pointer-events: none;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grill-mark {
+            height: 4px;
+            width: 100%;
+            background-color: #916f6c;
+            opacity: 0.2;
+            margin-bottom: 0.7rem;
+        }
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface-dim font-body text-on-background relative min-h-screen selection:bg-primary-container selection:text-white">
+<div class="bg-noise"></div>
+<!-- TopAppBar from Design System -->
+<header class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between bg-surface-dim dark:bg-on-background border-b-4 border-on-background/20">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">menu</span>
+<span class="inline-flex items-center justify-center w-12 h-12 rounded-full border-4 border-primary text-xl font-black text-primary">F</span>
+</div>
+<h1 class="text-primary font-headline uppercase leading-[0.9] tracking-tighter text-4xl">FOGO</h1>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-background font-bold hover:-translate-y-1 transition-transform duration-100 uppercase tracking-widest text-sm" href="#">Story</a>
+<a class="text-on-background font-bold hover:-translate-y-1 transition-transform duration-100 uppercase tracking-widest text-sm" href="#">Menu</a>
+<a class="text-on-background font-bold hover:-translate-y-1 transition-transform duration-100 uppercase tracking-widest text-sm" href="#">Find Us</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-white px-6 py-2 font-headline uppercase tracking-widest text-lg hover:bg-primary/90 transition-colors hidden sm:block">RESERVE</button>
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+</div>
+</header>
+<main class="relative z-10 pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Editorial Header -->
+<div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-3xl">
+<h2 class="font-headline text-8xl md:text-9xl uppercase leading-[0.8] tracking-tighter text-on-background -rotate-2 origin-left">
+                    GRILL<br/><span class="text-primary italic">TALES</span>
+</h2>
+<div class="mt-8 flex flex-col gap-1">
+<div class="grill-mark"></div>
+<div class="grill-mark w-3/4"></div>
+</div>
+</div>
+<div class="md:w-1/3">
+<p class="font-body font-extrabold text-xl uppercase tracking-tight leading-none text-on-surface-variant">
+                    NOTES FROM THE COALS. TECHNIQUES, TASTES, AND THE TRADITION OF LIVE FIRE.
+                </p>
+</div>
+</div>
+<!-- Blog Feed: Bento-ish Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+<!-- Featured Card -->
+<article class="md:col-span-8 flex flex-col group">
+<div class="relative bg-surface-container-lowest p-6 pt-6 pb-12 shadow-[12px_12px_0px_rgba(31,27,19,0.05)] rotate-1 transition-transform group-hover:rotate-0 duration-300">
+<div class="absolute top-8 left-8 z-20 bg-tertiary-container text-on-tertiary-container px-4 py-2 font-headline text-2xl rotate-[8deg] uppercase tracking-tighter">
+                        Recipe
+                    </div>
+<div class="aspect-video w-full overflow-hidden mb-8 bg-surface-container-highest">
+<img alt="Perfectly grilled piri-piri chicken on a charcoal grill" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGLnQCzXEfPODQERsmS836njsqUOXgLQ0sGIkL9bCWhEnt7QBarXrapl5TUA_3nH9XlRGmHQs-SqWHx8L0AdnuX2BAGgpO5YfnG4X_XaSiEVVjaGFnF0ZkS9bryt8B3fvzAkyhINRfKTjNKs_YcF5aAwtxmqAkXwHp7SBL7_5zyqL8NoaoIwTYNH2_s75KaBZJeuisoDAoD8gMPJfeF37QiPpC4Ual23-5gCbL0JwngTROUyKtnTpiR9g_8UNYQEQTlmM9W4X0AdE"/>
+</div>
+<h3 class="font-headline text-5xl md:text-6xl uppercase leading-none mb-4 group-hover:text-primary transition-colors">
+                        The Secret to Perfect Piri-Piri
+                    </h3>
+<p class="font-body font-bold text-lg text-on-surface-variant max-w-2xl mb-6">
+                        It’s not just about the heat; it’s about the char. We reveal the three-stage basting technique passed down through generations of Pitmasters.
+                    </p>
+<button class="self-start bg-primary-container text-on-primary px-8 py-4 font-headline text-xl uppercase tracking-widest hover:-translate-y-1 transition-transform active:scale-95">
+                        READ THE STORY
+                    </button>
+</div>
+</article>
+<!-- Secondary Cards Column -->
+<div class="md:col-span-4 flex flex-col gap-12">
+<!-- Card 2 -->
+<article class="flex flex-col group">
+<div class="bg-surface-container-high p-4 pt-4 pb-10 shadow-[8px_8px_0px_rgba(31,27,19,0.05)] -rotate-2 transition-transform group-hover:rotate-0 duration-300 relative">
+<div class="absolute top-6 left-6 z-20 bg-on-background text-surface px-3 py-1 font-headline text-lg rotate-[8deg] uppercase tracking-tighter">
+                            pairing
+                        </div>
+<div class="aspect-square w-full overflow-hidden mb-6 bg-surface-container-highest">
+<img alt="Red wine being poured next to a ribeye steak" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnnJJZHM7wfpbqaABNKfQ1e0AcYqepS4yDhbPOOb0WS0SyopwHk2j1XGAYBzI9IgW5DuP_7CgIskDew9a22EDmwk0AEhT0_dXlqEwTr5SqLmFCEcYCa5DfZAw3ATRr6cX2Fayk7lvkEAQo-QQiNXsq59EbpxCnXiF27_uZPjAoMob0VFvOyoFQfBiyMN7PDLH_gxloNyorDMYhh-Zxpv2Y6W_48o4RdFNl_3rJmoSBylyaJNimcOF3yXzsOyYqQyKUbIu0eY2UGuQ"/>
+</div>
+<h3 class="font-headline text-3xl uppercase leading-none mb-3">
+                            Wine Pairing for Grilled Meat
+                        </h3>
+<p class="font-body font-bold text-sm text-on-surface-variant mb-4">
+                            Tannins and smoke: how to find the perfect Douro red to cut through the richness of our Picanha.
+                        </p>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col group">
+<div class="bg-surface-container-high p-4 pt-4 pb-10 shadow-[8px_8px_0px_rgba(31,27,19,0.05)] rotate-3 transition-transform group-hover:rotate-0 duration-300 relative">
+<div class="absolute top-6 left-6 z-20 bg-primary text-white px-3 py-1 font-headline text-lg rotate-[8deg] uppercase tracking-tighter">
+                            News
+                        </div>
+<div class="aspect-square w-full overflow-hidden mb-6 bg-surface-container-highest">
+<img alt="Interior of a rustic restaurant with open kitchen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeeVqGBuytLmrP8k6qP86yEIVUIja_iM7IptueSR1BERWYaJ9JIEMmiSsPibgRGjkTkfHyP0yKHSlVsWkSEH0Se-Zki-doB5kbceDD9XAC4qriI5V3FwJ1e0Ls0re43Tl3pDP-eyqvoATOffTB0PlUYPtX4gBjxshAEj4MaQoi4yB6qhKzRixYVNmPVht8nfMER27qSUUoNC9uUv2GTX3MMbeZd22KTI9q3dv6M6NhzexSkWBwvBxItjiLi7Kk-aTqMcnBZVUc-mI"/>
+</div>
+<h3 class="font-headline text-3xl uppercase leading-none mb-3">
+                            Our New Location in Porto
+                        </h3>
+<p class="font-body font-bold text-sm text-on-surface-variant mb-4">
+                            Fogo expands to the coast. Bringing the brutalist grill to the streets of Ribeira this autumn.
+                        </p>
+</div>
+</article>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="mt-24 flex flex-col items-center gap-6">
+<div class="grill-mark max-w-xs"></div>
+<button class="bg-on-background text-surface px-12 py-5 font-headline text-2xl uppercase tracking-widest hover:-translate-y-2 transition-transform active:scale-95 shadow-xl">
+                KEEP FEEDING THE FIRE
+            </button>
+</div>
+</main>
+<!-- Footer from Design System -->
+<footer class="w-full py-16 px-10 flex flex-col md:flex-row justify-between items-start gap-12 bg-on-background dark:bg-black border-t-[12px] border-primary relative z-10">
+<div class="flex flex-col gap-6">
+<span class="text-surface-dim font-headline text-4xl uppercase tracking-tighter">FOGO &amp; BRASA</span>
+<p class="text-primary font-body font-extrabold text-sm tracking-widest uppercase max-w-xs">
+                © 2024 FOGO &amp; BRASA. THE BRUTALIST CHURRASCARIA. ALL RIGHTS RESERVED.
+            </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+<div class="flex flex-col gap-4">
+<span class="text-surface-dim opacity-60 font-black text-xs uppercase tracking-[0.2em]">Quick Links</span>
+<a class="text-surface-dim opacity-80 font-bold hover:text-white transition-colors uppercase text-sm tracking-wider" href="#">LOCATIONS</a>
+<a class="text-surface-dim opacity-80 font-bold hover:text-white transition-colors uppercase text-sm tracking-wider" href="#">CAREERS</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-surface-dim opacity-60 font-black text-xs uppercase tracking-[0.2em]">Follow</span>
+<a class="text-surface-dim opacity-80 font-bold hover:text-white transition-colors uppercase text-sm tracking-wider" href="#">INSTAGRAM</a>
+<a class="text-surface-dim opacity-80 font-bold hover:text-white transition-colors uppercase text-sm tracking-wider" href="#">FACEBOOK</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-surface-dim opacity-60 font-black text-xs uppercase tracking-[0.2em]">Newsletter</span>
+<div class="flex">
+<input class="bg-transparent border-none border-b-4 border-primary text-white font-bold p-2 focus:ring-0 w-full placeholder:text-surface-dim/30" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="text-primary p-2 hover:scale-110 transition-transform"><span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+</div>
+</footer>
+</body></html>

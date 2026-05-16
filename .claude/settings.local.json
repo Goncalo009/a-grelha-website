@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /home/ayperos/work/projetos/a-grelha-v0.1/components/**/*.tsx)",
+      "Bash(find /home/ayperos/work/projetos/a-grelha-v0.1 -maxdepth 2 -not -path */node_modules/* -not -path */.next/*)"
+    ]
+  }
+}

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Open+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#fdf2e5",
+              "on-secondary": "#ffffff",
+              "primary": "#b0001a",
+              "on-secondary-container": "#656464",
+              "secondary-fixed-dim": "#c9c6c5",
+              "inverse-on-surface": "#faefe2",
+              "surface-tint": "#c0001e",
+              "tertiary-fixed-dim": "#ffba38",
+              "surface-bright": "#fff8f2",
+              "secondary-fixed": "#e5e2e1",
+              "on-tertiary-fixed-variant": "#604100",
+              "primary-container": "#d91a2a",
+              "background": "#fff8f2",
+              "on-secondary-fixed-variant": "#474646",
+              "tertiary-container": "#936600",
+              "on-surface-variant": "#5d3f3d",
+              "on-primary-fixed": "#410004",
+              "on-tertiary-fixed": "#281900",
+              "surface-dim": "#e4dacd",
+              "primary-fixed": "#ffdad7",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#ffdeac",
+              "surface-container-highest": "#ebe1d4",
+              "outline-variant": "#e6bdb9",
+              "on-tertiary-container": "#fff0df",
+              "secondary": "#5f5e5e",
+              "surface": "#fff8f2",
+              "error": "#ba1a1a",
+              "surface-container": "#f7ecdf",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#930014",
+              "inverse-primary": "#ffb3ae",
+              "on-secondary-fixed": "#1c1b1b",
+              "outline": "#916f6c",
+              "inverse-surface": "#353027",
+              "on-background": "#1f1b13",
+              "on-primary-container": "#ffefed",
+              "on-tertiary": "#ffffff",
+              "secondary-container": "#e5e2e1",
+              "error-container": "#ffdad6",
+              "surface-variant": "#ebe1d4",
+              "surface-container-high": "#f1e7d9",
+              "tertiary": "#744f00",
+              "on-primary": "#ffffff",
+              "on-surface": "#1f1b13",
+              "primary-fixed-dim": "#ffb3ae"
+            },
+            fontFamily: {
+              "headline": ["Anton"],
+              "body": ["Open Sans"],
+              "label": ["Open Sans"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            opacity: 0.06;
+            pointer-events: none;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+        }
+        .grill-marks {
+            background: repeating-linear-gradient(90deg, #916f6c 0, #916f6c 4px, transparent 4px, transparent 12px);
+            height: 4px;
+            opacity: 0.2
+        }
+        .polaroid-frame {
+            padding: 12px 12px 48px 12px;
+            background-color: #fff;
+            box-shadow: 0 12px 32px rgba(31, 27, 19, 0.08)
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-[#e4dacd] text-on-background font-body overflow-x-hidden relative">
+<div class="bg-noise"></div>
+<!-- TopAppBar: Design System Shared Header -->
+<header class="fixed top-0 w-full z-50 px-6 py-4 flex items-center justify-between bg-[#e4dacd] border-b-4 border-on-background/20 overflow-hidden">
+<div class="bg-noise"></div>
+<div class="flex items-center gap-4 relative z-10">
+<span class="material-symbols-outlined text-on-background text-3xl cursor-pointer">menu</span>
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-full border-4 border-primary text-xl font-black text-primary">F</div>
+</div>
+<h1 class="text-primary font-headline uppercase leading-[0.9] tracking-tighter text-4xl relative z-10 absolute left-1/2 -translate-x-1/2">FOGO</h1>
+<nav class="hidden lg:flex gap-8 items-center relative z-10">
+<a class="text-on-background font-bold uppercase hover:-translate-y-1 transition-transform duration-100" href="#">Story</a>
+<a class="text-on-background font-bold uppercase hover:-translate-y-1 transition-transform duration-100" href="#">Menu</a>
+<a class="text-on-background font-bold uppercase hover:-translate-y-1 transition-transform duration-100" href="#">Find Us</a>
+<a class="bg-primary text-surface px-6 py-2 font-headline text-xl uppercase italic hover:scale-105 transition-all shadow-[4px_4px_0px_rgba(31,27,19,1)]" href="#">Reserve</a>
+</nav>
+</header>
+<main class="pt-28 pb-20 relative z-10">
+<!-- Hero Map Section -->
+<section class="relative w-full px-6 md:px-12 mb-20">
+<div class="relative overflow-hidden border-8 border-on-background h-[500px] w-full">
+<img alt="Grayscale high contrast map of Porto downtown" class="w-full h-full object-cover grayscale contrast-125 brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUjQJqXv0x8BBfZZizgYdZNKD_8yDpuVFJ1DzsiZCz51bxJepmSPm1lCMAJ0hcNQceiu4q3NcrvU_tbmr5iJkbTrOdDBc3ogWokJx-Wqz1SebaxetX1ThZWdQ07HTP8qyMXp3RjD6tfufDIBsnIINlqunZmNXvfVF3KsxHzeu1V-_GFtmYObH9UKcUzhcZXwP_EF-w-QG1ym-MobfXy4A26_wL4oDPRku6fOT10Lie0QZLT0B61uuQcr5N_E7kzcCjomfPU6bsoNM"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+<!-- Floating Address Badge -->
+<div class="absolute bottom-8 left-8 bg-surface p-8 max-w-sm border-t-8 border-primary rotate-1 shadow-2xl">
+<h2 class="font-headline text-5xl uppercase leading-none mb-4 tracking-tighter">O NOSSO<br/>TERRITÓRIO</h2>
+<p class="font-bold text-lg uppercase tracking-tight">Rua de Santa Catarina 12,<br/>4000-441 Porto, Portugal</p>
+</div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<section class="px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Details & Hours -->
+<div class="lg:col-span-5 space-y-12">
+<!-- Hours Section -->
+<div class="bg-primary p-10 -rotate-1 relative overflow-hidden">
+<div class="absolute top-0 right-0 grill-marks w-full opacity-30 rotate-45 translate-x-1/2"></div>
+<h3 class="font-headline text-surface text-6xl uppercase italic leading-none mb-8">HOURS OF HEAT</h3>
+<div class="space-y-4 text-surface font-extrabold uppercase tracking-widest">
+<div class="flex justify-between border-b-2 border-surface/30 pb-2">
+<span>Mon - Thu</span>
+<span>12:00 - 23:00</span>
+</div>
+<div class="flex justify-between border-b-2 border-surface/30 pb-2">
+<span>Fri - Sat</span>
+<span>12:00 - 01:00</span>
+</div>
+<div class="flex justify-between border-b-2 border-surface/30 pb-2">
+<span>Sunday</span>
+<span>12:00 - 22:00</span>
+</div>
+</div>
+</div>
+<!-- Contact Meta -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-4">
+<label class="font-headline text-primary text-2xl uppercase tracking-tighter">Phone</label>
+<p class="font-extrabold text-2xl">+351 22 505 0505</p>
+</div>
+<div class="space-y-4">
+<label class="font-headline text-primary text-2xl uppercase tracking-tighter">Email</label>
+<p class="font-extrabold text-2xl">FIRE@FOGOBRASA.PT</p>
+</div>
+</div>
+<!-- Socials -->
+<div class="pt-8 border-t-4 border-on-background/10">
+<label class="font-headline text-on-background text-2xl uppercase tracking-tighter block mb-6">Digital Hearth</label>
+<div class="flex flex-wrap gap-4">
+<a class="bg-on-background text-surface px-6 py-3 font-bold uppercase hover:-translate-y-1 transition-transform" href="#">Instagram</a>
+<a class="bg-on-background text-surface px-6 py-3 font-bold uppercase hover:-translate-y-1 transition-transform" href="#">Twitter</a>
+<a class="bg-on-background text-surface px-6 py-3 font-bold uppercase hover:-translate-y-1 transition-transform" href="#">Spotify</a>
+</div>
+</div>
+<!-- Decorative Polaroid -->
+<div class="polaroid-frame w-64 rotate-3 mt-12 mx-auto lg:mx-0">
+<img alt="Close up of meat on an open charcoal grill" class="w-full h-48 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXlYVmVzp_OmIBKjMSHMVcCx3FYqzngO3NuKcqMZw6XqlgZDl-RdlQO-wyb2Ua4wn3FgArCA9whK06ZtTgBYxyPgzz1O8F8z2W2eWhSt_sy7kDKaHs2Woe01zpaWCD4UoWhMrgSfUglMq2aFoj3wW0QUfrcJJgQn5dm0QS-rv2W243Tid9PoCUI_2tKapf2JkPI_Tw91E7gQx6QuGmINqY3oqr2QYqwcZhfRWxkubPPiZyc3KWBbKjYuC7TEeki5QI3DvloUfqVTU"/>
+<p class="font-headline text-on-background text-xl uppercase mt-4 text-center">Live Fire</p>
+</div>
+</div>
+<!-- Right Column: Form -->
+<div class="lg:col-span-7 bg-surface-container-highest/40 p-8 md:p-12 relative border-4 border-on-background/10">
+<div class="grill-marks w-24 mb-8"></div>
+<h3 class="font-headline text-7xl uppercase leading-[0.85] mb-12 tracking-tighter">JOIN THE<br/>CONFLAGRATION</h3>
+<form class="space-y-10">
+<div class="relative">
+<label class="font-headline text-2xl uppercase text-primary absolute -top-4 left-0">Your Name</label>
+<input class="w-full bg-transparent border-b-4 border-on-background focus:ring-0 focus:border-primary pt-6 pb-2 font-extrabold text-2xl uppercase outline-none" placeholder="REVELER NAME" type="text"/>
+</div>
+<div class="relative">
+<label class="font-headline text-2xl uppercase text-primary absolute -top-4 left-0">Digital Tag</label>
+<input class="w-full bg-transparent border-b-4 border-on-background focus:ring-0 focus:border-primary pt-6 pb-2 font-extrabold text-2xl uppercase outline-none" placeholder="EMAIL@DOMAIN.COM" type="email"/>
+</div>
+<div class="relative">
+<label class="font-headline text-2xl uppercase text-primary absolute -top-4 left-0">Message From The Hearth</label>
+<textarea class="w-full bg-transparent border-b-4 border-on-background focus:ring-0 focus:border-primary pt-6 pb-2 font-extrabold text-2xl uppercase outline-none resize-none" placeholder="WHAT'S COOKING?" rows="4"></textarea>
+</div>
+<div class="flex justify-end pt-8">
+<button class="group relative px-12 py-6 bg-primary text-surface font-headline text-4xl uppercase italic rotate-2 hover:rotate-0 hover:scale-105 active:scale-95 transition-all shadow-[8px_8px_0px_rgba(31,27,19,1)]" type="submit">
+                        SEND FIRE
+                        <span class="absolute -top-4 -right-4 bg-tertiary-container text-on-tertiary-fixed py-1 px-4 font-headline text-xl -rotate-12 border-2 border-on-background">NEW MSG</span>
+</button>
+</div>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer: Design System Shared Footer -->
+<footer class="w-full py-16 px-10 flex flex-col md:flex-row justify-between items-start gap-12 bg-on-background border-t-[12px] border-primary relative z-10">
+<div class="space-y-6">
+<span class="text-surface font-headline text-4xl uppercase italic tracking-tighter">FOGO &amp; BRASA</span>
+<p class="text-surface-dim font-extrabold text-sm tracking-widest uppercase max-w-xs opacity-80">
+            © 2024 FOGO &amp; BRASA. THE BRUTALIST CHURRASCARIA. ALL RIGHTS RESERVED.
+        </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-2 gap-12 md:gap-24">
+<div class="space-y-6">
+<span class="text-primary font-headline uppercase tracking-widest text-xl">Quick Links</span>
+<div class="flex flex-col gap-3">
+<a class="text-surface-dim opacity-80 font-extrabold text-sm uppercase hover:text-white transition-colors" href="#">Locations</a>
+<a class="text-surface-dim opacity-80 font-extrabold text-sm uppercase hover:text-white transition-colors" href="#">Careers</a>
+</div>
+</div>
+<div class="space-y-6">
+<span class="text-primary font-headline uppercase tracking-widest text-xl">Social</span>
+<div class="flex flex-col gap-3">
+<a class="text-surface-dim opacity-80 font-extrabold text-sm uppercase hover:text-white transition-colors" href="#">Instagram</a>
+<a class="text-surface-dim opacity-80 font-extrabold text-sm uppercase hover:text-white transition-colors" href="#">Facebook</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
