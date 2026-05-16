@@ -13,3 +13,6 @@ pnpm-debug.log*
 .lighthouseci/
 playwright-report/
 test-results/
+
+# TypeScript
+tsconfig.tsbuildinfo

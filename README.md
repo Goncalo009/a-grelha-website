@@ -1,56 +1,44 @@
-# 🏗️ Next.js 16 + React 19: Template para Escalabilidade e SEO
+# A Grelha — Website
 
-Template base optimizado para landing pages e SaaS com foco em performance, SEO e manutenibilidade.
+Website de apresentação e encomendas por telefone para **A Grelha**, churrasqueira/take-away no Porto Alto.
 
-## 🚀 Começar Rápido
+## Stack
 
-```bash
-# 1. Copia este template para novo projecto
-cp -r template-website-react seu-novo-projecto
-
-# 2. Instala dependências
-cd seu-novo-projecto
-npm install
-
-# 3. Edita as configurações básicas
-# - config/site.ts (nome, URL, redes sociais)
-# - config/seo.ts (metadados, og image)
-
-# 4. Corre em desenvolvimento
-npm run dev
-```
-
-## 📂 Estrutura
-
-- `app/` - Rotas e SEO (sitemap, robots)
-- `components/` - UI e sections
-- `config/` - Site config e SEO defaults
-- `lib/` - Utilitários (cn, formatters)
-- `styles/` - Tailwind + CSS variables
-- `public/` - Imagens e favicon
-
-## 🛠️ Stack
-
-- Next.js 15 (App Router)
+- Next.js 16 App Router
 - React 19
 - TypeScript
-- Tailwind CSS 3.4
-- shadcn/ui components
-- FSD architecture (Feature-Sliced Design)
+- Tailwind CSS
+- `next/image` com assets locais
 
-## 📝 Workflow
+## Comandos
 
-1. Cria sections em `components/sections/`
-2. Usa components UI de `components/ui/`
-3. Página principal em `app/(marketing)/page.tsx`
-4. Configura metadados em `config/seo.ts`
+```bash
+npm run dev          # desenvolvimento
+npm run lint         # ESLint
+npm run typecheck    # TypeScript sem emitir
+npm run verify:links # valida rotas internas usadas em href
+npm run build        # build de produção
+npm run start        # servidor de produção local
+```
 
-## 🔧 Customização
+## Estrutura principal
 
-- Cores/tema: `tailwind.config.ts` + `styles/globals.css`
-- Fontes: edita `app/layout.tsx`
-- SEO: `config/seo.ts` + `config/site.ts`
+- `app/(marketing)/` — páginas públicas: home, menu, sobre, contactos, blog e encomendas
+- `components/layout/` — navegação e rodapé
+- `components/sections/` — secções reutilizadas na homepage
+- `components/forms/order-form.tsx` — preparação de pedido para confirmação por telefone
+- `components/seo/restaurant-schema.tsx` — JSON-LD Restaurant/LocalBusiness
+- `config/site.ts` — domínio, morada, telefone, redes sociais e keywords locais
+- `content/menu.json` — categorias e pratos apresentados no menu
 
----
+## Notas de produção
 
-Desenvolvido para velocidade extrema e máxima indexação Google (Lighthouse 100).
+A página de encomendas prepara um resumo e encaminha para chamada telefónica. Isto é deliberado: enquanto não houver integração real com email, POS, CRM ou base de dados, o site não deve fingir que uma encomenda foi recebida pelo balcão.
+
+Antes de publicar, confirmar com o cliente:
+
+- domínio final (`https://a-grelha.pt` está configurado por defeito);
+- horário exato;
+- morada/loja final e redes sociais;
+- preços e disponibilidade dos pratos;
+- fotografia final de marca, se houver.

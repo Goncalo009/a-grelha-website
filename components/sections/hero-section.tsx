@@ -3,47 +3,58 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen flex flex-col md:grid md:grid-cols-2 items-center px-[5%] relative pt-32 md:pt-0 gap-8 overflow-hidden">
-      {/* Background Decorative Grill Lines */}
-      <div className="absolute top-[20%] right-[5%] flex gap-[15px] opacity-10 rotate-[15deg] z-0 pointer-events-none">
-        <div className="w-[20px] h-[400px] bg-black rounded-[10px]" />
-        <div className="w-[20px] h-[400px] bg-black rounded-[10px]" />
-        <div className="w-[20px] h-[400px] bg-black rounded-[10px]" />
+    <section className="relative overflow-hidden bg-[#e3d9cc] px-4 py-14 md:px-6 md:py-20">
+      <div className="absolute right-[6%] top-20 z-0 hidden rotate-[15deg] gap-4 opacity-10 md:flex" aria-hidden="true">
+        <div className="h-[420px] w-5 bg-black" />
+        <div className="h-[420px] w-5 bg-black" />
+        <div className="h-[420px] w-5 bg-black" />
       </div>
 
-      <div className="relative z-10 text-center md:text-left flex flex-col items-center md:items-start">
-        <h1 className="font-headline text-[clamp(4rem,10vw,8rem)] text-brand-black -rotate-3 leading-[0.9] uppercase drop-shadow-[2px_2px_0px_rgba(255,255,255,0.2)] mb-2 inline-block">
-          FLAME GRILLED<br />
-          <span className="block text-brand-red">SOUL FILLED</span>
-        </h1>
-        <p className="text-xl font-[700] mb-8 max-w-[500px]">
-          Authentic Portuguese chicken, marinated for 24 hours and fired over open charcoal. It's messy, it's spicy, and it's perfect.
-        </p>
-        
-        <Link href="#menu" className="bg-brand-red text-white p-0 rounded-card inline-flex flex-col overflow-hidden shadow-depth no-underline transition-transform duration-200 max-w-[300px] mt-8 rotate-2 hover:rotate-0 hover:scale-105">
-          <div className="px-8 py-6 font-headline text-4xl leading-[0.9]">
-            ORDER<br />NOW
-          </div>
-          <div className="bg-brand-black text-white py-3 px-8 uppercase font-[800] text-base tracking-wider flex justify-between items-center text-left">
-            <span>Pickup &amp; Delivery</span>
-            <div className="flex gap-1">
-              <div className="w-1 h-5 bg-white rounded-sm" />
-              <div className="w-1 h-5 bg-white rounded-sm" />
-              <div className="w-1 h-5 bg-white rounded-sm" />
-            </div>
-          </div>
-        </Link>
-      </div>
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="text-center lg:text-left">
+          <p className="mb-4 inline-block -rotate-2 bg-[#fff8f2] px-4 py-2 font-extrabold uppercase tracking-[0.2em] text-brand-red shadow-[4px_4px_0_#1f1b13]">
+            Churrasqueira no Porto Alto
+          </p>
+          <h1 className="font-headline text-[clamp(4.6rem,12vw,10rem)] uppercase leading-[0.82] text-brand-black">
+            Carvão<br />
+            <span className="text-brand-red">frango</span><br />
+            mesa cheia
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg font-bold leading-relaxed text-[#3b3327] md:text-xl lg:mx-0">
+            A Grelha serve o clássico que se procura quando não há tempo para
+            cozinhar: frango no churrasco, grelhados no carvão, acompanhamentos
+            caseiros e encomendas prontas a levantar.
+          </p>
 
-      {/* Visual / Rotating Food Plate */}
-      <div className="relative flex justify-center items-center order-[-1] md:order-last z-10 w-full">
-        <div className="relative w-[80vw] md:w-[120%] max-w-[700px] aspect-square rounded-full drop-shadow-[0_30px_40px_rgba(0,0,0,0.5)] rotate-[15deg] transition-transform duration-500 hover:rotate-[10deg] hover:scale-105 overflow-hidden">
-          <Image 
-            src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?q=80&w=1000&auto=format&fit=crop" 
-            alt="Roast Chicken on Board" 
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
+            <Link
+              href="/encomendas"
+              className="inline-flex items-center justify-center bg-brand-red px-7 py-5 font-headline text-3xl uppercase text-white shadow-[6px_6px_0_#1f1b13] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-brand-red"
+            >
+              Encomendar
+            </Link>
+            <Link
+              href="/menu"
+              className="inline-flex items-center justify-center border-4 border-brand-black bg-[#fff8f2] px-7 py-5 font-headline text-3xl uppercase text-brand-black transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-brand-red"
+            >
+              Ver menu
+            </Link>
+          </div>
+        </div>
+
+        <div className="relative mx-auto aspect-square w-full max-w-[620px] overflow-hidden border-8 border-white bg-[#fff8f2] shadow-[18px_18px_0_#1f1b13] lg:rotate-2">
+          <Image
+            src="/stitch/home/hero.jpg"
+            alt="Frango no churrasco e grelhados preparados na A Grelha"
             fill
+            priority
+            sizes="(min-width: 1024px) 45vw, 90vw"
             className="object-cover"
           />
+          <div className="absolute bottom-0 left-0 right-0 bg-brand-black/90 px-5 py-4 text-left text-white">
+            <p className="font-headline text-3xl uppercase leading-none text-brand-red">Takeaway diário</p>
+            <p className="mt-1 text-sm font-extrabold uppercase tracking-wider">Peça cedo para garantir o frango acabado de sair.</p>
+          </div>
         </div>
       </div>
     </section>

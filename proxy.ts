@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
 
-export function proxy(request: NextRequest) {
+export function proxy() {
   // Clone the response so we can modify headers
   const response = NextResponse.next()
 

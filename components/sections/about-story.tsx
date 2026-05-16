@@ -3,30 +3,40 @@ import Link from "next/link";
 
 export function AboutStory() {
   return (
-    <section id="about" className="py-32 px-[5%] flex flex-col md:grid md:grid-cols-[1.5fr_1fr] gap-16 items-center">
-      <div className="bg-white p-4 pb-12 shadow-depth -rotate-3 w-full max-w-lg mx-auto md:order-last">
+    <section id="sobre" className="px-4 py-24 md:px-6">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-[0.9fr_1.1fr]">
+      <div className="w-full bg-white p-3 pb-12 shadow-[12px_12px_0_#1f1b13] md:-rotate-2">
         <div className="relative aspect-[4/3] w-full">
-          <Image 
-            src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000&auto=format&fit=crop" 
-            alt="Grilling Chicken" 
+          <Image
+            src="/stitch/home/polaroid.jpg"
+            alt="Grelha a carvão com carne a assar"
             fill
+            sizes="(min-width: 768px) 42vw, 92vw"
             className="object-cover"
           />
         </div>
       </div>
-      <div className="text-left md:order-first">
-        <h2 className="font-headline text-6xl md:text-[4rem] text-brand-red mb-6 uppercase leading-[0.9]">
-          BORN IN THE FIRES OF ALGARVE
+      <div>
+        <p className="font-extrabold uppercase tracking-[0.2em] text-brand-red">A casa</p>
+        <h2 className="mt-3 font-headline text-6xl uppercase leading-[0.86] text-brand-black md:text-8xl">
+          O cheiro a carvão não engana.
         </h2>
-        <p className="text-xl font-[600] mb-8 max-w-[60ch]">
-          We don't do "mild." We do flavor. Our recipe has been passed down through three generations of grill masters in Portugal. We use only fresh birds, never frozen, and our secret Piri-Piri sauce is made fresh every morning.
+        <p className="mt-6 max-w-2xl text-lg font-bold leading-relaxed text-[#3b3327] md:text-xl">
+          A Grelha é feita para a rotina real do Porto Alto: almoço rápido,
+          jantar de família, frango para levar, febras, entremeada, sardinhas
+          quando é época e aquele molho que pede pão à parte.
         </p>
-        <p className="text-xl font-[600] mb-8 max-w-[60ch]">
-          It's not just food. It's a ritual. The charcoal, the heat, the smoke—it creates a crust you can't fake.
+        <p className="mt-4 max-w-2xl text-lg font-bold leading-relaxed text-[#5d3f3d]">
+          Sem truques de cadeia. Só uma cozinha de proximidade, grelha quente e
+          pratos pensados para sair bem à mesa ou na caixa de takeaway.
         </p>
-        <Link href="#" className="font-[800] text-xl text-brand-red underline uppercase">
-          READ OUR FULL STORY
+        <Link
+          href="/sobre"
+          className="mt-8 inline-flex border-b-4 border-brand-red font-headline text-3xl uppercase text-brand-red hover:text-brand-black"
+        >
+          Conhecer a história
         </Link>
+      </div>
       </div>
     </section>
   );

@@ -1,53 +1,77 @@
 import { siteConfig } from "./site";
 
-export function generateMetadata() {
+type PageMetadataInput = {
+  title?: string;
+  description?: string;
+  path?: string;
+  image?: string;
+  noIndex?: boolean;
+};
+
+export function absoluteUrl(path = "/") {
+  if (path.startsWith("http")) return path;
+  return `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+export function generateMetadata({
+  title,
+  description = siteConfig.description,
+  path = "/",
+  image = siteConfig.ogImage,
+  noIndex = false,
+}: PageMetadataInput = {}) {
+  const canonical = absoluteUrl(path);
+  const imageUrl = absoluteUrl(image);
+
   return {
+    metadataBase: new URL(siteConfig.url),
     title: {
-      default: siteConfig.name,
+      default: siteConfig.title,
       template: `%s | ${siteConfig.name}`,
     },
-    description: siteConfig.description,
+    description,
     keywords: siteConfig.keywords,
-    authors: [
-      {
-        name: siteConfig.creator.name,
-        url: siteConfig.creator.twitter,
-      },
-    ],
+    authors: [{ name: siteConfig.creator.name }],
     creator: siteConfig.creator.name,
+    alternates: {
+      canonical,
+      languages: {
+        "pt-PT": canonical,
+      },
+    },
     openGraph: {
       type: "website",
-      locale: "pt_PT",
-      url: siteConfig.url,
-      title: siteConfig.name,
-      description: siteConfig.description,
-      siteName: siteConfig.name,
+      locale: siteConfig.locale,
+      url: canonical,
+      title: title ? `${title} | ${siteConfig.name}` : siteConfig.title,
+      description,
+      siteName: siteConfig.title,
       images: [
         {
-          url: siteConfig.ogImage,
+          url: imageUrl,
           width: 1200,
           height: 630,
-          alt: siteConfig.name,
+          alt: title ? `${title} - ${siteConfig.name}` : siteConfig.title,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: siteConfig.name,
-      description: siteConfig.description,
-      images: [siteConfig.ogImage],
-      creator: siteConfig.creator.twitter,
+      title: title ? `${title} | ${siteConfig.name}` : siteConfig.title,
+      description,
+      images: [imageUrl],
     },
     robots: {
-      index: true,
-      follow: true,
+      index: !noIndex,
+      follow: !noIndex,
       googleBot: {
-        index: true,
-        follow: true,
+        index: !noIndex,
+        follow: !noIndex,
         "max-video-preview": -1,
         "max-image-preview": "large" as const,
         "max-snippet": -1,
       },
     },
+    ...(title ? { title } : {}),
   };
 }

@@ -1,155 +1,90 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { generateMetadata } from "@/config/seo";
+import { siteConfig } from "@/config/site";
+
+export const metadata: Metadata = generateMetadata({
+  title: "Contactos e horários",
+  description:
+    "Contactos, horário, direções e encomendas da A Grelha, churrasqueira no Porto Alto.",
+  path: "/contactos",
+  image: "/stitch/contactos/map.jpg",
+});
 
 export default function ContactosPage() {
   return (
-    <main className="max-w-7xl mx-auto px-6 py-20 relative min-h-screen">
-      {/* Massive Headline */}
-      <div className="relative z-10 mb-32">
-        <h1 className="font-headline text-[12vw] md:text-[15vw] leading-[0.85] uppercase -rotate-3 tracking-tighter text-[#1f1b13] select-none">
-          FIND THE<br/>FIRE
-        </h1>
-      </div>
-
-      {/* Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
-        {/* Address and Hours */}
-        <div className="lg:col-span-5 space-y-24 order-2 lg:order-1">
-          {/* Address Section */}
-          <div className="flex items-start gap-8">
-            <div className="flex flex-col text-5xl md:text-7xl font-headline leading-none text-[#b0001a]">
-              <span>A</span>
-              <span>V</span>
-              <span>E</span>
-            </div>
-            <div className="border-l-8 border-[#1f1b13] pl-8">
-              <p className="font-headline text-6xl md:text-8xl leading-none uppercase">124</p>
-              <p className="font-body text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-[#1f1b13]">Charred Oak</p>
-            </div>
+    <main id="conteudo" className="bg-[#e3d9cc]">
+      <section className="px-4 py-14 md:px-6 md:py-20">
+        <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="inline-block -rotate-2 bg-white px-4 py-2 font-extrabold uppercase tracking-[0.2em] text-brand-red shadow-[4px_4px_0_#1f1b13]">
+              Contactos
+            </p>
+            <h1 className="mt-6 font-headline text-[clamp(5rem,13vw,11rem)] uppercase leading-[0.82] text-brand-black">
+              Onde está a grelha
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg font-bold leading-relaxed text-[#3b3327] md:text-xl">
+              Ligue para confirmar disponibilidade, faça a sua encomenda online
+              ou abra direções para encontrar a A Grelha no Porto Alto.
+            </p>
           </div>
 
-          {/* Hours Section */}
-          <div className="relative pt-12">
-            <div className="absolute -top-4 left-0 bg-[#936600] text-white px-4 py-1 rotate-3 font-headline uppercase tracking-widest text-xl">
-              OPEN HEAT
-            </div>
-            <h3 className="font-headline text-5xl md:text-6xl uppercase leading-none mb-6 text-[#1f1b13]">THE COALS BURN DAILY</h3>
-            <div className="ml-12 border-l-4 border-[#916f6c] p-6 space-y-4">
-              <p className="font-body font-extrabold text-2xl uppercase tracking-widest text-[#5d3f3d]">Mon-Sun</p>
-              <p className="font-headline text-5xl text-[#b0001a]">11AM — LATE</p>
-            </div>
-          </div>
-
-          {/* Grill Marks Decoration */}
-          <div className="w-48">
-            <div className="h-1 bg-[#916f6c] bg-opacity-20 w-full mb-3"></div>
-            <div className="h-1 bg-[#916f6c] bg-opacity-20 w-full mb-3"></div>
-            <div className="h-1 bg-[#916f6c] bg-opacity-20 w-full mb-3"></div>
-            <div className="h-1 bg-[#916f6c] bg-opacity-20 w-full mb-3"></div>
-          </div>
-        </div>
-
-        {/* Reservation Form */}
-        <div className="lg:col-span-7 order-1 lg:order-2 bg-[#f1e7d9] p-8 md:p-12 relative shadow-2xl">
-          <div className="absolute -top-10 right-10 w-48 h-64 bg-white p-3 shadow-xl rotate-3 hidden md:block">
-            <img 
-              alt="Roaring wood fire" 
-              className="w-full h-48 object-cover grayscale" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDadn9YdPL51u4HoiIvnRQjYRTGGeb4_HvLFz0ZYY8uQqOLHKeuEYUTugI9sQ0WvNws1oemptRjO79YLsycdHJBGTqL8cbc3jKJkwhLXQTIdlvYfeZ8xOF7KbLuIBABAqV1Q2ESbUMH8XLGtxN2gGzJMEqjmah3CozhjhFdsa8uB_WOSg_Duz9HZOYRB_GgJTXRcYm9e8b9qSPp-NIgRC_lmSmkoN1dmcbZwBFkBtIOSp1Cd12m48ZkRwrXw2IBRY1Lm6KrvYoodu8"
-            />
-            <div className="pt-4 text-center font-headline text-[#1f1b13] uppercase tracking-tighter text-sm">
-              PROOF OF HEAT
-            </div>
-          </div>
-
-          <h2 className="font-headline text-6xl md:text-7xl uppercase mb-12 leading-[0.9] text-[#1f1b13]">
-            STOKE THE<br/>HEARTH
-          </h2>
-
-          <form action="#" className="space-y-12">
-            <div className="group">
-              <label className="block font-body font-extrabold uppercase tracking-widest text-sm mb-2 opacity-60 text-[#1f1b13]">
-                IDENTIFICATION / NAME
-              </label>
-              <input 
-                className="w-full bg-transparent border-t-0 border-x-0 border-b-[8px] border-[#1f1b13] p-4 font-headline text-4xl uppercase placeholder:opacity-20 transition-all duration-200 focus:outline-none focus:border-b-[#d91a2a] text-[#1f1b13]" 
-                placeholder="WHO HUNTS?" 
-                type="text"
-              />
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="group">
-                <label className="block font-body font-extrabold uppercase tracking-widest text-sm mb-2 opacity-60 text-[#1f1b13]">
-                  PARTY SIZE
-                </label>
-                <input 
-                  className="w-full bg-transparent border-t-0 border-x-0 border-b-[8px] border-[#1f1b13] p-4 font-headline text-4xl uppercase placeholder:opacity-20 transition-all duration-200 focus:outline-none focus:border-b-[#d91a2a] text-[#1f1b13]" 
-                  placeholder="GUESTS" 
-                  type="number"
-                />
+          <div className="border-4 border-brand-black bg-[#fff8f2] p-6 shadow-[10px_10px_0_#1f1b13]">
+            <address className="grid gap-6 not-italic">
+              <div>
+                <h2 className="font-headline text-4xl uppercase text-brand-red">Morada</h2>
+                <p className="mt-2 text-xl font-bold text-brand-black">
+                  {siteConfig.address.street}
+                </p>
+                <p className="mt-1 font-bold text-[#5d3f3d]">
+                  {siteConfig.address.postalCode} {siteConfig.address.locality}, {siteConfig.address.region}
+                </p>
               </div>
-              <div className="group">
-                <label className="block font-body font-extrabold uppercase tracking-widest text-sm mb-2 opacity-60 text-[#1f1b13]">
-                  ARRIVAL DATE
-                </label>
-                <input 
-                  className="w-full bg-transparent border-t-0 border-x-0 border-b-[8px] border-[#1f1b13] p-4 font-headline text-4xl uppercase transition-all duration-200 focus:outline-none focus:border-b-[#d91a2a] text-[#1f1b13]" 
-                  type="date"
-                />
+              <div>
+                <h2 className="font-headline text-4xl uppercase text-brand-red">Horário</h2>
+                <p className="mt-2 text-xl font-bold text-brand-black">{siteConfig.openingHoursLabel}</p>
               </div>
+              <div>
+                <h2 className="font-headline text-4xl uppercase text-brand-red">Telefone</h2>
+                <a className="mt-2 inline-block text-xl font-extrabold text-brand-black underline decoration-brand-red decoration-4 underline-offset-4" href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}>
+                  {siteConfig.phone}
+                </a>
+              </div>
+            </address>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <Link href="/encomendas" className="bg-brand-red px-6 py-4 text-center font-headline text-2xl uppercase text-white shadow-[5px_5px_0_#1f1b13]">
+                Encomendar
+              </Link>
+              <a href={siteConfig.links.maps} className="border-4 border-brand-black bg-white px-6 py-4 text-center font-headline text-2xl uppercase text-brand-black">
+                Direções
+              </a>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="group">
-              <label className="block font-body font-extrabold uppercase tracking-widest text-sm mb-2 opacity-60 text-[#1f1b13]">
-                DESIRED TIME
-              </label>
-              <input 
-                className="w-full bg-transparent border-t-0 border-x-0 border-b-[8px] border-[#1f1b13] p-4 font-headline text-4xl uppercase transition-all duration-200 focus:outline-none focus:border-b-[#d91a2a] text-[#1f1b13]" 
-                type="time"
-              />
-            </div>
-
-            <button 
-              className="w-full bg-[#d91a2a] text-white py-8 font-headline text-4xl uppercase tracking-widest hover:-translate-y-2 active:scale-95 transition-all duration-150" 
-              type="submit"
-            >
-              CLAIM YOUR SPOT
-            </button>
-          </form>
-        </div>
-      </div>
-
-      {/* Polaroid Gallery - Asymmetric Floating */}
-      <div className="mt-40 grid grid-cols-2 md:grid-cols-4 gap-8 pb-32">
-        <div className="bg-white p-2 shadow-lg -rotate-6 transition-transform hover:rotate-0">
-          <img 
-            alt="Grilled Meat" 
-            className="aspect-square object-cover grayscale brightness-75" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYUrDUVx7ucxpooVIeVj4dGcW1mt0QEoxGteBXXXdImIz-dOlZSZ-k8WK8gR4mH0Ieyx1gpWj4XNTOWT7l4fo6l1A3gsc6p8AhJ1wSY6-NSIPMe1VMoE7g_jpEIzR0S1aJJ4S_gAmXK4NQqGXQNEtgWS5XzqMj8jp2Qb2FOzJnexFg1GDixjZh7SUKUfcvg8Kz2VuazzYVY8hZR5OnEzO-tQ9_eDsjyAbF0d3KyhJGwC0J56EX3nG6By1h1w7oLRdm_auW-ucyXEc"
+      <section className="grid min-h-[520px] md:grid-cols-2">
+        <div className="relative min-h-[360px] bg-white">
+          <Image
+            src="/stitch/contactos/map.jpg"
+            alt="Mapa ilustrativo da zona de Porto Alto"
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover grayscale contrast-125"
           />
         </div>
-        <div className="bg-white p-2 shadow-lg rotate-12 mt-12 transition-transform hover:rotate-0">
-          <img 
-            alt="Steak" 
-            className="aspect-square object-cover grayscale contrast-125" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiz7gJrtihh0Spcj70DCNoMycyslZqPZiiXmD7aDuzyJGwBclsg8CBZdO7VzOJcxpKpUNKnIFTKvyrsI9ILlOInVXG4muk-GfSABi2gpbANktVZla3v877R7lGxrlQ1shDWdCH_ebwuvJdYBfDub1Yq9H1Ol4w_sqPugbSLw_Nu0a37Ur0g-6Fl-NuhUyYoIzse1qmj5n3jH5WNdvYBARsKpCLffDKsqqBXnm17FgxtFEKlo_7eaEnRsrC5tcfuXM-ddXfIRxNFe0"
+        <div className="relative min-h-[360px] bg-white">
+          <Image
+            src="/stitch/contactos/polaroid.jpg"
+            alt="Prato de grelhados servido na A Grelha"
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover"
           />
         </div>
-        <div className="bg-white p-2 shadow-lg -rotate-3 transition-transform hover:rotate-0">
-          <img 
-            alt="Restaurant Interior" 
-            className="aspect-square object-cover grayscale" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfEvre99eSHza0cz8JOK2HtStBrDx6DcJeTFPVhCqEYAYjaBzizlgD34bEmhY6ncjwQzy0SHhy-l62tyn9gg2ZTO-xH2YTRq1Xc085495tJfpVNDlwPZ1R7ypSpmvR3CwMmsYU-mPa3XbDFiy9ltuLB44YjG3vhupvc7bfKvEqUFGiCsu771Dres9MGpJ9sHQ3-akUqgGRcq1oAjXvP_lSDIIjMDfxRXVuXH2ULe8-iK58c9Vcfpvljh1D4OyIz3iRXHlil4EpDwY"
-          />
-        </div>
-        <div className="bg-white p-2 shadow-lg rotate-2 mt-8 transition-transform hover:rotate-0">
-          <img 
-            alt="Chef with knife" 
-            className="aspect-square object-cover grayscale brightness-50" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3e0QIOuH9vBd-VvvmS6BNQVIrGjQ6pOhQxKafZ3tTYCZqZZsdXP-GLIuXwHuhXqwGBVBuqCFWl4BM2JOhNX26iBZuPE6sO-CQ9Ubl1fXxQvVCemmuYrv3YyoYjlza0BV4LHaJ-unRxFpdqq9PE9L5xgi7K-7wBqyHtm4e0CdsNVpcaPmuQiGm7xi9f2ljUZdf7MdLzN1sVTZeY5wjHrTvHlbSJJySE7L1Tdn-y5xsoh2irVNItiimzasbzzi1O3QZCPgwUhgGbNo"
-          />
-        </div>
-      </div>
+      </section>
     </main>
   );
 }

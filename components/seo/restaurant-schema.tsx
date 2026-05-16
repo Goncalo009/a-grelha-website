@@ -1,27 +1,36 @@
 import { siteConfig } from "@/config/site";
+import { absoluteUrl } from "@/config/seo";
 
 export function RestaurantSchema() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
-    name: siteConfig.name.split(" — ")[0],
+    "@type": ["Restaurant", "LocalBusiness"],
+    "@id": `${siteConfig.url}/#restaurant`,
+    name: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    image: [absoluteUrl("/stitch/home/hero.jpg"), absoluteUrl("/stitch/menu/frango-piri-piri.jpg")],
+    logo: absoluteUrl("/stitch/home/hero.jpg"),
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    priceRange: siteConfig.priceRange,
+    servesCuisine: siteConfig.cuisine,
+    menu: absoluteUrl("/menu"),
+    acceptsReservations: true,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Rua Principal, 123",
-      addressLocality: "Porto Alto",
-      postalCode: "2610-000",
-      addressCountry: "PT",
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.locality,
+      addressRegion: siteConfig.address.region,
+      postalCode: siteConfig.address.postalCode,
+      addressCountry: siteConfig.address.country,
     },
-    telephone: "+351 000 000 000",
-    openingHours: [
-      "Tu-Fr 12:00-15:00",
-      "Tu-Fr 19:00-23:00",
-      "Sa-Su 12:00-23:00",
-    ],
-    servesCuisine: ["Portuguese", "Churrasqueira"],
-    priceRange: "$$",
-    menu: `${siteConfig.url}/menu`,
-    image: `${siteConfig.url}/images/hero.jpg`,
+    sameAs: [siteConfig.links.instagram, siteConfig.links.facebook],
+    potentialAction: {
+      "@type": "OrderAction",
+      target: absoluteUrl("/encomendas"),
+      deliveryMethod: "https://schema.org/OnSitePickup",
+    },
   };
 
   return (

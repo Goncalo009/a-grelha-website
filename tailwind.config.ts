@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 const config: Config = {
   darkMode: ["class"],
@@ -16,15 +17,15 @@ const config: Config = {
         "brand-white": "#ffffff",
       },
       fontFamily: {
-        headline: ["var(--font-anton)", "sans-serif"],
-        body: ["var(--font-open-sans)", "sans-serif"],
-        label: ["var(--font-open-sans)", "sans-serif"],
+        headline: ["Impact", "Haettenschweiler", "Arial Narrow", "sans-serif"],
+        body: ["Arial", "Helvetica", "sans-serif"],
+        label: ["Arial", "Helvetica", "sans-serif"],
       },
       borderRadius: {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate],
 } satisfies Config;
 
 export default config;

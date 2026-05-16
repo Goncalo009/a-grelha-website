@@ -3,124 +3,124 @@
     {
       "id": "entradas",
       "name": "Entradas",
-      "description": "Para começar",
+      "description": "Para abrir o apetite enquanto a grelha trabalha",
       "dishes": [
         {
           "id": "entrada-1",
-          "name": "Pão com Azeite e Alho",
-          "description": "Pão fresco temperado com azeite virgin e alho",
-          "price": 3.50
+          "name": "Pão e Azeitonas",
+          "description": "Pão de mistura, azeitonas temperadas e manteiga.",
+          "price": 2.50
         },
         {
           "id": "entrada-2",
-          "name": "Presunto Cru",
-          "description": "Seleção de presunto cru da região",
-          "price": 8.00
+          "name": "Chouriço Assado",
+          "description": "Chouriço marcado no lume, cortado para partilhar.",
+          "price": 6.50
         },
         {
           "id": "entrada-3",
-          "name": "Queijo da Serra",
-          "description": "Queijo regional com mel e nozes",
-          "price": 7.50
+          "name": "Rissóis da Casa",
+          "description": "Rissóis quentes, crocantes, vendidos à unidade.",
+          "price": 1.80
         },
         {
           "id": "entrada-4",
-          "name": "Empanada de Galinha",
-          "description": "Empanada caseira recheada com galinha desfiada",
-          "price": 5.50
+          "name": "Sopa do Dia",
+          "description": "Sopa caseira; confirme a variedade ao encomendar.",
+          "price": 2.20
         }
       ]
     },
     {
       "id": "pratos",
       "name": "Pratos",
-      "description": "Pratos principais da casa",
+      "description": "Clássicos para comer no local ou levar pronto",
       "dishes": [
         {
           "id": "prato-1",
-          "name": "Francesinha Tradicional",
-          "description": "Pão, fiambre, linguiça, salsicha fresca, queijo, molho especial",
-          "price": 12.00
-        },
-        {
-          "id": "prato-2",
-          "name": "Bife à Grelhada",
-          "description": "Bife de novilho grelhado no carvão com batatas fritas e salada",
-          "price": 14.00
-        },
-        {
-          "id": "prato-3",
           "name": "Frango no Churrasco",
-          "description": "Frango de quintal assado no carvão com molho de piri-piri",
+          "description": "Frango assado no carvão, molho da casa e opção de piri-piri.",
           "price": 10.50
         },
         {
+          "id": "prato-2",
+          "name": "Meio Frango com Acompanhamento",
+          "description": "Meio frango, batata frita e salada simples.",
+          "price": 8.50
+        },
+        {
+          "id": "prato-3",
+          "name": "Febras Grelhadas",
+          "description": "Febras no carvão com arroz, batata e salada.",
+          "price": 9.50
+        },
+        {
           "id": "prato-4",
-          "name": "Costeleta de Vitela",
-          "description": "Costeleta de vitela grelhada com arroz de grelos",
-          "price": 16.00
+          "name": "Entremeada Grelhada",
+          "description": "Entremeada bem marcada, servida com acompanhamento à escolha.",
+          "price": 10.00
         }
       ]
     },
     {
       "id": "grelhadas",
       "name": "Grelhadas",
-      "description": "O melhor da grelha em carvão",
+      "description": "Carne e peixe com sabor a carvão",
       "dishes": [
         {
           "id": "grelhada-1",
-          "name": "Espetada de Borrego",
-          "description": "Espetada de borrego temperada com ervas aromáticas",
-          "price": 15.00
+          "name": "Churrasco Misto",
+          "description": "Seleção de frango, febra, entremeada e enchido grelhado.",
+          "price": 13.50
         },
         {
           "id": "grelhada-2",
-          "name": "Picanha Namorada",
-          "description": "Picanha bovina grelhada no ponto com farofa e vinagrete",
-          "price": 18.00
+          "name": "Bitoque da Casa",
+          "description": "Bife grelhado, ovo, batata frita, arroz e salada.",
+          "price": 11.50
         },
         {
           "id": "grelhada-3",
           "name": "Sardinhas Assadas",
-          "description": "Sardinhas frescas assadas no carvão com salada de tomate e cebola",
+          "description": "Sardinhas no carvão, quando é época; confirme disponibilidade.",
           "price": 8.00
         },
         {
           "id": "grelhada-4",
-          "name": "Churrasco Misto",
-          "description": "Espetada de frango, picanha e linguiça",
-          "price": 13.50
+          "name": "Dourada Grelhada",
+          "description": "Peixe grelhado no carvão com batata cozida e legumes.",
+          "price": 12.50
         }
       ]
     },
     {
       "id": "sobremesas",
       "name": "Sobremesas",
-      "description": "Doces tentações",
+      "description": "Doces simples para fechar a refeição",
       "dishes": [
         {
           "id": "sobremesa-1",
           "name": "Pudim de Ovos",
-          "description": "Pudim caseiro com calda de caramelo",
-          "price": 4.00
+          "description": "Pudim caseiro com caramelo.",
+          "price": 3.50
         },
         {
           "id": "sobremesa-2",
-          "name": "Leite Credo",
-          "description": "Tradicional leite creme queimado",
+          "name": "Leite Creme",
+          "description": "Leite creme tradicional queimado no momento quando possível.",
           "price": 3.50
         },
         {
           "id": "sobremesa-3",
           "name": "Bolo de Bolacha",
-          "description": "Bolo de bolacha com creme de manteiga",
-          "price": 4.50
+          "description": "Camadas de bolacha e creme de café.",
+          "price": 4.00
         },
         {
           "id": "sobremesa-4",
           "name": "Fruta da Época",
-          "description": "Seleção de fruta fresca da época",
-          "price": 3.00
+          "description": "Peça a fruta disponível no dia.",
+          "price": 2.50
         }
       ]
     }

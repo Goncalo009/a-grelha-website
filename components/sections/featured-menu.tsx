@@ -1,58 +1,66 @@
+import Link from "next/link";
 import Image from "next/image";
 
 const MENU_ITEMS = [
   {
-    title: "WHOLE BIRD",
-    description: "Spatchcocked and grilled to perfection. Served with lemon & herb or extra hot piri-piri.",
-    price: "$24.00",
-    image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=1000&auto=format&fit=crop",
-    alt: "Whole Chicken"
+    title: "Frango piri-piri",
+    description: "Assado no carvão, pincelado no fim e cortado para levar sem perder suco.",
+    price: "10,50 €",
+    image: "/stitch/menu/frango-piri-piri.jpg",
+    alt: "Frango piri-piri no churrasco"
   },
   {
-    title: "FIRE WINGS",
-    description: "12 Wings tossed in our signature \"Volcano\" glaze. Not for the faint of heart.",
-    price: "$16.50",
-    image: "https://images.unsplash.com/photo-1527477396000-64ca9c0016d3?q=80&w=1000&auto=format&fit=crop",
-    alt: "Spicy Wings"
+    title: "Chouriço assado",
+    description: "Entrada de balcão, lume vivo e fatias para dividir antes do prato principal.",
+    price: "6,50 €",
+    image: "/stitch/menu/chourico.jpg",
+    alt: "Chouriço assado"
   },
   {
-    title: "LISBON BOWL",
-    description: "Pulled grilled breast over spicy rice, charred corn, and macho peas.",
-    price: "$18.00",
-    image: "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?q=80&w=1000&auto=format&fit=crop",
-    alt: "Chicken Bowl"
+    title: "Rissóis da casa",
+    description: "Crocantes, quentes e bons para começar enquanto a grelha faz o resto.",
+    price: "1,80 €",
+    image: "/stitch/menu/rissos.jpg",
+    alt: "Rissóis caseiros"
   }
 ];
 
 export function FeaturedMenu() {
   return (
-    <section id="menu" className="py-24 px-[5%] text-center">
-      <h2 className="font-headline text-[5rem] mb-16 rotate-1 uppercase leading-[0.9] text-brand-black">
-        HIGHLIGHT DISHES
-      </h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-12">
-        {MENU_ITEMS.map((item, index) => (
-          <div key={index} className="flex flex-col rounded-card overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.15)] transition-transform duration-300 hover:-translate-y-[10px] relative">
-            <div className="h-[300px] relative bg-[#ddd]">
-              <Image 
-                src={item.image} 
-                alt={item.alt} 
-                fill 
+    <section id="menu" className="bg-brand-black px-4 py-24 text-white md:px-6">
+      <div className="mx-auto max-w-7xl">
+      <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div>
+          <p className="font-extrabold uppercase tracking-[0.2em] text-brand-red">Mais pedidos</p>
+          <h2 className="mt-3 font-headline text-6xl uppercase leading-[0.86] md:text-8xl">
+            Sai da grelha
+          </h2>
+        </div>
+        <Link href="/menu" className="self-start bg-white px-6 py-4 font-headline text-2xl uppercase text-brand-black shadow-[5px_5px_0_#d91a2a] hover:-translate-y-1 md:self-auto">
+          Menu completo
+        </Link>
+      </div>
+
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        {MENU_ITEMS.map((item) => (
+          <article key={item.title} className="relative flex flex-col bg-[#fff8f2] text-brand-black shadow-[10px_10px_0_rgba(217,26,42,0.55)] transition-transform duration-300 hover:-translate-y-1">
+            <div className="relative aspect-[4/3] bg-[#ddd]">
+              <Image
+                src={item.image}
+                alt={item.alt}
+                fill
+                sizes="(min-width: 768px) 30vw, 92vw"
                 className="object-cover"
               />
             </div>
-            <div className="bg-brand-red text-white p-6 text-left flex-grow flex flex-col justify-between">
-              <div>
-                <h3 className="font-headline text-3xl mb-2 uppercase">{item.title}</h3>
-                <p className="font-body text-[0.9rem] opacity-90 mb-4">{item.description}</p>
-              </div>
+            <div className="flex flex-1 flex-col p-6">
+              <h3 className="font-headline text-4xl uppercase leading-none">{item.title}</h3>
+              <p className="mt-3 flex-1 text-base font-bold leading-relaxed text-[#5d3f3d]">{item.description}</p>
+              <p className="mt-5 font-headline text-3xl text-brand-red">{item.price}</p>
             </div>
-            <div className="bg-brand-black text-white p-4 font-headline text-2xl text-right">
-              {item.price}
-            </div>
-          </div>
+          </article>
         ))}
+      </div>
       </div>
     </section>
   );
