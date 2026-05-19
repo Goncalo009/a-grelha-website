@@ -209,6 +209,66 @@
       justify-content: flex-start;
     }
 
+    html:has(.contact-mobile-snap) {
+      scroll-snap-type: none;
+      scroll-padding-top: var(--ag-mobile-header-h);
+      scroll-padding-bottom: 0px;
+    }
+
+    html:has(.contact-mobile-snap)[data-ag-contact-snap-animating="true"] {
+      scroll-behavior: auto;
+      scroll-snap-type: none;
+    }
+
+    .contact-mobile-snap .contact-snap-section {
+      scroll-margin-top: var(--ag-mobile-header-h);
+      scroll-snap-align: none;
+      scroll-snap-stop: normal;
+    }
+
+    .contact-mobile-snap .contact-snap-section:not(.contact-faq-section) {
+      height: var(--ag-mobile-section-h);
+      min-height: 0;
+    }
+
+    .contact-hero-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block: clamp(0.55rem, 1.4svh, 0.9rem);
+    }
+
+    .contact-location-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow: hidden;
+      padding-top: clamp(0.65rem, 1.65svh, 1.05rem);
+    }
+
+    .contact-location-section .contact-map--hide-static-address {
+      height: clamp(12rem, 31svh, 14rem) !important;
+      min-height: clamp(12rem, 31svh, 14rem) !important;
+    }
+
+    .contact-location-section [href^="https://www.google.com/maps"],
+    .contact-location-section [href^="https://wa.me"],
+    .contact-location-section [href^="tel:"] {
+      min-height: clamp(3.1rem, 8svh, 3.65rem);
+    }
+
+    .contact-location-note {
+      display: none !important;
+    }
+
+    .contact-faq-section {
+      height: auto;
+      min-height: var(--ag-mobile-section-h);
+      overflow: visible;
+      padding-bottom: calc(var(--ag-mobile-action-bar-h) + 1rem);
+      padding-top: clamp(0.65rem, 1.65svh, 1.05rem);
+    }
+
     .ag-featured-menu-section > div {
       gap: clamp(0.4rem, 1.1svh, 0.7rem);
       justify-content: flex-start;

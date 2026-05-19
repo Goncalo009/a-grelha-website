@@ -1,5 +1,6 @@
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/config/seo";
+import { clientSeoData } from "@/config/client-seo";
 
 export function RestaurantSchema() {
   const schema = {
@@ -10,13 +11,8 @@ export function RestaurantSchema() {
     url: siteConfig.url,
     description: siteConfig.description,
     image: [absoluteUrl("/stitch/home/hero.jpg"), absoluteUrl("/stitch/menu/frango-piri-piri.jpg")],
-    logo: absoluteUrl("/stitch/home/hero.jpg"),
+    logo: absoluteUrl("/logo/a-grelha-logo.svg"),
     telephone: siteConfig.phone,
-    email: siteConfig.email,
-    priceRange: siteConfig.priceRange,
-    servesCuisine: siteConfig.cuisine,
-    menu: absoluteUrl("/menu"),
-    acceptsReservations: true,
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address.street,
@@ -25,12 +21,17 @@ export function RestaurantSchema() {
       postalCode: siteConfig.address.postalCode,
       addressCountry: siteConfig.address.country,
     },
-    sameAs: [siteConfig.links.instagram, siteConfig.links.facebook],
-    potentialAction: {
-      "@type": "OrderAction",
-      target: absoluteUrl("/encomendas"),
-      deliveryMethod: "https://schema.org/OnSitePickup",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.coordinates.latitude,
+      longitude: siteConfig.coordinates.longitude,
     },
+    hasMap: siteConfig.links.maps,
+    priceRange: siteConfig.priceRange,
+    servesCuisine: siteConfig.cuisine,
+    openingHoursSpecification: clientSeoData.openingHours.schema,
+    menu: absoluteUrl("/menu"),
+    sameAs: [siteConfig.links.instagram, siteConfig.links.facebook],
   };
 
   return (
