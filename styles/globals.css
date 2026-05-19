@@ -3,6 +3,59 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 36 26% 95%;
+    --foreground: 0 0% 11%;
+    --card: 36 40% 98%;
+    --card-foreground: 0 0% 11%;
+    --popover: 36 40% 98%;
+    --popover-foreground: 0 0% 11%;
+    --primary: 10 63% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 18% 89%;
+    --secondary-foreground: 0 0% 11%;
+    --muted: 30 18% 89%;
+    --muted-foreground: 21 12% 38%;
+    --accent: 26 35% 91%;
+    --accent-foreground: 0 0% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 13% 82%;
+    --input: 20 13% 82%;
+    --ring: 10 63% 47%;
+    --ag-mobile-header-h: 4rem;
+    --ag-mobile-action-bar-h: calc(4.8125rem + env(safe-area-inset-bottom, 0px));
+    --ag-mobile-section-h: calc(100svh - var(--ag-mobile-header-h) - var(--ag-mobile-action-bar-h));
+  }
+
+  @supports (height: 100dvh) {
+    :root {
+      --ag-mobile-section-h: calc(100dvh - var(--ag-mobile-header-h) - var(--ag-mobile-action-bar-h));
+    }
+  }
+
+  .dark {
+    --background: 0 0% 11%;
+    --foreground: 36 26% 95%;
+    --card: 0 0% 14%;
+    --card-foreground: 36 26% 95%;
+    --popover: 0 0% 14%;
+    --popover-foreground: 36 26% 95%;
+    --primary: 10 63% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 24 10% 18%;
+    --secondary-foreground: 36 26% 95%;
+    --muted: 24 10% 18%;
+    --muted-foreground: 30 12% 70%;
+    --accent: 24 10% 22%;
+    --accent-foreground: 36 26% 95%;
+    --destructive: 0 63% 44%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 24 10% 24%;
+    --input: 24 10% 24%;
+    --ring: 10 63% 52%;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -16,6 +69,12 @@
   ::selection {
     background: #c6452c;
     color: #ffffff;
+  }
+  .maplibregl-popup-content {
+    @apply bg-transparent! shadow-none! p-0! rounded-none!;
+  }
+  .maplibregl-popup-tip {
+    @apply hidden!;
   }
 }
 
@@ -85,7 +144,7 @@
 
   @media (max-width: 767px) {
     .ag-hero {
-      min-height: calc(100svh - 136px);
+      min-height: var(--ag-mobile-section-h);
     }
 
     .ag-hero-media {
@@ -97,7 +156,7 @@
       width: 100%;
       min-width: 0;
       max-width: none;
-      min-height: calc(100svh - 136px);
+      min-height: var(--ag-mobile-section-h);
       padding-top: 2rem;
       padding-bottom: 2rem;
     }
@@ -108,35 +167,31 @@
       padding-bottom: 28px;
     }
 
-    @supports (height: 100dvh) {
-      .ag-hero,
-      .ag-hero-copy {
-        min-height: calc(100dvh - 136px);
-      }
-    }
-
     .ag-reviews-section {
-      height: calc(100svh - 142px);
-      min-height: calc(100svh - 142px);
-    }
-
-    @supports (height: 100dvh) {
-      .ag-reviews-section {
-        height: calc(100dvh - 142px);
-        min-height: calc(100dvh - 142px);
-      }
+      height: var(--ag-mobile-section-h);
+      min-height: var(--ag-mobile-section-h);
     }
 
     html:has(.home-mobile-snap) {
-      scroll-snap-type: y mandatory;
-      scroll-padding-top: 64px;
-      scroll-padding-bottom: 78px;
+      scroll-snap-type: none;
+      scroll-padding-top: var(--ag-mobile-header-h);
+      scroll-padding-bottom: 0px;
+    }
+
+    html:has(.home-mobile-snap)[data-ag-snap-animating="true"] {
+      scroll-behavior: auto;
+      scroll-snap-type: none;
     }
 
     .home-mobile-snap > section {
-      min-height: calc(100svh - 142px);
+      min-height: var(--ag-mobile-section-h);
+      scroll-snap-align: none;
+      scroll-snap-stop: normal;
+    }
+
+    html:has(.home-mobile-snap) footer {
       scroll-snap-align: start;
-      scroll-snap-stop: always;
+      scroll-snap-stop: normal;
     }
 
     .home-mobile-snap > section:not(.ag-hero) {
@@ -146,7 +201,7 @@
     }
 
     .home-mobile-snap > #menu {
-      height: calc(100svh - 142px);
+      height: var(--ag-mobile-section-h);
       min-height: 0;
     }
 
@@ -154,15 +209,38 @@
       justify-content: flex-start;
     }
 
-    @supports (height: 100dvh) {
-      .home-mobile-snap > section {
-        min-height: calc(100dvh - 142px);
-      }
-
-      .home-mobile-snap > #menu {
-        height: calc(100dvh - 142px);
-      }
+    .ag-featured-menu-section > div {
+      gap: clamp(0.4rem, 1.1svh, 0.7rem);
+      justify-content: flex-start;
+      padding-bottom: clamp(0.35rem, 1svh, 0.65rem);
     }
+
+    .ag-featured-menu-section header {
+      max-width: 19rem;
+    }
+
+    .ag-favorite-card {
+      min-height: clamp(5.8rem, 15.7svh, 7.35rem) !important;
+    }
+
+    .ag-favorite-media {
+      min-height: clamp(5.8rem, 15.7svh, 7.35rem) !important;
+    }
+
+    .ag-menu-benefits {
+      margin-top: 0.1rem;
+      padding-bottom: 0.15rem;
+    }
+
+    .ag-review-secondary-action {
+      display: none !important;
+    }
+
+    .ag-menu-benefit-title {
+      font-size: clamp(0.5rem, 1.65vw, 0.56rem);
+      line-height: 1.08;
+    }
+
   }
 
   .ag-contact-section {
@@ -198,93 +276,25 @@
     background: #f3eee6;
   }
 
+  .contact-map::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(247, 244, 240, 0.16), rgba(247, 244, 240, 0.02) 46%, rgba(239, 230, 218, 0.18)),
+      radial-gradient(circle at 50% 54%, rgba(217, 72, 50, 0.08), transparent 24%);
+    mix-blend-mode: multiply;
+  }
+
   .contact-map--compact {
     height: clamp(230px, 30vh, 354px);
     min-height: 230px;
   }
 
-  .contact-map-label {
-    position: absolute;
-    z-index: 2;
-    color: #1c1c1e;
-    font-size: clamp(0.72rem, 1.2vw, 0.98rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
-  }
-
-  .contact-map-label--porto {
-    right: 13%;
-    top: 11%;
-  }
-
-  .contact-map-label--rua {
-    left: 7%;
-    top: 50%;
-    font-size: clamp(0.64rem, 1vw, 0.82rem);
-  }
-
-  .contact-map-road-badge {
-    position: absolute;
-    right: 14%;
-    bottom: 30%;
-    z-index: 2;
-    border-radius: 2px;
-    background: #efc521;
-    padding: 1px 5px;
-    color: #1c1c1e;
-    font-size: 0.56rem;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-  }
-
-  .contact-map-pin {
-    position: absolute;
-    left: 50%;
-    top: 46%;
-    z-index: 3;
-    height: clamp(48px, 6.2vh, 64px);
-    width: clamp(48px, 6.2vh, 64px);
-    transform: translate(-50%, -50%) rotate(-45deg);
-    border-radius: 50% 50% 50% 8px;
-    background: #d94832;
-    box-shadow: 0 12px 22px rgba(217, 72, 50, 0.28);
-  }
-
-  .contact-map-pin::before {
-    content: "";
-    position: absolute;
-    inset: 13px;
-    border: 5px solid #fffaf5;
-    border-radius: 999px;
-  }
-
-  .contact-map-pin::after {
-    content: "";
-    position: absolute;
-    bottom: -7px;
-    left: 7px;
-    height: 7px;
-    width: 7px;
-    border-radius: 999px;
-    background: #d94832;
-    box-shadow: 0 7px 13px rgba(70, 43, 29, 0.18);
-  }
-
-  .contact-address-card {
-    position: absolute;
-    inset-inline: clamp(10px, 3.2vw, 18px);
-    bottom: clamp(8px, 1.6vh, 14px);
-    z-index: 4;
-    display: flex;
-    align-items: center;
-    gap: 0.72rem;
-    border: 1px solid rgba(81, 65, 58, 0.12);
-    border-radius: 18px;
-    background: rgba(255, 253, 249, 0.94);
-    padding: clamp(0.64rem, 1.6vh, 0.88rem) clamp(0.76rem, 2vw, 1rem);
-    box-shadow: 0 12px 28px rgba(70, 43, 29, 0.14);
-    backdrop-filter: blur(10px);
+  .contact-map--hide-static-address .static-map-address-card {
+    display: none;
   }
 
   .contact-action-card {
@@ -372,11 +382,6 @@
       min-height: 50px;
     }
 
-    .contact-address-card {
-      bottom: 0.45rem;
-      border-radius: 15px;
-      padding: 0.52rem 0.62rem;
-    }
 
     .ag-contact-section aside h2 {
       margin-top: 1.6rem;
@@ -398,66 +403,67 @@
     .home-mobile-snap > #contactos.ag-contact-section,
     .ag-contact-section {
       display: block;
-      height: calc(100svh - 142px);
+      height: var(--ag-mobile-section-h);
       min-height: 0;
       overflow: hidden;
       scroll-snap-align: start;
     }
 
-    @supports (height: 100dvh) {
-      .home-mobile-snap > #contactos.ag-contact-section,
-      .ag-contact-section {
-        height: calc(100dvh - 142px);
-      }
-    }
-
     .contact-phone-content {
       justify-content: flex-start;
-      padding-top: clamp(0.88rem, 2.1vh, 1.2rem);
+      padding-top: clamp(0.28rem, 0.72svh, 0.46rem);
+    }
+
+    .contact-phone-content h2 {
+      margin-top: clamp(0.28rem, 0.8svh, 0.5rem);
+      font-size: clamp(1.82rem, min(8.2vw, 5svh), 2.34rem);
+      line-height: 0.93;
+    }
+
+    .contact-phone-content p:not(:first-child) {
+      margin-top: clamp(0.42rem, 1svh, 0.62rem);
+      max-width: 32.5ch;
+      font-size: clamp(0.78rem, 3.4vw, 0.88rem);
+      line-height: 1.32;
     }
 
     .contact-map-shell {
-      height: clamp(206px, 32.5svh, 276px);
+      margin-top: clamp(0.62rem, 1.5svh, 0.85rem);
+      height: clamp(190px, 28.2svh, 242px);
     }
 
     .contact-action-row {
-      min-height: clamp(58px, 8.65svh, 68px);
+      min-height: clamp(52px, 7.2svh, 60px);
+      padding-inline: clamp(0.86rem, 2.9vw, 1.12rem);
+    }
+
+    .contact-action-icon {
+      width: 2.24rem;
+      flex-basis: 2.24rem;
     }
   }
 
   @media (max-width: 767px) and (max-height: 740px) {
     .contact-phone-content {
-      padding-top: 0.55rem;
+      padding-top: 0.5rem;
     }
 
     .contact-phone-content h2 {
-      margin-top: 0.35rem;
-      font-size: 2.22rem;
+      margin-top: 0.32rem;
     }
 
     .contact-phone-content p:not(:first-child) {
-      margin-top: 0.45rem;
-      font-size: 0.86rem;
-      line-height: 1.28;
+      margin-top: 0.4rem;
+      line-height: 1.25;
     }
 
     .contact-map-shell {
-      margin-top: 0.65rem;
-      height: clamp(178px, 27svh, 214px);
-    }
-
-    .contact-address-card {
-      gap: 0.45rem;
-      border-radius: 15px;
-      padding: 0.52rem 0.58rem;
-    }
-
-    .contact-address-card span:last-child span {
-      display: none;
+      margin-top: 0.55rem;
+      height: clamp(166px, 25.4svh, 196px);
     }
 
     .contact-action-row {
-      min-height: 56px;
+      min-height: 50px;
       gap: 0.48rem;
       padding-inline: 0.72rem;
     }
@@ -465,6 +471,31 @@
     .contact-action-icon {
       width: 2rem;
       flex-basis: 2rem;
+    }
+  }
+
+  @media (max-width: 767px) and (max-height: 700px) {
+    .ag-featured-menu-section header p,
+    .ag-favorite-card [data-favorite-description],
+    .ag-menu-benefit-copy {
+      display: none;
+    }
+
+    .ag-featured-menu-section header h2 {
+      font-size: 1.62rem;
+    }
+
+    .ag-favorite-card,
+    .ag-favorite-media {
+      min-height: clamp(5.45rem, 14.2svh, 6.1rem) !important;
+    }
+
+    .ag-menu-benefits svg {
+      margin-bottom: 0.15rem;
+    }
+
+    .ag-review-secondary-action {
+      display: none !important;
     }
   }
 }
@@ -504,6 +535,10 @@
   }
 
   .home-mobile-snap > section {
+    scroll-snap-align: none;
+  }
+
+  html:has(.home-mobile-snap) footer {
     scroll-snap-align: none;
   }
 }

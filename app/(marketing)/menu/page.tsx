@@ -1,115 +1,172 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import menu from "@/content/menu.json";
+import { Leaf, ShoppingBag } from "lucide-react";
 import { generateMetadata } from "@/config/seo";
+import { OrderDrawer } from "@/components/forms/order-drawer";
+import { AppScreen } from "@/components/ui/app-screen";
+import {
+  appMenuGroups,
+  menuAllergens,
+  menuCouvert,
+  menuNotes,
+  type AppMenuGroup,
+  type AppMenuItem,
+} from "@/lib/app-menu";
 
 export const metadata: Metadata = generateMetadata({
-  title: "Menu de grelhados e takeaway",
+  title: "Menu para takeaway",
   description:
-    "Veja o menu da A Grelha no Porto Alto: entradas, frango no churrasco, grelhados no carvão, pratos portugueses e sobremesas caseiras.",
+    "Veja entradas, grelhados por kg, combos com preço por dose e acompanhamentos da A Grelha. Confirme disponibilidade por telefone ou WhatsApp.",
   path: "/menu",
   image: "/stitch/menu/frango-piri-piri.jpg",
 });
 
-const categoryImages: Record<string, string> = {
-  entradas: "/stitch/menu/azeitonas.jpg",
-  pratos: "/stitch/menu/frango-piri-piri.jpg",
-  grelhadas: "/stitch/home/whole-bird.jpg",
-  sobremesas: "/stitch/menu/rissos.jpg",
-};
+function categoryLabel(category: AppMenuGroup) {
+  return category.name.split("/")[0]?.trim() || category.name;
+}
+
+function categoryTabLabel(category: AppMenuGroup) {
+  const label = categoryLabel(category);
+  if (label === "Combos") return "Combos";
+  return label === "Acompanhamentos" ? "Acomp." : label;
+}
+
+function MenuCard({ item }: { item: AppMenuItem }) {
+  const priceNote = item.categoryId === "combos" ? "Preço dose" : item.unit === "kg" ? "Preço/kg" : "Preço un.";
+
+  return (
+    <article className="group grid min-h-[96px] grid-cols-[34%_1fr] overflow-hidden rounded-[15px] border border-[#e7ded6] bg-white shadow-[0_8px_22px_rgba(54,35,23,0.06)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(54,35,23,0.10)] focus-within:ring-2 focus-within:ring-[#c6452c]/35">
+      <div className="relative min-h-[96px] overflow-hidden bg-[#ede8e1]">
+        <Image
+          src={item.image}
+          alt={item.alt}
+          fill
+          sizes="(max-width: 430px) 34vw, 146px"
+          className={`object-cover transition duration-500 group-hover:scale-[1.04] ${item.imagePosition ?? "object-center"}`}
+        />
+      </div>
+
+      <div className="grid min-w-0 grid-cols-[1fr_auto] gap-2.5 px-3.5 py-3">
+        <div className="min-w-0">
+          <div className="flex items-start gap-1.5">
+            <h2 className="line-clamp-2 text-[0.82rem] font-extrabold uppercase leading-[1.08] tracking-[-0.01em] text-[#141414]">
+              {item.name}
+            </h2>
+            {item.orderOnly ? (
+              <span className="mt-0.5 shrink-0 rounded-full bg-[#fff3ec] px-1.5 py-0.5 text-[0.48rem] font-extrabold uppercase tracking-[0.08em] text-[#c6452c]">
+                3 dias
+              </span>
+            ) : null}
+          </div>
+          <p className="mt-1.5 line-clamp-2 max-w-[20ch] text-[0.72rem] leading-[1.05rem] text-[#1c1c1c]/68">
+            {item.description}
+          </p>
+          <div className="mt-2.5 flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+            <p className="text-[0.92rem] font-extrabold leading-none text-[#141414]">{item.price}</p>
+            <p className="text-[0.62rem] leading-none text-[#1c1c1c]/54">{priceNote}</p>
+          </div>
+        </div>
+
+        <div className="flex items-end pb-0.5">
+          <OrderDrawer
+            variant="quick-add"
+            product={item}
+            label={`Adicionar ${item.name}`}
+            className="h-11 w-11 rounded-[12px] shadow-[0_10px_20px_rgba(198,69,44,0.20)]"
+          />
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export default function MenuPage() {
   return (
-    <main id="conteudo" className="bg-[#e3d9cc]">
-      <section className="px-4 py-14 md:px-6 md:py-20">
-        <div className="mx-auto grid max-w-7xl items-end gap-10 lg:grid-cols-[1fr_0.8fr]">
-          <div>
-            <p className="inline-block -rotate-2 bg-white px-4 py-2 font-extrabold uppercase tracking-[0.2em] text-brand-red shadow-[4px_4px_0_#1f1b13]">
-              Menu para mesa e takeaway
-            </p>
-            <h1 className="mt-6 font-headline text-[clamp(5rem,13vw,11rem)] uppercase leading-[0.82] text-brand-black">
-              Da grelha para a mesa
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg font-bold leading-relaxed text-[#3b3327] md:text-xl">
-              Pratos simples, feitos no carvão, com acompanhamentos de casa.
-              Os preços podem variar em loja conforme época e disponibilidade.
-            </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href="/encomendas" className="bg-brand-red px-7 py-5 text-center font-headline text-3xl uppercase text-white shadow-[6px_6px_0_#1f1b13]">
-                Encomendar
-              </Link>
-              <Link href="/contactos" className="border-4 border-brand-black bg-[#fff8f2] px-7 py-5 text-center font-headline text-3xl uppercase text-brand-black">
-                Horários
-              </Link>
-            </div>
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden border-8 border-white bg-white shadow-[16px_16px_0_#1f1b13] lg:rotate-2">
-            <Image
-              src="/stitch/menu/frango-piri-piri.jpg"
-              alt="Frango piri-piri da A Grelha"
-              fill
-              priority
-              sizes="(min-width: 1024px) 42vw, 92vw"
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </section>
+    <main id="conteudo" className="bg-[#f2f1ef]">
+      <AppScreen className="overflow-visible bg-[#fbfaf7]">
+        <h1 className="sr-only">Menu takeaway da A Grelha</h1>
 
-      <nav aria-label="Categorias do menu" className="sticky top-[84px] z-30 border-y-4 border-brand-black bg-[#fff8f2] px-4 py-3 md:px-6">
-        <div className="mx-auto flex max-w-7xl gap-3 overflow-x-auto">
-          {menu.categories.map((category) => (
-            <a
-              key={category.id}
-              href={`#${category.id}`}
-              className="shrink-0 bg-brand-black px-4 py-2 font-extrabold uppercase tracking-widest text-white hover:bg-brand-red focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-brand-red"
-            >
-              {category.name}
-            </a>
-          ))}
+        <div className="flex items-center justify-center gap-2 px-4 py-3 text-[0.84rem] font-semibold tracking-[-0.02em] text-[#1c1c1c]/78">
+          <ShoppingBag aria-hidden="true" size={16} strokeWidth={1.7} />
+          <span>Take-away</span>
+          <span className="h-1 w-1 rounded-full bg-[#c6452c]" aria-hidden="true" />
+          <span>Porto Alto</span>
         </div>
-      </nav>
 
-      <section className="px-4 py-16 md:px-6">
-        <div className="mx-auto grid max-w-7xl gap-14">
-          {menu.categories.map((category) => (
-            <section key={category.id} id={category.id} className="scroll-mt-36">
-              <div className="grid gap-8 lg:grid-cols-[0.34fr_0.66fr]">
-                <div>
-                  <div className="relative aspect-square overflow-hidden bg-white p-3 shadow-[10px_10px_0_#1f1b13]">
-                    <Image
-                      src={categoryImages[category.id]}
-                      alt={`${category.name} da A Grelha`}
-                      fill
-                      sizes="(min-width: 1024px) 28vw, 92vw"
-                      className="object-cover p-3"
-                    />
+        <nav
+          aria-label="Categorias do menu"
+          className="sticky top-16 z-30 border-y border-[#e7ded6] bg-[#fbfaf7]/98 px-3 py-2 shadow-[0_10px_22px_rgba(54,35,23,0.08)] backdrop-blur"
+        >
+          <div className="grid grid-cols-4 gap-2">
+            {appMenuGroups.map((category) => (
+              <a
+                key={category.id}
+                href={`#${category.id}`}
+                className="inline-flex min-h-10 min-w-0 items-center justify-center rounded-[13px] border border-[#e7ded6] bg-white px-2 text-center text-[0.74rem] font-bold tracking-[-0.02em] text-[#141414] shadow-[0_6px_14px_rgba(54,35,23,0.045)] transition hover:border-[#c6452c]/45 hover:text-[#c6452c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c6452c]"
+              >
+                {categoryTabLabel(category)}
+              </a>
+            ))}
+          </div>
+        </nav>
+
+        <div className="px-4 pb-[calc(var(--ag-mobile-action-bar-h)+2rem)] pt-5">
+          <div className="grid gap-7">
+            {appMenuGroups.map((category) => (
+              <section key={category.id} id={category.id} className="scroll-mt-32">
+                <div className="mb-4 flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <h2 className="text-[1.55rem] font-extrabold leading-none tracking-[-0.04em] text-[#141414]">
+                      {categoryLabel(category)}
+                    </h2>
+                    {category.description ? (
+                      <p className="mt-2 text-[0.84rem] leading-5 tracking-[-0.015em] text-[#1c1c1c]/64">
+                        {category.description}
+                      </p>
+                    ) : null}
                   </div>
-                  <h2 className="mt-8 font-headline text-6xl uppercase leading-none text-brand-red md:text-7xl">
-                    {category.name}
-                  </h2>
-                  <p className="mt-2 font-bold text-[#5d3f3d]">{category.description}</p>
+                  <Leaf aria-hidden="true" className="mt-0.5 h-7 w-7 shrink-0 text-[#df7c6b]/72" strokeWidth={1.55} />
                 </div>
 
-                <div className="grid content-start gap-4">
-                  {category.dishes.map((dish) => (
-                    <article key={dish.id} className="grid gap-3 border-4 border-brand-black bg-[#fff8f2] p-5 shadow-[6px_6px_0_rgba(31,27,19,0.18)] sm:grid-cols-[1fr_auto]">
-                      <div>
-                        <h3 className="font-headline text-3xl uppercase leading-none text-brand-black md:text-4xl">
-                          {dish.name}
-                        </h3>
-                        <p className="mt-2 font-bold leading-relaxed text-[#5d3f3d]">{dish.description}</p>
-                      </div>
-                      <p className="font-headline text-4xl text-brand-red">{dish.price.toFixed(2).replace(".", ",")} €</p>
-                    </article>
+                <div className="grid gap-3">
+                  {category.items.map((item) => (
+                    <MenuCard key={item.slug} item={item} />
                   ))}
                 </div>
-              </div>
-            </section>
-          ))}
+              </section>
+            ))}
+          </div>
+
+          <section className="mt-7 rounded-[16px] border border-[#e7ded6] bg-white p-4 text-[#1c1c1c] shadow-[0_10px_24px_rgba(54,35,23,0.06)]">
+            <h2 className="text-[0.76rem] font-extrabold uppercase tracking-[0.08em] text-[#141414]">
+              Informação legal
+            </h2>
+            <div className="mt-3 grid gap-3 text-[0.74rem] leading-5 text-[#1c1c1c]/68">
+              {menuNotes.map((note) => (
+                <p key={note.reference}>
+                  <strong className="text-[#c6452c]">{note.reference}</strong> {note.text}
+                </p>
+              ))}
+              {menuAllergens ? (
+                <p>
+                  <strong className="text-[#141414]">{menuAllergens.title}: </strong>
+                  {menuAllergens.text}
+                </p>
+              ) : null}
+              {menuCouvert ? (
+                <div className="grid gap-2">
+                  <p>
+                    <strong className="text-[#141414]">{menuCouvert.title}: </strong>
+                    {menuCouvert.text}
+                  </p>
+                  <p>{menuCouvert.definition}</p>
+                  <p>{menuCouvert.legislation}</p>
+                </div>
+              ) : null}
+            </div>
+          </section>
         </div>
-      </section>
+      </AppScreen>
     </main>
   );
 }

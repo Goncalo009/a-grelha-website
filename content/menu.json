@@ -1,128 +1,350 @@
 {
+  "brand": "A GRELHA",
+  "currency": "EUR",
+  "vatIncluded": true,
   "categories": [
     {
       "id": "entradas",
       "name": "Entradas",
-      "description": "Para abrir o apetite enquanto a grelha trabalha",
+      "description": "Entradas e couvert, com preço à unidade.",
+      "pricingUnit": "unit",
       "dishes": [
         {
-          "id": "entrada-1",
-          "name": "Pão e Azeitonas",
-          "description": "Pão de mistura, azeitonas temperadas e manteiga.",
-          "price": 2.50
+          "id": "azeitonas",
+          "name": "Azeitonas",
+          "price": 2.1,
+          "priceText": "2,10 €",
+          "unit": "unit"
         },
         {
-          "id": "entrada-2",
-          "name": "Chouriço Assado",
-          "description": "Chouriço marcado no lume, cortado para partilhar.",
-          "price": 6.50
+          "id": "pao",
+          "name": "Pão",
+          "price": 1.9,
+          "priceText": "1,90 €",
+          "unit": "unit"
         },
         {
-          "id": "entrada-3",
-          "name": "Rissóis da Casa",
-          "description": "Rissóis quentes, crocantes, vendidos à unidade.",
-          "price": 1.80
+          "id": "bola-rustica",
+          "name": "Bola Rústica",
+          "price": 0.6,
+          "priceText": "0,60 €",
+          "unit": "unit"
         },
         {
-          "id": "entrada-4",
-          "name": "Sopa do Dia",
-          "description": "Sopa caseira; confirme a variedade ao encomendar.",
-          "price": 2.20
+          "id": "manteiga",
+          "name": "Manteiga",
+          "price": 0.7,
+          "priceText": "0,70 €",
+          "unit": "unit"
+        },
+        {
+          "id": "queijo-de-ovelha",
+          "name": "Queijo de Ovelha",
+          "price": 3.8,
+          "priceText": "3,80 €",
+          "unit": "unit"
         }
       ]
     },
     {
-      "id": "pratos",
-      "name": "Pratos",
-      "description": "Clássicos para comer no local ou levar pronto",
+      "id": "grelhados-pratos-principais",
+      "name": "Grelhados / Pratos Principais",
+      "description": "Preço por kg.",
+      "note": "Preço por Kg",
+      "pricingUnit": "kg",
       "dishes": [
         {
-          "id": "prato-1",
-          "name": "Frango no Churrasco",
-          "description": "Frango assado no carvão, molho da casa e opção de piri-piri.",
-          "price": 10.50
+          "id": "frango",
+          "name": "Frango",
+          "price": 12.5,
+          "priceText": "12,50 €",
+          "unit": "kg"
         },
         {
-          "id": "prato-2",
-          "name": "Meio Frango com Acompanhamento",
-          "description": "Meio frango, batata frita e salada simples.",
-          "price": 8.50
+          "id": "coracao-da-alcatra",
+          "name": "Coração da Alcatra",
+          "price": 36,
+          "priceText": "36,00 €",
+          "unit": "kg"
         },
         {
-          "id": "prato-3",
-          "name": "Febras Grelhadas",
-          "description": "Febras no carvão com arroz, batata e salada.",
-          "price": 9.50
+          "id": "costela-de-borrego",
+          "name": "Costela de Borrego",
+          "price": 29.9,
+          "priceText": "29,90 €",
+          "unit": "kg"
         },
         {
-          "id": "prato-4",
-          "name": "Entremeada Grelhada",
-          "description": "Entremeada bem marcada, servida com acompanhamento à escolha.",
-          "price": 10.00
+          "id": "costela-do-cachaco",
+          "name": "Costela do Cachaço",
+          "price": 14.9,
+          "priceText": "14,90 €",
+          "unit": "kg"
+        },
+        {
+          "id": "costela-no-bafo",
+          "name": "Costela no Bafo",
+          "price": 23,
+          "priceText": "23,00 €",
+          "unit": "kg",
+          "orderOnly": true
+        },
+        {
+          "id": "entrecosto",
+          "name": "Entrecosto",
+          "price": 14.9,
+          "priceText": "14,90 €",
+          "unit": "kg"
+        },
+        {
+          "id": "entremeada-de-porco",
+          "name": "Entremeada de Porco",
+          "price": 14.9,
+          "priceText": "14,90 €",
+          "unit": "kg"
+        },
+        {
+          "id": "espetada-mista",
+          "name": "Espetada Mista",
+          "price": 17.5,
+          "priceText": "17,50 €",
+          "unit": "kg"
+        },
+        {
+          "id": "espetada-de-peru",
+          "name": "Espetada de Peru",
+          "price": 14.9,
+          "priceText": "14,90 €",
+          "unit": "kg"
+        },
+        {
+          "id": "febras",
+          "name": "Febras",
+          "price": 14.9,
+          "priceText": "14,90 €",
+          "unit": "kg"
+        },
+        {
+          "id": "grelhada-mista-de-porco",
+          "name": "Grelhada Mista de Porco",
+          "price": 14.9,
+          "priceText": "14,90 €",
+          "unit": "kg"
+        },
+        {
+          "id": "maminha",
+          "name": "Maminha",
+          "price": 31,
+          "priceText": "31,00 €",
+          "unit": "kg"
+        },
+        {
+          "id": "picanha",
+          "name": "Picanha",
+          "price": 39,
+          "priceText": "39,00 €",
+          "unit": "kg"
+        },
+        {
+          "id": "salsicha-brasileira",
+          "name": "Salsicha Brasileira",
+          "price": 14.9,
+          "priceText": "14,90 €",
+          "unit": "kg"
+        },
+        {
+          "id": "secretos",
+          "name": "Secretos",
+          "price": 29.9,
+          "priceText": "29,90 €",
+          "unit": "kg"
+        },
+        {
+          "id": "bife-da-vazia",
+          "name": "Bife da Vazia",
+          "price": 36,
+          "priceText": "36,00 €",
+          "unit": "kg"
+        },
+        {
+          "id": "tiras-saloia",
+          "name": "Tiras Saloia",
+          "price": 29.9,
+          "priceText": "29,90 €",
+          "unit": "kg"
+        },
+        {
+          "id": "hamburger-de-novilho",
+          "name": "Hamburger de Novilho",
+          "price": 22,
+          "priceText": "22,00 €",
+          "unit": "kg"
         }
       ]
     },
     {
-      "id": "grelhadas",
-      "name": "Grelhadas",
-      "description": "Carne e peixe com sabor a carvão",
+      "id": "combos",
+      "name": "Combos",
+      "description": "Doses sugeridas com preço final para quem quer perceber melhor quanto fica a refeição. Pesos aproximados; ajuste final confirmado ao pedido.",
+      "note": "Preço por dose",
+      "pricingUnit": "unit",
       "dishes": [
         {
-          "id": "grelhada-1",
-          "name": "Churrasco Misto",
-          "description": "Seleção de frango, febra, entremeada e enchido grelhado.",
-          "price": 13.50
+          "id": "combo-picanha-batata-1p",
+          "name": "Picanha + Batata Frita (1 pessoa)",
+          "description": "Aprox. 250 g de picanha + 150 g de batata frita.",
+          "price": 11.5,
+          "priceText": "11,50 €",
+          "unit": "unit"
         },
         {
-          "id": "grelhada-2",
-          "name": "Bitoque da Casa",
-          "description": "Bife grelhado, ovo, batata frita, arroz e salada.",
-          "price": 11.50
+          "id": "combo-picanha-batata-2p",
+          "name": "Picanha + Batata Frita (2 pessoas)",
+          "description": "Aprox. 500 g de picanha + 300 g de batata frita.",
+          "price": 23,
+          "priceText": "23,00 €",
+          "unit": "unit"
         },
         {
-          "id": "grelhada-3",
-          "name": "Sardinhas Assadas",
-          "description": "Sardinhas no carvão, quando é época; confirme disponibilidade.",
-          "price": 8.00
+          "id": "combo-frango-batata-1p",
+          "name": "Frango + Batata Frita (1 pessoa)",
+          "description": "Aprox. 1/2 frango + 150 g de batata frita.",
+          "price": 8,
+          "priceText": "8,00 €",
+          "unit": "unit"
         },
         {
-          "id": "grelhada-4",
-          "name": "Dourada Grelhada",
-          "description": "Peixe grelhado no carvão com batata cozida e legumes.",
-          "price": 12.50
+          "id": "combo-frango-batata-2p",
+          "name": "Frango + Batata Frita (2 pessoas)",
+          "description": "Aprox. 1 frango + 300 g de batata frita.",
+          "price": 16,
+          "priceText": "16,00 €",
+          "unit": "unit"
         }
       ]
     },
     {
-      "id": "sobremesas",
-      "name": "Sobremesas",
-      "description": "Doces simples para fechar a refeição",
+      "id": "acompanhamentos",
+      "name": "Acompanhamentos",
+      "description": "Acompanhamentos com preço por kg.",
+      "note": "Preço por Kg",
+      "pricingUnit": "kg",
       "dishes": [
         {
-          "id": "sobremesa-1",
-          "name": "Pudim de Ovos",
-          "description": "Pudim caseiro com caramelo.",
-          "price": 3.50
+          "id": "arroz-branco",
+          "name": "Arroz Branco",
+          "price": 7.5,
+          "priceText": "7,50 €",
+          "unit": "kg"
         },
         {
-          "id": "sobremesa-2",
-          "name": "Leite Creme",
-          "description": "Leite creme tradicional queimado no momento quando possível.",
-          "price": 3.50
+          "id": "arroz-de-legumes",
+          "name": "Arroz de Legumes",
+          "price": 8.5,
+          "priceText": "8,50 €",
+          "unit": "kg"
         },
         {
-          "id": "sobremesa-3",
-          "name": "Bolo de Bolacha",
-          "description": "Camadas de bolacha e creme de café.",
-          "price": 4.00
+          "id": "batata-frita",
+          "name": "Batata Frita",
+          "price": 11.5,
+          "priceText": "11,50 €",
+          "unit": "kg"
         },
         {
-          "id": "sobremesa-4",
-          "name": "Fruta da Época",
-          "description": "Peça a fruta disponível no dia.",
-          "price": 2.50
+          "id": "batata-doce-frita",
+          "name": "Batata Doce Frita",
+          "price": 11.9,
+          "priceText": "11,90 €",
+          "unit": "kg"
+        },
+        {
+          "id": "batata-titi-grande",
+          "name": "Batata Titi Grande",
+          "price": 3.5,
+          "priceText": "3,50 €",
+          "unit": "kg"
+        },
+        {
+          "id": "farofa",
+          "name": "Farofa",
+          "price": 7.9,
+          "priceText": "7,90 €",
+          "unit": "kg"
+        },
+        {
+          "id": "feijao-preto",
+          "name": "Feijão Preto",
+          "price": 8.5,
+          "priceText": "8,50 €",
+          "unit": "kg"
+        },
+        {
+          "id": "migas",
+          "name": "Migas",
+          "price": 7.5,
+          "priceText": "7,50 €",
+          "unit": "kg"
+        },
+        {
+          "id": "legumes-salteados",
+          "name": "Legumes Salteados",
+          "price": 9.9,
+          "priceText": "9,90 €",
+          "unit": "kg"
+        },
+        {
+          "id": "salada",
+          "name": "Salada",
+          "price": 2.8,
+          "priceText": "2,80 €",
+          "unit": "kg"
+        },
+        {
+          "id": "salada-grande",
+          "name": "Salada Grande",
+          "price": 4.1,
+          "priceText": "4,10 €",
+          "unit": "kg"
+        },
+        {
+          "id": "salada-de-quinoa",
+          "name": "Salada de Quinoa",
+          "price": 12.5,
+          "priceText": "12,50 €",
+          "unit": "kg"
+        },
+        {
+          "id": "salada-de-tomate-e-cebola",
+          "name": "Salada de Tomate e Cebola",
+          "price": 3.5,
+          "priceText": "3,50 €",
+          "unit": "kg"
+        },
+        {
+          "id": "vinagrete",
+          "name": "Vinagrete",
+          "price": 10.5,
+          "priceText": "10,50 €",
+          "unit": "kg"
         }
       ]
     }
-  ]
+  ],
+  "notes": [
+    {
+      "reference": "*",
+      "text": "Por encomenda, 3 dias antes."
+    }
+  ],
+  "allergens": {
+    "title": "Alergénios",
+    "text": "Os produtos alimentares confeccionados, preparados, fabricados e/ou comercializados nesta unidade podem conter substâncias ou produtos que provocam alergias ou intolerâncias alimentares. De acordo com o Anexo II, do Regulamento (EU) Nº 1169/2011 e Decreto-Lei nº 26/2016. Em caso de dúvida, solicite informação aos colaboradores ao serviço."
+  },
+  "couvert": {
+    "title": "Couvert",
+    "text": "Nenhum prato, produto alimentar ou bebida, incluindo o couvert, pode ser cobrado se não for solicitado pelo cliente ou por este for inutilizado.",
+    "definition": "Couvert: conjunto de alimentos ou aperitivos identificados na lista de produtos como couvert, fornecidos a pedido do cliente antes do início da refeição.",
+    "legislation": "Artº 135, alínea b, do nº 3 do Decreto-Lei nº 10/2015 de 16 de janeiro."
+  }
 }
