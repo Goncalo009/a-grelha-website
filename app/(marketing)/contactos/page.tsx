@@ -12,6 +12,7 @@ import {
 import { absoluteUrl, generateMetadata } from "@/config/seo";
 import { clientSeoData } from "@/config/client-seo";
 import { siteConfig } from "@/config/site";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { AppScreen } from "@/components/ui/app-screen";
 import { ContactSnapController } from "@/components/sections/contact-snap-controller";
 import { LocationMap } from "@/components/sections/location-map";
@@ -193,6 +194,7 @@ function FaqSchemaScript() {
 export default function ContactosPage() {
   return (
     <main id="conteudo" className="bg-[#f2f1ef]">
+      <BreadcrumbSchema items={[{ name: "Contactos", path: "/contactos" }]} />
       <FaqSchemaScript />
       <ContactSnapController />
       <AppScreen className="bg-[#fbfaf7]">

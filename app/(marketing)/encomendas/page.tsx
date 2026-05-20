@@ -1,29 +1,44 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Phone } from "lucide-react";
 import { OrderForm } from "@/components/forms/order-form";
 import { generateMetadata } from "@/config/seo";
+import { siteConfig } from "@/config/site";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 
 export const metadata: Metadata = generateMetadata({
-  title: "Encomendas online",
+  title: "Preparar pedido por telefone",
   description:
-    "Faça a sua encomenda online na A Grelha. Escolha frango no churrasco, grelhados e acompanhamentos para levantar no Porto Alto.",
+    "Prepare a sua lista para pedir por telefone na A Grelha. Consulte pratos, notas e ligue para confirmar disponibilidade e levantamento em Samora Correia.",
   path: "/encomendas",
   image: "/stitch/home/whole-bird.jpg",
 });
 
+const phoneHref = `tel:${siteConfig.phone.replaceAll(" ", "")}`;
+
 export default function EncomendasPage() {
   return (
-    <main id="conteudo" className="bg-[#e3d9cc] px-4 py-14 md:px-6 md:py-20">
+    <main id="conteudo" className="bg-brand-cream px-4 py-14 md:px-6 md:py-20 soft-food-gradient">
+      <BreadcrumbSchema items={[{ name: "Encomendas", path: "/encomendas" }]} />
       <section className="mx-auto max-w-5xl text-center">
-        <p className="inline-block -rotate-2 bg-white px-4 py-2 font-extrabold uppercase tracking-[0.2em] text-brand-red shadow-[4px_4px_0_#1f1b13]">
-          Takeaway
+        <p className="inline-flex rounded-full bg-white/80 px-4 py-2 text-sm font-semibold text-brand-red shadow-card ring-1 ring-brand-brown/10">
+          Preparar pedido
         </p>
-        <h1 className="mt-6 font-headline text-[clamp(4.5rem,11vw,9rem)] uppercase leading-[0.82] text-brand-black">
-          Faça a sua encomenda
+        <h1 className="mt-5 font-headline text-[clamp(3rem,8vw,7rem)] leading-[0.96] tracking-[-0.04em] text-brand-black">
+          A encomenda é confirmada por telefone.
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg font-bold leading-relaxed text-[#3b3327]">
-          Envie o pedido e a equipa confirma por telefone. Para entregas,
-          horários especiais ou alergénios, use o campo de observações.
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-brand-brown md:text-xl">
+          Esta página serve para organizar o que quer pedir antes da chamada. A equipa confirma disponibilidade, preço final e hora de levantamento pelo telefone.
         </p>
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <a href={phoneHref} className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-red px-6 py-4 font-semibold text-white shadow-warm">
+            <Phone aria-hidden="true" size={20} />
+            Ligar {siteConfig.phone}
+          </a>
+          <Link href="/menu" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-4 font-semibold text-brand-brown shadow-card ring-1 ring-brand-brown/10 hover:text-brand-red">
+            Ver menu completo
+          </Link>
+        </div>
       </section>
       <OrderForm />
     </main>

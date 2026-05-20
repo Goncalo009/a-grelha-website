@@ -45,8 +45,8 @@ const favorites = [
 const benefits = [
   {
     icon: Flame,
-    title: "Churrasco de verdade",
-    text: "Receitas simples, fogo certo e sabor a carvão.",
+    title: "Grelhados no carvão",
+    text: "Frango, picanha e outros cortes preparados para levar.",
   },
   {
     icon: Clock3,
@@ -55,8 +55,8 @@ const benefits = [
   },
   {
     icon: Leaf,
-    title: "Fresco todos os dias",
-    text: "Ingredientes selecionados diariamente.",
+    title: "Disponibilidade confirmada",
+    text: "Preço final, peso e hora são acertados antes do levantamento.",
   },
 ];
 

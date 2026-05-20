@@ -22,7 +22,7 @@ export function AboutStory() {
           O cheiro a carvão não engana.
         </h2>
         <p className="mt-6 max-w-2xl text-lg font-bold leading-relaxed text-[#3b3327] md:text-xl">
-          A Grelha é feita para a rotina real do Porto Alto: almoço rápido,
+          A Grelha é feita para a rotina real de Samora Correia: almoço rápido,
           jantar de família, frango para levar, febras, entremeada, sardinhas
           quando é época e aquele molho que pede pão à parte.
         </p>

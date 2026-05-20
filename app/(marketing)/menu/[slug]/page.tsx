@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { generateMetadata as buildMetadata } from "@/config/seo";
+import { absoluteUrl, generateMetadata as buildMetadata } from "@/config/seo";
 import { OrderDrawer } from "@/components/forms/order-drawer";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { AppOrderBar } from "@/components/ui/app-order-bar";
 import { AppScreen } from "@/components/ui/app-screen";
 import { appMenuItems, getAppMenuItem } from "@/lib/app-menu";
@@ -37,8 +38,27 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   if (!item) notFound();
 
+  const itemSchema = {
+    "@context": "https://schema.org",
+    "@type": "MenuItem",
+    "@id": `${absoluteUrl(`/menu/${item.slug}`)}#menu-item`,
+    name: item.name,
+    description: item.description,
+    image: absoluteUrl(item.image),
+    url: absoluteUrl(`/menu/${item.slug}`),
+    menuAddOn: item.unit === "kg" ? "Preço por kg; peso e preço final confirmados ao pedido." : "Preço por unidade/dose; disponibilidade confirmada ao pedido.",
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "EUR",
+      price: item.priceValue.toFixed(2),
+      description: item.unit === "kg" ? "Preço por kg; preço final confirmado pela equipa." : "Preço à unidade ou dose; confirmação por telefone ou WhatsApp.",
+    },
+  };
+
   return (
     <main id="conteudo" className="bg-[#f2f1ef]">
+      <BreadcrumbSchema items={[{ name: "Menu takeaway", path: "/menu" }, { name: item.name, path: `/menu/${item.slug}` }]} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemSchema) }} />
       <AppScreen>
         <article className="pb-40">
           <div className="relative h-[204px] overflow-hidden bg-[#1c1c1c]">

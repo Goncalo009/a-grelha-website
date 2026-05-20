@@ -11,17 +11,70 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "brand-beige": "#e4dacd",
-        "brand-red": "#d91a2a",
-        "brand-black": "#0a0a0a",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        "brand-cream": "#f2f1ef",
+        "brand-beige": "#e6e4e1",
+        "brand-red": "#c6452c",
+        "brand-black": "#1c1c1c",
         "brand-white": "#ffffff",
+        "brand-brown": "#51413a",
+        "brand-olive": "#6f7d3f",
+        "brand-gold": "#d8a43c",
       },
       fontFamily: {
-        headline: ["Impact", "Haettenschweiler", "Arial Narrow", "sans-serif"],
-        body: ["Arial", "Helvetica", "sans-serif"],
-        label: ["Arial", "Helvetica", "sans-serif"],
+        headline: ["Georgia", "Cambria", "Times New Roman", "serif"],
+        body: [
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "sans-serif",
+        ],
+        label: [
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "sans-serif",
+        ],
       },
-      borderRadius: {
+      boxShadow: {
+        warm: "0 24px 80px rgba(88, 45, 28, 0.16)",
+        card: "0 18px 45px rgba(88, 45, 28, 0.12)",
       },
     },
   },

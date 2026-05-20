@@ -23,10 +23,14 @@ export function proxy() {
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com;
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: https://*;
+    connect-src 'self' https://tiles.openfreemap.org https://*.openfreemap.org https://tile.openstreetmap.org https://www.google-analytics.com https://analytics.google.com;
+    worker-src 'self' blob:;
+    media-src 'self' blob:;
     font-src 'self' data:;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
+    frame-src 'self' https://maps.google.com https://www.google.com;
     frame-ancestors 'none';
     upgrade-insecure-requests;
   `

@@ -1,101 +1,115 @@
+import { Phone } from "lucide-react";
+import menuData from "@/content/menu.json";
 import { siteConfig } from "@/config/site";
+import { formatMenuPrice } from "@/lib/app-menu";
+import type { MenuData } from "@/types/menu";
 
-const menuItems = [
-  { id: "frango", name: "Frango no Churrasco", price: 10.5 },
-  { id: "meio-frango", name: "Meio Frango com Acompanhamento", price: 8.5 },
-  { id: "churrasco-misto", name: "Churrasco Misto", price: 13.5 },
-  { id: "febras", name: "Febras Grelhadas", price: 9.5 },
-  { id: "entremeada", name: "Entremeada Grelhada", price: 10 },
-  { id: "sardinhas", name: "Sardinhas Assadas", price: 8 },
-  { id: "rissol", name: "Rissol da Casa", price: 1.8 },
-  { id: "pudim", name: "Pudim de Ovos", price: 3.5 },
+const menu = menuData as MenuData;
+
+const featuredOrderNames = [
+  "Frango",
+  "Picanha",
+  "Maminha",
+  "Coração da Alcatra",
+  "Entrecosto",
+  "Batata Frita",
+  "Arroz Branco",
+  "Azeitonas",
 ];
 
-const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
-const formatPrice = (value: number) => `${value.toFixed(2).replace(".", ",")} €`;
+const allDishes = menu.categories.flatMap((category) => category.dishes);
+const orderItems = featuredOrderNames.flatMap((name) => {
+  const dish = allDishes.find((item) => item.name === name);
+  return dish ? [dish] : [];
+});
+
+const phoneHref = `tel:${siteConfig.phone.replaceAll(" ", "")}`;
 
 export function OrderForm() {
   return (
-    <section className="mx-auto mt-12 max-w-4xl border-4 border-brand-black bg-[#fff8f2] p-4 shadow-[10px_10px_0_#1f1b13] md:p-8">
-      <form className="grid gap-7" action={phoneHref}>
+    <section className="mx-auto mt-12 max-w-4xl rounded-[2rem] bg-brand-cream p-5 shadow-warm ring-1 ring-brand-brown/10 md:p-8">
+      <div className="grid gap-7">
         <div>
-          <h2 className="font-headline text-5xl uppercase leading-none text-brand-red">Detalhes do pedido</h2>
-          <p className="mt-2 font-bold text-[#5d3f3d]">
-            Marque os pratos, deixe notas para si e confirme por telefone. O total final e a hora de levantamento são confirmados pela equipa da A Grelha.
+          <h2 className="font-headline text-5xl leading-none tracking-[-0.035em] text-brand-black md:text-6xl">Lista para a chamada</h2>
+          <p className="mt-3 leading-relaxed text-brand-brown">
+            Marque produtos e escreva notas apenas para se orientar. Esta página não envia nem guarda dados; a confirmação acontece ao ligar para a A Grelha.
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2">
-          <div>
-            <label htmlFor="order-name" className="mb-2 block font-extrabold uppercase tracking-widest text-brand-black">Nome</label>
-            <input
-              id="order-name"
-              name="nome"
-              autoComplete="name"
-              className="w-full border-4 border-brand-black bg-white px-4 py-3 text-lg font-bold text-brand-black focus:outline-none focus:ring-4 focus:ring-brand-red"
-            />
-          </div>
-          <div>
-            <label htmlFor="order-phone" className="mb-2 block font-extrabold uppercase tracking-widest text-brand-black">Telefone</label>
-            <input
-              id="order-phone"
-              name="telefone"
-              autoComplete="tel"
-              className="w-full border-4 border-brand-black bg-white px-4 py-3 text-lg font-bold text-brand-black focus:outline-none focus:ring-4 focus:ring-brand-red"
-              type="tel"
-            />
-          </div>
-        </div>
-
         <fieldset>
-          <legend className="mb-3 block font-extrabold uppercase tracking-widest text-brand-black">Pratos</legend>
+          <legend className="mb-3 block text-sm font-semibold uppercase tracking-[0.16em] text-brand-red">Produtos de referência</legend>
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-            {menuItems.map((dish) => (
+            {orderItems.map((dish) => (
               <label
                 key={dish.id}
-                className="group grid cursor-pointer grid-cols-[auto_1fr] gap-3 border-4 border-brand-black bg-white p-4 text-brand-black transition-transform hover:-translate-y-0.5 has-[:checked]:border-brand-red has-[:checked]:bg-brand-red has-[:checked]:text-white"
+                className="group grid cursor-pointer grid-cols-[auto_1fr] gap-3 rounded-[1.25rem] bg-white p-4 text-brand-black shadow-card ring-1 ring-brand-brown/10 transition-colors has-[:checked]:bg-brand-red has-[:checked]:text-white"
               >
                 <input
                   type="checkbox"
-                  name="prato"
+                  name="produto"
                   value={dish.name}
                   className="mt-1 size-5 accent-brand-red"
                 />
                 <span>
-                  <span className="block font-headline text-3xl uppercase leading-none">{dish.name}</span>
-                  <span className="mt-2 block font-extrabold">{formatPrice(dish.price)}</span>
+                  <span className="block font-headline text-2xl leading-tight md:text-3xl">{dish.name}</span>
+                  <span className="mt-1 block text-sm font-semibold text-brand-red group-has-[:checked]:text-white">{formatMenuPrice(dish)}</span>
                 </span>
               </label>
             ))}
           </div>
         </fieldset>
 
+        <div className="grid gap-5 md:grid-cols-2">
+          <div>
+            <label htmlFor="order-name" className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-brand-red">Nome para a chamada</label>
+            <input
+              id="order-name"
+              name="nome"
+              autoComplete="name"
+              className="w-full rounded-2xl border border-brand-brown/15 bg-white px-4 py-3 text-lg text-brand-black shadow-card focus:outline-none focus:ring-2 focus:ring-brand-red"
+              placeholder="O seu nome"
+            />
+          </div>
+          <div>
+            <label htmlFor="order-phone" className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-brand-red">Telefone</label>
+            <input
+              id="order-phone"
+              name="telefone"
+              autoComplete="tel"
+              className="w-full rounded-2xl border border-brand-brown/15 bg-white px-4 py-3 text-lg text-brand-black shadow-card focus:outline-none focus:ring-2 focus:ring-brand-red"
+              type="tel"
+              placeholder={siteConfig.phone}
+            />
+          </div>
+        </div>
+
         <div>
-          <label htmlFor="order-notes" className="mb-2 block font-extrabold uppercase tracking-widest text-brand-black">Observações</label>
+          <label htmlFor="order-notes" className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-brand-red">Notas para dizer ao telefone</label>
           <textarea
             id="order-notes"
             name="observacoes"
-            className="min-h-32 w-full border-4 border-brand-black bg-white px-4 py-3 text-lg font-bold text-brand-black focus:outline-none focus:ring-4 focus:ring-brand-red"
-            placeholder="Ex: levantar às 20:00, molho à parte, alergénios..."
+            className="min-h-32 w-full rounded-2xl border border-brand-brown/15 bg-white px-4 py-3 text-lg text-brand-black shadow-card focus:outline-none focus:ring-2 focus:ring-brand-red"
+            placeholder="Ex.: quantidade/peso, piri-piri à parte, hora pretendida, alergénios..."
           />
         </div>
 
-        <div className="flex flex-col gap-4 border-t-4 border-brand-black pt-5 md:flex-row md:items-center md:justify-between">
-          <p className="font-headline text-4xl uppercase text-brand-black md:text-5xl">
-            Total confirmado <span className="text-brand-red">por telefone</span>
+        <div className="flex flex-col gap-4 rounded-[1.5rem] bg-brand-beige p-5 md:flex-row md:items-center md:justify-between">
+          <p className="font-headline text-3xl leading-tight text-brand-black md:text-4xl">
+            Preço final, peso e hora confirmados por telefone.
           </p>
           <a
             href={phoneHref}
-            className="bg-brand-red px-8 py-5 text-center font-headline text-3xl uppercase text-white shadow-[6px_6px_0_#1f1b13] transition-transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-brand-black"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-red px-6 py-4 font-semibold text-white shadow-warm focus:outline-none focus:ring-2 focus:ring-brand-black"
           >
+            <Phone aria-hidden="true" size={20} />
             Ligar para confirmar
           </a>
         </div>
 
-        <p role="status" className="border-4 border-green-700 bg-green-100 p-4 font-extrabold text-green-900">
-          Telefone direto: {siteConfig.phone}. Esta página não guarda dados pessoais; serve para organizar o pedido antes da chamada.
+        <p role="note" className="rounded-2xl bg-white px-4 py-3 text-sm text-brand-brown shadow-card ring-1 ring-brand-brown/10">
+          Telefone direto: {siteConfig.phone}. Fora das entradas, os preços apresentados são por kg; confirme sempre o peso e a disponibilidade ao ligar.
         </p>
-      </form>
+      </div>
     </section>
   );
 }

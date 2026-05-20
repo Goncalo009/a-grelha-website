@@ -16,3 +16,9 @@ test-results/
 
 # TypeScript
 tsconfig.tsbuildinfo
+
+# Local agent/design workspaces and generated diagnostics
+.hermes/
+artifacts/
+sketches/
+scripts/create-agrelha-board.py

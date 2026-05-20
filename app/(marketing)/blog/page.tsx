@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { generateMetadata } from "@/config/seo";
+import { absoluteUrl, generateMetadata } from "@/config/seo";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 
 export const metadata: Metadata = generateMetadata({
   title: "Notas da grelha",
@@ -35,9 +36,26 @@ const posts = [
   },
 ];
 
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": `${absoluteUrl("/blog")}#blog`,
+  name: "Notas da grelha",
+  url: absoluteUrl("/blog"),
+  inLanguage: "pt-PT",
+  blogPost: posts.map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.text,
+    image: absoluteUrl(post.image),
+  })),
+};
+
 export default function BlogPage() {
   return (
     <main id="conteudo" className="bg-[#e3d9cc]">
+      <BreadcrumbSchema items={[{ name: "Blog", path: "/blog" }]} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       <section className="px-4 py-14 md:px-6 md:py-20">
         <div className="mx-auto max-w-7xl">
           <p className="inline-block -rotate-2 bg-white px-4 py-2 font-extrabold uppercase tracking-[0.2em] text-brand-red shadow-[4px_4px_0_#1f1b13]">

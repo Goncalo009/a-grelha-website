@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Leaf, ShoppingBag } from "lucide-react";
-import { generateMetadata } from "@/config/seo";
+import { absoluteUrl, generateMetadata } from "@/config/seo";
 import { OrderDrawer } from "@/components/forms/order-drawer";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { AppScreen } from "@/components/ui/app-screen";
 import {
   appMenuGroups,
@@ -14,12 +15,39 @@ import {
 } from "@/lib/app-menu";
 
 export const metadata: Metadata = generateMetadata({
-  title: "Menu para takeaway",
+  title: "Menu takeaway em Samora Correia",
   description:
     "Veja entradas, grelhados por kg, combos com preço por dose e acompanhamentos da A Grelha. Confirme disponibilidade por telefone ou WhatsApp.",
   path: "/menu",
   image: "/stitch/menu/frango-piri-piri.jpg",
 });
+
+const menuSchema = {
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "@id": `${absoluteUrl("/menu")}#menu`,
+  name: "Menu takeaway da A Grelha",
+  url: absoluteUrl("/menu"),
+  inLanguage: "pt-PT",
+  hasMenuSection: appMenuGroups.map((category) => ({
+    "@type": "MenuSection",
+    name: category.name,
+    description: category.description,
+    hasMenuItem: category.items.map((item) => ({
+      "@type": "MenuItem",
+      name: item.name,
+      description: item.description,
+      image: absoluteUrl(item.image),
+      url: absoluteUrl(`/menu/${item.slug}`),
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "EUR",
+        price: item.priceValue.toFixed(2),
+        description: item.unit === "kg" ? "Preço por kg; preço final confirmado ao pedido." : "Preço por unidade ou dose; disponibilidade confirmada ao pedido.",
+      },
+    })),
+  })),
+};
 
 function categoryLabel(category: AppMenuGroup) {
   return category.name.split("/")[0]?.trim() || category.name;
@@ -83,6 +111,8 @@ function MenuCard({ item }: { item: AppMenuItem }) {
 export default function MenuPage() {
   return (
     <main id="conteudo" className="bg-[#f2f1ef]">
+      <BreadcrumbSchema items={[{ name: "Menu takeaway", path: "/menu" }]} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(menuSchema) }} />
       <AppScreen className="overflow-visible bg-[#fbfaf7]">
         <h1 className="sr-only">Menu takeaway da A Grelha</h1>
 

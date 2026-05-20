@@ -1,12 +1,14 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { ArrowRight, Flame, MapPin, MessageCircle, Navigation, Phone } from "lucide-react";
+import { ArrowRight, Flame, MessageCircle, Navigation, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { LocationMap } from "@/components/sections/location-map";
 
 const phoneHref = `tel:${siteConfig.phone.replaceAll(" ", "")}`;
 const whatsappHref = `https://wa.me/${siteConfig.phone.replace(/\D/g, "")}?text=${encodeURIComponent(
   "Olá A Grelha, quero encomendar takeaway para levantar no restaurante."
 )}`;
+const compactAddressLine = `${siteConfig.address.street}, ${siteConfig.address.locality}`;
 
 const actionRows = [
   {
@@ -25,63 +27,11 @@ const actionRows = [
   {
     href: siteConfig.links.maps,
     label: "Abrir direções",
-    detail: "Rua do Rosmaninho, Porto Alto",
+    detail: compactAddressLine,
     icon: Navigation,
     external: true,
   },
 ];
-
-function MapIllustration({ compact = false }: { compact?: boolean }) {
-  const roads = [
-    "M-20 116 C 88 84, 164 54, 278 20 C 360 -4, 430 -14, 528 -38",
-    "M-26 178 C 85 154, 186 146, 300 106 C 394 73, 456 48, 548 32",
-    "M-10 248 C 88 222, 168 210, 260 182 C 354 154, 438 124, 540 112",
-    "M-12 328 C 93 304, 190 286, 292 244 C 382 207, 452 188, 546 172",
-    "M-16 418 C 94 365, 180 345, 270 310 C 358 276, 442 250, 540 224",
-    "M88 -34 C 134 64, 166 145, 198 244 C 226 334, 260 392, 302 500",
-    "M184 -30 C 210 60, 232 142, 262 222 C 300 326, 346 400, 392 512",
-    "M290 -28 C 292 76, 302 158, 326 248 C 350 342, 382 426, 432 518",
-    "M396 -24 C 374 78, 370 164, 386 252 C 404 348, 426 430, 452 522",
-    "M-18 62 L 538 456",
-    "M8 502 C 112 438, 210 384, 314 318 C 404 260, 474 214, 548 162",
-    "M58 -24 C 138 66, 226 152, 342 228 C 418 278, 472 326, 540 386",
-    "M-18 290 C 78 288, 158 300, 252 332 C 340 362, 418 388, 536 390",
-    "M-18 370 C 82 338, 166 320, 260 292 C 346 266, 434 236, 540 202",
-  ];
-
-  return (
-    <div className={compact ? "contact-map contact-map--compact" : "contact-map"} aria-hidden="true">
-      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 520 430" preserveAspectRatio="none">
-        <defs>
-          <filter id="map-soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="1" stdDeviation="1.1" floodColor="#a7a39c" floodOpacity="0.18" />
-          </filter>
-        </defs>
-        <rect width="520" height="430" fill="#f3eee6" />
-        <path d="M74 0 C100 36, 104 72, 90 104 C82 124, 92 142, 120 150 C142 156, 152 174, 142 198 C128 232, 132 264, 170 290" fill="none" stroke="#d8e5ef" strokeWidth="16" strokeLinecap="round" opacity="0.95" />
-        <g filter="url(#map-soft-shadow)" fill="none" strokeLinecap="round">
-          {roads.map((d, index) => (
-            <path key={index} d={d} stroke="#ffffff" strokeWidth={index % 4 === 0 ? 7 : 4.8} />
-          ))}
-          <path d="M-20 410 C 108 354, 202 330, 306 330 C 396 330, 464 344, 546 362" stroke="#ffffff" strokeWidth="12" />
-          <path d="M-18 86 C 78 128, 168 164, 270 202 C 368 238, 446 286, 548 344" stroke="#ffffff" strokeWidth="6" />
-        </g>
-        <g fill="none" stroke="#ddd8d0" strokeWidth="1.15" opacity="0.9">
-          <path d="M18 138 L504 28" />
-          <path d="M0 232 L520 72" />
-          <path d="M116 0 L480 430" />
-          <path d="M232 0 L318 430" />
-          <path d="M0 338 L520 278" />
-          <path d="M344 0 L78 430" />
-        </g>
-      </svg>
-      <span className="contact-map-label contact-map-label--porto">Porto Alto</span>
-      <span className="contact-map-label contact-map-label--rua">Rua do Rosmaninho</span>
-      <span className="contact-map-road-badge">MS14</span>
-      <span className="contact-map-pin" />
-    </div>
-  );
-}
 
 function ActionRow({ action }: { action: (typeof actionRows)[number] }) {
   const Icon = action.icon;
@@ -134,8 +84,6 @@ function SectionLabel({ children }: { children: ReactNode }) {
 }
 
 export function ContactInfo() {
-  const addressLine = `${siteConfig.address.street}, ${siteConfig.address.postalCode} ${siteConfig.address.locality}`;
-
   return (
     <section id="contactos" className="ag-contact-section relative isolate bg-[#f7f4f0] text-brand-black" aria-labelledby="nap-title">
       <div className="noise-overlay absolute inset-0 -z-10" />
@@ -162,8 +110,8 @@ export function ContactInfo() {
                 <Flame aria-hidden="true" size={23} strokeWidth={1.75} className="text-brand-red" />
               </span>
               <p>
-                <span className="block text-[0.7rem] font-extrabold uppercase tracking-[0.23em] text-brand-red">Brasa que fala por si</span>
-                <span className="mt-1 block text-sm font-medium text-brand-black/64">Sabor de verdade. Feedbacks reais.</span>
+                <span className="block text-[0.7rem] font-extrabold uppercase tracking-[0.23em] text-brand-red">Morada e contacto direto</span>
+                <span className="mt-1 block text-sm font-medium text-brand-black/64">Telefone, WhatsApp e direções num só lugar.</span>
               </p>
             </div>
           </div>
@@ -173,33 +121,20 @@ export function ContactInfo() {
           <div className="contact-phone-content flex min-h-0 flex-1 flex-col md:rounded-[30px] md:bg-[#f7f4f0]/88 md:px-5 md:py-6 md:shadow-inner">
             <div className="text-center">
               <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-brand-red">Contacto e localização</p>
-              <h2 id="nap-title" className="mx-auto mt-2 max-w-[10ch] font-headline text-[clamp(2.42rem,10.5vw,3.55rem)] font-bold leading-[0.91] tracking-[-0.055em] text-brand-black md:text-[3.35rem]">
-                A Grelha no Porto Alto.
+              <h2 id="nap-title" className="mx-auto mt-[clamp(0.35rem,0.9svh,0.5rem)] max-w-[12ch] font-headline text-[clamp(1.85rem,8.3vw,2.35rem)] font-bold leading-[0.93] tracking-[-0.055em] text-brand-black md:mt-2 md:max-w-[10ch] md:text-[3.35rem]">
+                A Grelha em Samora Correia.
               </h2>
-              <p className="mx-auto mt-3 max-w-[28ch] text-[0.96rem] font-medium leading-[1.45] text-brand-black/68 md:text-[1.02rem]">
+              <p className="mx-auto mt-[clamp(0.45rem,1.1svh,0.75rem)] max-w-[28ch] text-[clamp(0.78rem,3.5vw,0.92rem)] font-medium leading-[1.32] text-brand-black/68 md:mt-3 md:text-[1.02rem] md:leading-[1.45]">
                 Encomende por telefone ou WhatsApp e combine a hora de levantamento.
               </p>
             </div>
 
-            <a
+            <div
               id="localizacao"
-              href={siteConfig.links.maps}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Abrir direções para A Grelha no Google Maps"
-              className="contact-map-shell group relative mt-4 block overflow-hidden rounded-[22px] bg-[#efe6da] shadow-[0_17px_38px_rgba(70,43,29,0.12)] outline-none transition duration-300 focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-[#f7f4f0] md:mt-5"
+              className="contact-map-shell relative block overflow-hidden rounded-[22px] bg-[#efe6da] shadow-[0_17px_38px_rgba(70,43,29,0.12)] md:mt-5"
             >
-              <MapIllustration />
-              <address className="contact-address-card not-italic">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center text-brand-red">
-                  <MapPin aria-hidden="true" size={31} strokeWidth={1.7} />
-                </span>
-                <span className="min-w-0 text-left">
-                  <strong className="block text-[0.98rem] font-extrabold leading-tight text-brand-black">{siteConfig.name}</strong>
-                  <span className="mt-1 block text-[0.86rem] font-medium leading-snug text-brand-black/78">{addressLine}</span>
-                </span>
-              </address>
-            </a>
+              <LocationMap className="contact-map--hide-static-address" />
+            </div>
 
             <div className="mt-3 min-h-0 md:mt-4">
               <ContactActionCard />
@@ -210,15 +145,9 @@ export function ContactInfo() {
         <aside className="hidden h-full flex-col justify-center gap-9 py-7 md:flex">
           <div>
             <SectionLabel>Detalhe do mapa</SectionLabel>
-            <a
-              href={siteConfig.links.maps}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Abrir localização da A Grelha"
-              className="mt-7 block overflow-hidden rounded-[25px] bg-[#efe6da] shadow-[0_22px_48px_rgba(70,43,29,0.13)] transition duration-300 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-red"
-            >
-              <MapIllustration compact />
-            </a>
+            <div className="mt-7 overflow-hidden rounded-[25px] bg-[#efe6da] shadow-[0_22px_48px_rgba(70,43,29,0.13)]">
+              <LocationMap compact />
+            </div>
           </div>
 
           <div>
