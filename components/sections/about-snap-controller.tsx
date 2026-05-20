@@ -34,7 +34,7 @@ export function AboutSnapController() {
     let settleTimer: number | null = null;
 
     const headerOffset = () => {
-      const header = document.querySelector<HTMLElement>("header");
+      const header = document.querySelector<HTMLElement>("[data-mobile-header]");
       const measured = header?.getBoundingClientRect().bottom;
       return measured && Number.isFinite(measured) ? measured : 64;
     };

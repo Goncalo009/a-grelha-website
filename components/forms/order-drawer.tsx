@@ -382,7 +382,6 @@ export function OrderDrawer({
       <button
         type="button"
         onClick={openDrawerFromClick}
-        {...touchOpenProps}
         aria-label={`Adicionar ${product?.name ?? label ?? "produto"}`}
         className={cn(
           "inline-flex h-11 w-11 items-center justify-center rounded-[12px] bg-[#c6452c] text-white shadow-[0_12px_24px_rgba(198,69,44,0.24)] transition hover:-translate-y-0.5 hover:bg-[#b83d25] active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#c6452c]",

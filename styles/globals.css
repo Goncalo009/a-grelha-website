@@ -23,14 +23,24 @@
     --border: 20 13% 82%;
     --input: 20 13% 82%;
     --ring: 10 63% 47%;
+    --ag-mobile-viewport-h: 100svh;
     --ag-mobile-header-h: 4rem;
     --ag-mobile-action-bar-h: calc(4.8125rem + env(safe-area-inset-bottom, 0px));
-    --ag-mobile-section-h: calc(100svh - var(--ag-mobile-header-h) - var(--ag-mobile-action-bar-h));
+    --ag-mobile-page-h: calc(var(--ag-mobile-viewport-h) - var(--ag-mobile-header-h));
+    --ag-mobile-content-h: calc(var(--ag-mobile-page-h) - var(--ag-mobile-action-bar-h));
+    --ag-mobile-section-h: var(--ag-mobile-content-h);
+    --ag-mobile-sticky-top: var(--ag-mobile-header-h);
+    --ag-mobile-page-end-pad: calc(var(--ag-mobile-action-bar-h) + 1.25rem);
+    --ag-mobile-page-end-pad-lg: calc(var(--ag-mobile-action-bar-h) + 2rem);
+    --ag-mobile-floating-order-bottom: calc(var(--ag-mobile-action-bar-h) + 0.15rem);
+    --ag-mobile-floating-order-pad: calc(var(--ag-mobile-action-bar-h) + 6rem);
+    --ag-mobile-menu-tabs-h: 4rem;
+    --ag-mobile-menu-scroll-mt: calc(var(--ag-mobile-header-h) + var(--ag-mobile-menu-tabs-h));
   }
 
   @supports (height: 100dvh) {
     :root {
-      --ag-mobile-section-h: calc(100dvh - var(--ag-mobile-header-h) - var(--ag-mobile-action-bar-h));
+      --ag-mobile-viewport-h: 100dvh;
     }
   }
 
@@ -357,7 +367,7 @@
       height: auto;
       min-height: var(--ag-mobile-section-h);
       overflow: visible;
-      padding-bottom: calc(var(--ag-mobile-action-bar-h) + 1rem);
+      padding-bottom: var(--ag-mobile-page-end-pad);
       padding-top: clamp(0.65rem, 1.65svh, 1.05rem);
     }
 

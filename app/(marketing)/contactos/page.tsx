@@ -198,11 +198,11 @@ export default function ContactosPage() {
       <FaqSchemaScript />
       <ContactSnapController />
       <AppScreen className="bg-[#fbfaf7]">
-        <div className="contact-mobile-snap relative px-4 pb-[calc(var(--ag-mobile-action-bar-h)+1.25rem)] pt-0 md:px-5 md:pt-8">
+        <div className="contact-mobile-snap relative px-4 pb-[var(--ag-mobile-page-end-pad)] pt-0 md:px-5 md:pt-8">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_4%,rgba(217,72,50,0.06),transparent_32%),radial-gradient(circle_at_86%_30%,rgba(238,230,218,0.62),transparent_34%)]" />
 
           <div className="relative md:space-y-10">
-            <section id="contactos-rapidos" aria-labelledby="contactos-title" className="contact-snap-section contact-hero-section scroll-mt-20">
+            <section id="contactos-rapidos" aria-labelledby="contactos-title" className="contact-snap-section contact-hero-section scroll-mt-[var(--ag-mobile-header-h)] md:scroll-mt-20">
               <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-[#d94832]">Contactos</p>
               <div className="mt-2 flex items-end justify-between gap-5 min-[390px]:mt-3">
                 <div>
@@ -249,7 +249,7 @@ export default function ContactosPage() {
               </div>
             </section>
 
-            <section id="localizacao" aria-labelledby="localizacao-title" className="contact-snap-section contact-location-section scroll-mt-20">
+            <section id="localizacao" aria-labelledby="localizacao-title" className="contact-snap-section contact-location-section scroll-mt-[var(--ag-mobile-header-h)] md:scroll-mt-20">
               <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-[#d94832]">Localização</p>
               <h2 id="localizacao-title" className="mt-3 max-w-[13ch] font-headline text-[2.16rem] font-bold leading-[0.92] tracking-[-0.055em] text-[#25211e]">
                 A Grelha em Samora Correia<span className="text-[#d94832]">.</span>
@@ -287,7 +287,7 @@ export default function ContactosPage() {
               </div>
             </section>
 
-            <section id="faq" aria-labelledby="faq-title" className="contact-snap-section contact-faq-section scroll-mt-20 pb-2">
+            <section id="faq" aria-labelledby="faq-title" className="contact-snap-section contact-faq-section scroll-mt-[var(--ag-mobile-header-h)] pb-2 md:scroll-mt-20">
               <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-[#d94832]">FAQs</p>
               <h2 id="faq-title" className="mt-3 font-headline text-[2rem] font-bold leading-[0.94] tracking-[-0.055em] text-[#25211e]">
                 Perguntas rápidas antes de encomendar<span className="text-[#d94832]">.</span>

@@ -125,7 +125,7 @@ export default function MenuPage() {
 
         <nav
           aria-label="Categorias do menu"
-          className="sticky top-16 z-30 border-y border-[#e7ded6] bg-[#fbfaf7]/98 px-3 py-2 shadow-[0_10px_22px_rgba(54,35,23,0.08)] backdrop-blur"
+          className="sticky top-[var(--ag-mobile-sticky-top)] z-30 border-y border-[#e7ded6] bg-[#fbfaf7]/98 px-3 py-2 shadow-[0_10px_22px_rgba(54,35,23,0.08)] backdrop-blur"
         >
           <div className="grid grid-cols-4 gap-2">
             {appMenuGroups.map((category) => (
@@ -140,10 +140,10 @@ export default function MenuPage() {
           </div>
         </nav>
 
-        <div className="px-4 pb-[calc(var(--ag-mobile-action-bar-h)+2rem)] pt-5">
+        <div className="px-4 pb-[var(--ag-mobile-page-end-pad-lg)] pt-5">
           <div className="grid gap-7">
             {appMenuGroups.map((category) => (
-              <section key={category.id} id={category.id} className="scroll-mt-32">
+              <section key={category.id} id={category.id} className="scroll-mt-[var(--ag-mobile-menu-scroll-mt)]">
                 <div className="mb-4 flex items-start justify-between gap-4">
                   <div className="min-w-0">
                     <h2 className="text-[1.55rem] font-extrabold leading-none tracking-[-0.04em] text-[#141414]">

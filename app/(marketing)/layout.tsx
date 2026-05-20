@@ -9,7 +9,7 @@ export default function MarketingLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-brand-cream pb-[var(--ag-mobile-action-bar-h)] md:pb-0">
+    <div className="flex min-h-screen flex-col bg-brand-cream pb-[var(--ag-mobile-action-bar-h)] md:pb-0" data-mobile-shell>
       <Navbar />
       <div className="flex-1">{children}</div>
       <FooterEnhanced />

@@ -7,7 +7,7 @@ const ANIMATION_LOCK_MS = 500;
 const SNAP_SETTLE_DELAY_MS = 140;
 const SNAP_TOLERANCE_PX = 2;
 const SNAP_SETTLE_TOLERANCE_PX = 8;
-const SNAP_HEADER_OVERLAP_PX = 6;
+const SNAP_HEADER_OVERLAP_PX = 0;
 
 function isInteractiveTarget(target: EventTarget | null) {
   return target instanceof Element && Boolean(target.closest('header, a, button, input, textarea, select, label, [role="dialog"], #mobile-navigation'));
@@ -31,7 +31,7 @@ export function ContactSnapController() {
     let settleTimer: number | null = null;
 
     const headerOffset = () => {
-      const header = document.querySelector<HTMLElement>("header");
+      const header = document.querySelector<HTMLElement>("[data-mobile-header]");
       const measured = header?.getBoundingClientRect().bottom;
       return measured && Number.isFinite(measured) ? measured : 64;
     };

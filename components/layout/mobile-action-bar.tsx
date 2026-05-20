@@ -21,6 +21,7 @@ export function MobileActionBar() {
   return (
     <nav
       aria-label="Navegação móvel principal"
+      data-mobile-action-bar
       className="fixed inset-x-0 bottom-0 z-50 min-h-[var(--ag-mobile-action-bar-h)] border-t border-[#c6452c]/16 bg-white text-[#1c1c1c] shadow-[0_-14px_34px_rgba(28,28,28,0.12)] md:hidden"
     >
       <div className="mx-auto grid max-w-md grid-cols-3 px-1.5 pb-[calc(env(safe-area-inset-bottom)+0.15rem)] pt-1">

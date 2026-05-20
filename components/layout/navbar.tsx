@@ -65,7 +65,7 @@ export default function Navbar() {
   }, [open]);
 
   const mobileNavigation = open ? (
-    <div id="mobile-navigation" className="fixed inset-x-0 bottom-0 top-16 z-[120] lg:hidden">
+    <div id="mobile-navigation" className="fixed inset-x-0 bottom-0 top-[var(--ag-mobile-header-h)] z-[120] lg:hidden">
       <button
         type="button"
         aria-label="Fechar menu"
@@ -119,7 +119,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-[70] h-16 border-b border-brand-brown/10 bg-brand-white shadow-[0_7px_24px_rgba(54,35,23,0.055)] lg:relative lg:top-auto lg:h-[94px]">
+      <header data-mobile-header className="sticky top-0 z-[70] h-16 border-b border-brand-brown/10 bg-brand-white shadow-[0_7px_24px_rgba(54,35,23,0.055)] lg:relative lg:top-auto lg:h-[94px]">
       <a
         href="#conteudo"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[90] focus:rounded-md focus:bg-brand-black focus:px-4 focus:py-3 focus:text-white"

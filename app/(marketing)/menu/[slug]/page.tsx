@@ -60,7 +60,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <BreadcrumbSchema items={[{ name: "Menu takeaway", path: "/menu" }, { name: item.name, path: `/menu/${item.slug}` }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemSchema) }} />
       <AppScreen>
-        <article className="pb-40">
+        <article className="pb-[var(--ag-mobile-floating-order-pad)] md:pb-40">
           <div className="relative h-[204px] overflow-hidden bg-[#1c1c1c]">
             <Image
               src={item.image}

@@ -58,7 +58,7 @@ export function HomeSnapController() {
     let settleTimer: number | null = null;
 
     const headerOffset = () => {
-      const header = document.querySelector<HTMLElement>("header");
+      const header = document.querySelector<HTMLElement>("[data-mobile-header]");
       const measured = header?.getBoundingClientRect().bottom;
       if (measured && Number.isFinite(measured)) return measured;
       return readCssPixelVar("--ag-mobile-header-h", 64);
