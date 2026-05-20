@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "verify:links": "node verify-links.mjs"
+    "verify:links": "node verify-links.mjs",
+    "test:e2e": "playwright test",
+    "test:mobile-clicks": "playwright test e2e/mobile-clicks.spec.ts",
+    "verify": "npm run lint && npm run typecheck && npm run verify:links && npm run test:mobile-clicks"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
@@ -23,6 +26,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "@types/node": "^20.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

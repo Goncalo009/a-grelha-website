@@ -98,7 +98,7 @@ export default function Navbar() {
 
         <div className="mt-3 grid grid-cols-2 gap-2">
           <Link
-            href="/menu"
+            href="/encomendas"
             className="inline-flex min-h-12 touch-manipulation items-center justify-center gap-2 rounded-[16px] bg-brand-red px-4 text-[0.72rem] font-extrabold uppercase tracking-[0.07em] text-white shadow-[0_12px_26px_rgba(198,69,44,0.22)]"
             onClick={() => setOpen(false)}
           >

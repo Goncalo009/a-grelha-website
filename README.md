@@ -13,12 +13,14 @@ Website de apresentação e encomendas por telefone para **A Grelha**, churrasqu
 ## Comandos
 
 ```bash
-npm run dev          # desenvolvimento
-npm run lint         # ESLint
-npm run typecheck    # TypeScript sem emitir
-npm run verify:links # valida rotas internas usadas em href
-npm run build        # build de produção
-npm run start        # servidor de produção local
+npm run dev                 # desenvolvimento
+npm run lint                # ESLint
+npm run typecheck           # TypeScript sem emitir
+npm run verify:links        # valida rotas internas usadas em href
+npm run test:mobile-clicks  # Playwright: audit mobile de taps/clicks visíveis
+npm run verify              # lint + typecheck + links + mobile click audit
+npm run build               # build de produção
+npm run start               # servidor de produção local
 ```
 
 ## Estrutura principal

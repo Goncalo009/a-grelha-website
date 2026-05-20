@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState, type PointerEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type PointerEvent } from "react";
 import Image from "next/image";
 import { Check, Clock3, Flame, Heart, Minus, Play, Plus, ShoppingBag, Users, X, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -158,6 +158,9 @@ export function ProductDetailDrawer({ product, titleId, onClose, onAddToCart }: 
   const [added, setAdded] = useState(false);
   const [dragY, setDragY] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [isAutoClosing, setIsAutoClosing] = useState(false);
+  const autoCloseRevealTimer = useRef<ReturnType<typeof globalThis.setTimeout> | null>(null);
+  const autoCloseTimer = useRef<ReturnType<typeof globalThis.setTimeout> | null>(null);
   const dragStartY = useRef(0);
   const dragLastY = useRef(0);
   const dragStartAt = useRef(0);
@@ -180,7 +183,24 @@ export function ProductDetailDrawer({ product, titleId, onClose, onAddToCart }: 
   const chipIcons = [Users, Flame, Clock3];
   const lineDetail = selectedPortion ? [selectedPortion.label, selectedPortion.detail].filter(Boolean).join(" · ") : product.detail ?? "Dose";
 
+  const clearAutoCloseTimers = () => {
+    if (autoCloseRevealTimer.current) globalThis.clearTimeout(autoCloseRevealTimer.current);
+    if (autoCloseTimer.current) globalThis.clearTimeout(autoCloseTimer.current);
+    autoCloseRevealTimer.current = null;
+    autoCloseTimer.current = null;
+  };
+
+  const resetAddFeedback = () => {
+    clearAutoCloseTimers();
+    setAdded(false);
+    setIsAutoClosing(false);
+  };
+
+  useEffect(() => clearAutoCloseTimers, []);
+
   const addToCart = () => {
+    clearAutoCloseTimers();
+
     onAddToCart({
       id: `${product.name}-${lineDetail}`,
       name: product.name,
@@ -193,6 +213,9 @@ export function ProductDetailDrawer({ product, titleId, onClose, onAddToCart }: 
       imagePosition: product.imagePosition,
     });
     setAdded(true);
+    setIsAutoClosing(false);
+    autoCloseRevealTimer.current = globalThis.setTimeout(() => setIsAutoClosing(true), 260);
+    autoCloseTimer.current = globalThis.setTimeout(onClose, 560);
   };
 
   const beginDismissDrag = (event: PointerEvent<HTMLElement>) => {
@@ -374,10 +397,16 @@ export function ProductDetailDrawer({ product, titleId, onClose, onAddToCart }: 
 
   return (
     <div
-      className="flex min-h-0 flex-1 flex-col bg-[#fbfaf7] text-[#1c1c1c] will-change-transform"
+      className="flex min-h-0 flex-1 flex-col bg-[#fbfaf7] text-[#1c1c1c] will-change-[opacity,transform]"
       style={{
-        transform: dragY > 0 ? `translate3d(0, ${dragY}px, 0)` : undefined,
-        transition: isDragging ? "none" : "transform 220ms cubic-bezier(0.22, 1, 0.36, 1)",
+        opacity: isAutoClosing ? 0 : 1,
+        pointerEvents: isAutoClosing ? "none" : undefined,
+        transform: isAutoClosing ? "translate3d(0, 18px, 0) scale(0.985)" : dragY > 0 ? `translate3d(0, ${dragY}px, 0)` : undefined,
+        transition: isDragging
+          ? "none"
+          : isAutoClosing
+            ? "transform 260ms cubic-bezier(0.22, 1, 0.36, 1), opacity 220ms ease"
+            : "transform 220ms cubic-bezier(0.22, 1, 0.36, 1)",
       }}
     >
       <div className="flex min-h-0 flex-1 flex-col justify-between gap-3 overflow-hidden px-4 pb-3 pt-[calc(env(safe-area-inset-top)+0.35rem)] sm:px-5">
@@ -452,7 +481,7 @@ export function ProductDetailDrawer({ product, titleId, onClose, onAddToCart }: 
                 type="button"
                 onClick={() => {
                   setActiveMedia(index);
-                  setAdded(false);
+                  resetAddFeedback();
                 }}
                 aria-label={`Mostrar ${item.thumbnailAlt ?? item.alt}`}
                 className={cn(
@@ -526,7 +555,7 @@ export function ProductDetailDrawer({ product, titleId, onClose, onAddToCart }: 
                 type="button"
                 onClick={() => {
                   setSelectedOption(index);
-                  setAdded(false);
+                  resetAddFeedback();
                 }}
                 className={cn(
                   "min-h-[68px] rounded-[13px] px-1.5 py-2.5 text-center transition duration-200 active:scale-[0.985] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c6452c]",
@@ -555,7 +584,7 @@ export function ProductDetailDrawer({ product, titleId, onClose, onAddToCart }: 
               aria-label="Reduzir quantidade"
               onClick={() => {
                 setQuantity((value) => Math.max(1, value - 1));
-                setAdded(false);
+                resetAddFeedback();
               }}
               className="flex h-10 w-12 items-center justify-center transition hover:bg-[#e2dbd2] active:bg-[#d8d2ca] focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#c6452c]"
             >
@@ -567,7 +596,7 @@ export function ProductDetailDrawer({ product, titleId, onClose, onAddToCart }: 
               aria-label="Aumentar quantidade"
               onClick={() => {
                 setQuantity((value) => value + 1);
-                setAdded(false);
+                resetAddFeedback();
               }}
               className="flex h-10 w-12 items-center justify-center transition hover:bg-[#e2dbd2] active:bg-[#d8d2ca] focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#c6452c]"
             >

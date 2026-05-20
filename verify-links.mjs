@@ -59,8 +59,12 @@ for (const file of files) {
       continue;
     }
 
-    if (href.startsWith("/") && !publicRoutes.has(href)) {
-      errors.push(`${path.relative(root, file)} links to missing route ${href}`);
+    if (href.startsWith("/")) {
+      const routePath = href.split(/[?#]/, 1)[0] || "/";
+
+      if (!publicRoutes.has(routePath)) {
+        errors.push(`${path.relative(root, file)} links to missing route ${href}`);
+      }
     }
   }
 }
