@@ -20,7 +20,7 @@ No test suite is configured. There is no testing framework or test runner.
 ### Route Structure
 
 - `app/(marketing)/` — Route group for public-facing pages (home, menu, sobre, contactos, blog) sharing a navbar+footer layout
-- `app/encomendas/` — Takeaway order page
+- `app/(marketing)/encomendas/` — Redirects to `/menu`; takeaway CTAs should promote the menu/cart flow until real online ordering exists
 - `app/api/orders/route.ts` — REST endpoint (POST to submit, GET to list); orders stored **in-memory only** (no database yet; a PocketBase integration is planned)
 
 ### Component Organization

@@ -1,6 +1,6 @@
 import { expect, type Page, test } from "@playwright/test";
 
-const ROUTES_TO_AUDIT = ["/", "/menu", "/sobre", "/contactos", "/blog", "/encomendas"] as const;
+const ROUTES_TO_AUDIT = ["/", "/menu", "/sobre", "/contactos", "/blog"] as const;
 
 const ACTIONABLE_SELECTOR = [
   "a[href]",
@@ -137,14 +137,14 @@ async function expectHealthyInternalNavigation(page: Page, target: ClickTarget) 
 test.describe("mobile click workflow", () => {
   test.setTimeout(120_000);
 
-  test("hamburger Take-away navigates to the orders page", async ({ page }) => {
+  test("hamburger Take-away navigates to the menu page", async ({ page }) => {
     await gotoReady(page, "/");
     await openMobileMenu(page);
 
     await page.getByRole("link", { name: /take-away/i }).tap();
 
-    await expect(page).toHaveURL(/\/encomendas$/);
-    await expect(page.getByRole("heading", { name: /encomenda.*confirmada.*telefone/i })).toBeVisible();
+    await expect(page).toHaveURL(/\/menu$/);
+    await expect(page.getByRole("heading", { name: /menu takeaway da a grelha/i })).toBeAttached();
   });
 
   test("order drawer closes when swiped down from the handle", async ({ page }) => {

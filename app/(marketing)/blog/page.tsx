@@ -90,8 +90,8 @@ export default function BlogPage() {
 
       <section className="bg-brand-black px-4 py-16 text-center text-white md:px-6">
         <h2 className="font-headline text-5xl uppercase leading-none md:text-7xl">Quer jantar resolvido?</h2>
-        <Link href="/encomendas" className="mt-8 inline-block bg-brand-red px-7 py-5 font-headline text-3xl uppercase text-white shadow-[6px_6px_0_#000]">
-          Fazer encomenda
+        <Link href="/menu" className="mt-8 inline-block bg-brand-red px-7 py-5 font-headline text-3xl uppercase text-white shadow-[6px_6px_0_#000]">
+          Ver menu takeaway
         </Link>
       </section>
     </main>

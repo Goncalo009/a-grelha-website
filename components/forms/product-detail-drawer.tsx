@@ -196,6 +196,11 @@ export function ProductDetailDrawer({ product, titleId, onClose, onAddToCart }: 
     setIsAutoClosing(false);
   };
 
+  const closeProduct = () => {
+    clearAutoCloseTimers();
+    onClose();
+  };
+
   useEffect(() => clearAutoCloseTimers, []);
 
   const addToCart = () => {
@@ -260,7 +265,7 @@ export function ProductDetailDrawer({ product, titleId, onClose, onAddToCart }: 
     }
 
     if (deltaY > 92 || (deltaY > 48 && velocity > 0.55)) {
-      onClose();
+      closeProduct();
       return;
     }
 
@@ -463,7 +468,7 @@ export function ProductDetailDrawer({ product, titleId, onClose, onAddToCart }: 
           <button
             type="button"
             aria-label="Fechar produto"
-            onClick={onClose}
+            onClick={closeProduct}
             className="absolute right-2 top-2 flex h-9 w-9 items-center justify-center rounded-full bg-[#fbfaf7]/92 text-[#1c1c1c] shadow-[0_10px_24px_rgba(54,35,23,0.18)] backdrop-blur transition hover:bg-white active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c6452c]"
           >
             <X aria-hidden="true" size={18} />
@@ -607,21 +612,28 @@ export function ProductDetailDrawer({ product, titleId, onClose, onAddToCart }: 
       </div>
 
       <div className="shrink-0 border-t border-[#eadfd5] bg-[#fbfaf7]/96 px-4 pb-[calc(env(safe-area-inset-bottom)+0.55rem)] pt-2.5 shadow-[0_-16px_34px_rgba(54,35,23,0.10)] backdrop-blur sm:px-5">
-        <div className="grid grid-cols-[minmax(76px,0.72fr)_1.55fr] items-center gap-3">
-          <div>
-            <p className="text-[0.63rem] font-extrabold leading-none text-[#1c1c1c]/62">Total estimado</p>
-            <p className="mt-1.5 text-[1rem] font-black leading-none text-[#c6452c] tabular-nums">{totalPrice}</p>
+        <div className="grid grid-cols-[minmax(70px,0.68fr)_minmax(72px,0.62fr)_minmax(0,1.42fr)] items-center gap-2">
+          <div className="min-w-0">
+            <p className="text-[0.58rem] font-extrabold leading-none text-[#1c1c1c]/62">Total estimado</p>
+            <p className="mt-1.5 truncate text-[0.96rem] font-black leading-none text-[#c6452c] tabular-nums">{totalPrice}</p>
           </div>
+          <button
+            type="button"
+            onClick={closeProduct}
+            className="inline-flex min-h-[50px] items-center justify-center rounded-[14px] border border-[#e0d6cc] bg-white px-2 text-[0.64rem] font-extrabold uppercase tracking-[0.07em] text-[#1c1c1c]/72 shadow-[0_10px_22px_rgba(54,35,23,0.08)] transition hover:border-[#c6452c]/32 hover:text-[#c6452c] active:scale-[0.985] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c6452c] motion-reduce:transition-none"
+          >
+            Sair
+          </button>
           <button
             type="button"
             onClick={addToCart}
             className={cn(
-              "inline-flex min-h-[50px] items-center justify-center gap-2 rounded-[14px] px-3 text-[0.68rem] font-extrabold uppercase tracking-[0.07em] text-white shadow-[0_16px_32px_rgba(198,69,44,0.27)] transition duration-200 hover:bg-[#b83d25] active:scale-[0.985] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c6452c] motion-reduce:transition-none",
+              "inline-flex min-h-[50px] min-w-0 items-center justify-center gap-1.5 rounded-[14px] px-2 text-[0.62rem] font-extrabold uppercase tracking-[0.055em] text-white shadow-[0_16px_32px_rgba(198,69,44,0.27)] transition duration-200 hover:bg-[#b83d25] active:scale-[0.985] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c6452c] motion-reduce:transition-none",
               added ? "bg-[#1c1c1c]" : "bg-[#c6452c]"
             )}
           >
-            {added ? <Check aria-hidden="true" size={16} /> : <ShoppingBag aria-hidden="true" size={16} />}
-            {added ? "Adicionado" : "Adicionar ao carrinho"}
+            {added ? <Check aria-hidden="true" size={15} className="shrink-0" /> : <ShoppingBag aria-hidden="true" size={15} className="shrink-0" />}
+            <span className="truncate">{added ? "Adicionado" : "Adicionar ao carrinho"}</span>
           </button>
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 ## What changed
 
-- Reworked all public App Router pages for A Grelha: home, menu, about, contacts, blog notes, and encomendas.
+- Reworked all public App Router pages for A Grelha: home, menu, about, contacts, and blog notes; `/encomendas` now redirects to the menu flow.
 - Replaced generic placeholder copy, dead `#` links, remote images, and stale static HTML with local assets and working CTAs.
 - Added consistent navigation/footer with mobile menu behavior, skip link, active route state, phone, maps, social, and order links.
 - Improved local SEO: shared metadata config, `metadataBase`, canonical URLs, OpenGraph/Twitter images, route-specific metadata, `sitemap.xml`, `robots.txt`, and Restaurant/LocalBusiness JSON-LD.
@@ -24,6 +24,6 @@
 - Production domain is assumed to be `https://a-grelha.pt`.
 - Address/phone/socials were grounded from public search results: Rua do Rosmaninho, Lote 2, Loja Dta, 2135-085 Porto Alto; +351 924 114 604; Instagram `agrelha_takeaway`; Facebook page ID `100083930862067`.
 - Opening hours still need owner confirmation before launch; the site currently tells users to confirm by phone before pickup.
-- The encomendas page prepares the pickup request for phone confirmation only; production can add email, POS, CRM, or database integration later if the restaurant wants true online ordering.
+- The current takeaway flow is menu-first with local cart/WhatsApp/phone confirmation; production can add email, POS, CRM, or database integration later if the restaurant wants true online ordering.
 - Menu prices and item availability should be confirmed with the restaurant before publishing.
 - Local image assets are existing repo assets; final brand photography would improve trust and conversion.

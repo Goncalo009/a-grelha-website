@@ -19,7 +19,6 @@ const mailHref = `mailto:${siteConfig.email}`;
 
 const footerLinks = [
   { href: "/menu", label: "Cardápio" },
-  { href: "/encomendas", label: "Encomendas" },
   { href: "/sobre", label: "Sobre" },
   { href: "/contactos", label: "Contactos" },
 ];

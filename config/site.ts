@@ -44,7 +44,6 @@ export const siteConfig = {
 export const publicRoutes = [
   { path: "/", priority: 1, changeFrequency: "weekly" as const },
   { path: "/menu", priority: 0.9, changeFrequency: "weekly" as const },
-  { path: "/encomendas", priority: 0.85, changeFrequency: "weekly" as const },
   { path: "/contactos", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/sobre", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/blog", priority: 0.5, changeFrequency: "monthly" as const },

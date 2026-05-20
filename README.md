@@ -25,17 +25,17 @@ npm run start               # servidor de produção local
 
 ## Estrutura principal
 
-- `app/(marketing)/` — páginas públicas: home, menu, sobre, contactos, blog e encomendas
+- `app/(marketing)/` — páginas públicas: home, menu, sobre, contactos e blog; `/encomendas` redireciona para `/menu`
 - `components/layout/` — navegação e rodapé
 - `components/sections/` — secções reutilizadas na homepage
-- `components/forms/order-form.tsx` — preparação de pedido para confirmação por telefone
+- `components/forms/order-drawer.tsx` — rascunho/carrinho local no menu para confirmação por telefone ou WhatsApp
 - `components/seo/restaurant-schema.tsx` — JSON-LD Restaurant/LocalBusiness
 - `config/site.ts` — domínio, morada, telefone, redes sociais e keywords locais
 - `content/menu.json` — categorias e pratos apresentados no menu
 
 ## Notas de produção
 
-A página de encomendas prepara um resumo e encaminha para chamada telefónica. Isto é deliberado: enquanto não houver integração real com email, POS, CRM ou base de dados, o site não deve fingir que uma encomenda foi recebida pelo balcão.
+O fluxo atual de takeaway vive no `/menu`: o utilizador escolhe produtos, prepara um rascunho local e confirma por telefone ou WhatsApp. `/encomendas` fica como redirecionamento para `/menu` até existir integração real com email, POS, CRM ou base de dados; o site não deve fingir que uma encomenda foi recebida pelo balcão.
 
 Antes de publicar, confirmar com o cliente:
 

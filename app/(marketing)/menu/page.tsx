@@ -63,14 +63,14 @@ function MenuCard({ item }: { item: AppMenuItem }) {
   const priceNote = item.categoryId === "combos" ? "Preço dose" : item.unit === "kg" ? "Preço/kg" : "Preço un.";
 
   return (
-    <article className="group relative grid min-h-[96px] grid-cols-[34%_1fr] overflow-hidden rounded-[15px] border border-[#e7ded6] bg-white shadow-[0_8px_22px_rgba(54,35,23,0.06)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(54,35,23,0.10)] focus-within:ring-2 focus-within:ring-[#c6452c]/35">
+    <article className="relative grid min-h-[96px] grid-cols-[34%_1fr] overflow-hidden rounded-[15px] border border-[#e7ded6] bg-white shadow-[0_8px_22px_rgba(54,35,23,0.06)] focus-within:ring-2 focus-within:ring-[#c6452c]/35">
       <div className="relative min-h-[96px] overflow-hidden bg-[#ede8e1]">
         <Image
           src={item.image}
           alt={item.alt}
           fill
           sizes="(max-width: 430px) 34vw, 146px"
-          className={`object-cover transition duration-500 group-hover:scale-[1.04] ${item.imagePosition ?? "object-center"}`}
+          className={`object-cover ${item.imagePosition ?? "object-center"}`}
         />
       </div>
 
@@ -96,15 +96,14 @@ function MenuCard({ item }: { item: AppMenuItem }) {
         </div>
 
         <div className="flex items-end pb-0.5">
-          <span
-            aria-hidden="true"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-[12px] bg-[#c6452c] text-white shadow-[0_10px_20px_rgba(198,69,44,0.20)] transition group-hover:-translate-y-0.5 group-hover:bg-[#b83d25]"
-          >
-            <ShoppingBag size={18} strokeWidth={2.2} />
-          </span>
+          <OrderDrawer
+            variant="quick-add"
+            product={item}
+            quickIcon="cart"
+            className="shrink-0"
+          />
         </div>
       </div>
-      <OrderDrawer variant="card-overlay" product={item} label={`Abrir ${item.name}`} />
     </article>
   );
 }

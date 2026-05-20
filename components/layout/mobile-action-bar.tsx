@@ -16,7 +16,6 @@ function navClass(active: boolean) {
 export function MobileActionBar() {
   const pathname = usePathname();
   const menuActive = pathname === "/menu" || pathname.startsWith("/menu/");
-  const orderActive = pathname === "/encomendas";
   const accountActive = pathname === "/contactos";
 
   return (
@@ -30,7 +29,7 @@ export function MobileActionBar() {
           <span>Menu</span>
         </Link>
 
-        <OrderDrawer variant="nav" active={orderActive} label="Pedidos" />
+        <OrderDrawer variant="nav" label="Pedidos" />
 
         <Link href="/contactos" className={navClass(accountActive)} aria-current={accountActive ? "page" : undefined}>
           <UserRound aria-hidden="true" size={20} strokeWidth={1.75} />
