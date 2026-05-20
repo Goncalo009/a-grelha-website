@@ -361,27 +361,61 @@
       padding-top: clamp(0.65rem, 1.65svh, 1.05rem);
     }
 
-    .ag-featured-menu-section > div {
-      gap: clamp(0.4rem, 1.1svh, 0.7rem);
-      justify-content: flex-start;
-      padding-bottom: clamp(0.35rem, 1svh, 0.65rem);
+    .ag-featured-menu-inner {
+      display: grid !important;
+      height: 100%;
+      min-height: 0;
+      grid-template-rows: auto minmax(0, 1fr) auto auto;
+      gap: clamp(0.55rem, 1.45svh, 0.95rem);
+      padding-top: clamp(0.55rem, 1.6svh, 1rem);
+      padding-bottom: clamp(0.85rem, 2svh, 1.3rem);
     }
 
-    .ag-featured-menu-section header {
+    .ag-featured-menu-header {
       max-width: 19rem;
     }
 
+    .ag-favorite-list {
+      min-height: 0;
+      grid-template-rows: repeat(3, minmax(0, 1fr));
+      gap: clamp(0.5rem, 1.25svh, 0.8rem);
+    }
+
     .ag-favorite-card {
-      min-height: clamp(5.8rem, 15.7svh, 7.35rem) !important;
+      height: 100%;
+      min-height: 0 !important;
+      grid-template-columns: minmax(8.6rem, 39%) minmax(0, 1fr);
+      border-radius: clamp(0.9rem, 2.2svh, 1.2rem);
     }
 
     .ag-favorite-media {
-      min-height: clamp(5.8rem, 15.7svh, 7.35rem) !important;
+      height: 100%;
+      min-height: 0 !important;
+    }
+
+    .ag-favorite-card [data-favorite-description],
+    .ag-menu-benefit-copy {
+      display: none;
+    }
+
+    .ag-featured-menu-cta {
+      min-height: clamp(2.75rem, 6.4svh, 4rem) !important;
+      margin-top: 0;
+      border-radius: clamp(0.7rem, 1.8svh, 1rem);
+      font-size: clamp(0.66rem, 2.35vw, 0.78rem);
     }
 
     .ag-menu-benefits {
-      margin-top: 0.1rem;
-      padding-bottom: 0.15rem;
+      min-height: clamp(3.9rem, 10.5svh, 5.35rem);
+      align-items: center;
+      margin-top: 0;
+      padding-bottom: 0;
+    }
+
+    .ag-menu-benefits svg {
+      width: clamp(1.1rem, 4.35vw, 1.55rem);
+      height: clamp(1.1rem, 4.35vw, 1.55rem);
+      margin-bottom: clamp(0.18rem, 0.7svh, 0.42rem);
     }
 
     .ag-review-secondary-action {
@@ -389,7 +423,7 @@
     }
 
     .ag-menu-benefit-title {
-      font-size: clamp(0.5rem, 1.65vw, 0.56rem);
+      font-size: clamp(0.54rem, 2.18vw, 0.66rem);
       line-height: 1.08;
     }
 
@@ -633,13 +667,26 @@
       display: none;
     }
 
+    .ag-featured-menu-inner {
+      gap: clamp(0.42rem, 1.15svh, 0.68rem);
+      padding-top: clamp(0.4rem, 1.25svh, 0.7rem);
+      padding-bottom: clamp(0.55rem, 1.55svh, 0.9rem);
+    }
+
     .ag-featured-menu-section header h2 {
       font-size: 1.62rem;
     }
 
-    .ag-favorite-card,
-    .ag-favorite-media {
-      min-height: clamp(5.45rem, 14.2svh, 6.1rem) !important;
+    .ag-favorite-list {
+      gap: clamp(0.38rem, 1svh, 0.55rem);
+    }
+
+    .ag-featured-menu-cta {
+      min-height: clamp(2.45rem, 6svh, 2.9rem) !important;
+    }
+
+    .ag-menu-benefits {
+      min-height: clamp(3.2rem, 9.4svh, 4.2rem);
     }
 
     .ag-menu-benefits svg {

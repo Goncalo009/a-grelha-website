@@ -82,8 +82,8 @@ export function FeaturedMenu() {
       id="menu"
       className="ag-featured-menu-section !justify-start overflow-hidden bg-brand-cream px-0 pb-0 pt-2 md:justify-center md:overflow-visible md:pb-0 md:pt-10"
     >
-      <div className="mx-auto flex h-full w-full max-w-[430px] flex-col justify-between px-4 md:h-auto md:max-w-[1260px] md:justify-start md:px-6">
-        <header className="mx-auto max-w-[310px] text-center md:mb-8 md:max-w-none">
+      <div className="ag-featured-menu-inner mx-auto flex w-full max-w-[430px] flex-col px-4 md:h-auto md:max-w-[1260px] md:justify-start md:px-6">
+        <header className="ag-featured-menu-header mx-auto max-w-[310px] text-center md:mb-8 md:max-w-none">
           <h2 className="font-headline text-[clamp(1.55rem,7.6vw,1.9rem)] font-bold leading-none tracking-[-0.045em] text-brand-black md:text-[2.75rem]">
             Os Favoritos
           </h2>
@@ -93,7 +93,7 @@ export function FeaturedMenu() {
           </p>
         </header>
 
-        <div className="grid gap-1.5 md:grid-cols-3 md:gap-5">
+        <div className="ag-favorite-list grid gap-1.5 md:grid-cols-3 md:gap-5">
           {favorites.map((item, index) => {
             const dish = dishFor(item.dishName);
             const price = formatFavoritePrice(dish);
@@ -118,8 +118,9 @@ export function FeaturedMenu() {
                     <h3 className="min-w-0 truncate font-headline text-[clamp(0.86rem,4.45vw,1rem)] font-bold leading-[1.02] tracking-[-0.035em] text-brand-black md:text-[1.35rem]">
                       {item.name}
                     </h3>
-                    <span className="mt-0.5 shrink-0 rounded-full bg-[#fff3ec] px-1.5 py-0.5 text-[0.43rem] font-extrabold uppercase leading-none tracking-[0.03em] text-brand-red">
-                      🔥 Top {index + 1}
+                    <span className="mt-0.5 inline-flex shrink-0 items-center gap-0.5 rounded-full bg-[#fff3ec] px-1.5 py-0.5 text-[0.43rem] font-extrabold uppercase leading-none tracking-[0.03em] text-brand-red">
+                      <Flame aria-hidden="true" size={10} strokeWidth={2} className="shrink-0 fill-brand-red/15" />
+                      Top {index + 1}
                     </span>
                   </div>
 
@@ -147,7 +148,7 @@ export function FeaturedMenu() {
 
         <Link
           href="/menu"
-          className="mt-1.5 flex min-h-9 w-full items-center justify-center gap-3 rounded-[8px] bg-brand-red px-5 text-[0.64rem] font-extrabold uppercase tracking-[0.08em] text-white shadow-[0_10px_22px_rgba(198,69,44,0.2)] transition hover:bg-[#b73c20] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-red md:mx-auto md:mt-7 md:min-h-10 md:max-w-[360px] md:text-[0.68rem]"
+          className="ag-featured-menu-cta mt-1.5 flex min-h-9 w-full items-center justify-center gap-3 rounded-[8px] bg-brand-red px-5 text-[0.64rem] font-extrabold uppercase tracking-[0.08em] text-white shadow-[0_10px_22px_rgba(198,69,44,0.2)] transition hover:bg-[#b73c20] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-red md:mx-auto md:mt-7 md:min-h-10 md:max-w-[360px] md:text-[0.68rem]"
         >
           Ver cardápio completo
           <ArrowRight aria-hidden="true" size={16} />
