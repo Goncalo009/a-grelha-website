@@ -7,7 +7,7 @@ const ANIMATION_LOCK_MS = 520;
 const SNAP_SETTLE_DELAY_MS = 150;
 const SNAP_TOLERANCE_PX = 2;
 const SNAP_SETTLE_TOLERANCE_PX = 8;
-const SNAP_HEADER_OVERLAP_PX = 6;
+const SNAP_HEADER_OVERLAP_PX = 0;
 
 function readCssPixelVar(name: string, fallback: number) {
   const value = window.getComputedStyle(document.documentElement).getPropertyValue(name).trim();
